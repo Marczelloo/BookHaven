@@ -11,9 +11,8 @@ header {
    padding: 5rem 0;
 }
 
-header h1 {
+header .logo {
    text-transform: uppercase;
-   font-size: 3rem;
    line-height: 1.4;
 }
 
@@ -64,9 +63,7 @@ header ul {
 
 .hero-section > :nth-child(2) h1 {
    text-align: center;
-   font-size: 6rem;
    padding: 3rem 0;
-   font-weight: 600;
 }
 
 .hero-search {
@@ -81,6 +78,10 @@ header ul {
    width: 100%;
 }
 
+.dropdown-section:last-of-type {
+   padding-bottom: 5rem;
+}
+
 .dropdown-section > button {
    width: 100%;
 
@@ -93,15 +94,18 @@ header ul {
    justify-content: space-between;
    align-items: center;
 
-   font-size: 2rem;
-   font-weight: 700;
-
    cursor: pointer;
 }
 
 .dropdown-section > button img {
    width: 3rem;
    height: 3rem;
+}
+
+.dropdown-content-first, .dropdown-content-second, .dropdown-content-third {
+   max-height: 0;
+   overflow: hidden; 
+   transition: max-height 0.75s ease-in-out;
 }
 
 .dropdown-content-first {
@@ -123,13 +127,7 @@ header ul {
    gap: 1rem;
 }
 
-.dropdown-content-first > div h3 {
-   font-size: 2rem;
-   font-weight: 700;
-}
-
 .dropdown-content-first > div p {
-   font-size: 1.5rem;
    line-height: 1.8;
 }
 
@@ -142,8 +140,8 @@ header ul {
 .dropdown-content-second {
    width: 100%;
 
-   display: flex;
-   flex-direction: column;
+   display: grid;
+   grid-template-columns: 1fr;
 }
 
 .dropdown-content-second > div {
@@ -160,18 +158,8 @@ header ul {
    gap: 2rem;
 }
 
-.dropdown-content-second > div h3 {
-   font-size: 3rem;
-   font-weight: 700;
-}
-
 .dropdown-content-second > div  p {
-   font-size: 1.5rem;
    line-height: 1.6;
-}
-
-.dropdown-content-second > div button {
-   font-size: 1.5rem;
 }
 
 .dropdown-content-second > div:nth-child(2) {
@@ -189,7 +177,6 @@ header ul {
    display: grid;
    grid-template-columns: 1fr 1fr;
    align-items: center;
-   padding: 3rem 0;
    border-bottom: 2px solid var(--primary-color);
 }
 
@@ -198,24 +185,35 @@ header ul {
    flex-direction: column;
    align-items: flex-start;
    gap: 2rem;
-}
-
-.dropdown-content-third h3 {
-   font-size: 3rem;
-   font-weight: 700;
+   padding: 3rem 0;
 }
 
 .dropdown-content-third p {
-   font-size: 1.5rem;
    line-height: 1.6;
-}
-
-.dropdown-content-third button {
-   font-size: 1.5rem;
 }
 
 .dropdown-content-third img {
    width: 50%;
    height: auto;
    margin: 0 auto;
+}
+
+.dropdown-content-first.show {
+   max-height: 780px;
+}
+
+.dropdown-content-second.show {
+   max-height: 1750px;
+}
+
+.dropdown-content-third.show {
+   max-height: 460px;
+}
+
+.dropdown-section button .icon {
+   transition: transform 0.3s ease-out;
+}
+
+.dropdown-section button.active .icon {
+   transform: rotate(-180deg);
 }

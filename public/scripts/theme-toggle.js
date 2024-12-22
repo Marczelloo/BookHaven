@@ -1,17 +1,18 @@
 const toggleButton = document.getElementById('theme-toggle');
-const body = document.body;
+const html = document.documentElement;
+
+function applyTheme(theme) {
+  html.classList.remove('light-mode', 'dark-mode');
+  html.classList.add(theme);
+}
 
 toggleButton.addEventListener('click', () => {
-   if(body.classList.contains('dark-mode'))
-   {
-      body.classList.remove('dark-mode');
-      body.classList.add('light-mode');
-   }
-   else
-   {
-      body.classList.remove('light-mode');
-      body.classList.add('dark-mode');
-   }
+  let newTheme;
+  if (html.classList.contains('dark-mode')) {
+    newTheme = 'light-mode';
+  } else {
+    newTheme = 'dark-mode';
+  }
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme);
 });
-
-body.classList.add('dark-mode');

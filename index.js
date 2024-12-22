@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const { route } = require('./routers/landingPage.js');
 require('dotenv').config();
 
 const PORT = 8080;
@@ -27,7 +28,11 @@ app.use(session({
 }))
 
 const pageRoutes = [
-   { path: '/', route: require('./routers/landingPage.js')}
+   { path: '/', route: require('./routers/landingPage.js')},
+   { path: '/explore', route : require('./routers/explore.js')},
+   { path: '/login', route: require('./routers/login.js')},
+   { path: '/register', route: require('./routers/register.js')},
+   { path: '/logout', route: require('./routers/logout.js')},
 ]
 
 pageRoutes.forEach(route => {

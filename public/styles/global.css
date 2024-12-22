@@ -2,18 +2,22 @@
    --font-family: 'Poppins', sans-serif;
 }
 
-.dark-mode {
+html.dark-mode {
    --background-color: #161616;
    --primary-color: #2E2E2E;
    --secondary-color: #000000;
    --text-color: #FFFFFF;
 }
 
-.light-mode {
+html.light-mode {
    --background-color: #FFFFFF;
    --primary-color: #F0F0F0;
    --secondary-color: #E0E0E0;
    --text-color: #000000;
+}
+
+html.no-transition * {
+   transition: none !important;
 }
 
 * {
@@ -26,6 +30,8 @@ body {
    font-family: var(--font-family);
    background-color: var(--background-color);
    color: var(--text-color);
+
+   transition: background-color 0.3s, color 0.3s;
 }
 
 header, footer, main {
@@ -33,7 +39,7 @@ header, footer, main {
    padding-left: 10rem !important;
 }
 
-body.dark-mode .icon{
+html.dark-mode .icon{
    filter: invert(1);
 }
 
@@ -93,6 +99,10 @@ body.dark-mode .icon{
 
 a, button {
    all: unset;
+   cursor: pointer;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
 a {
@@ -101,6 +111,8 @@ a {
 }
 
 .button-primary {
+   height: auto;
+   width: auto;
    background-color: var(--primary-color);
    color: var(--text-color);
    padding: 1rem 2rem;
@@ -109,8 +121,15 @@ a {
    cursor: pointer;
    font-size: 1rem;
    font-weight: 600;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
    transition: background-color .3s ease;
+}
+
+.button-primary:has(img), .button-primary:has(svg) {
+   padding: 1rem;
 }
 
 .button-primary:hover {
@@ -165,4 +184,129 @@ footer > div {
    display: flex;
    align-items: center;
    gap: 1rem;
+}
+
+#moon {
+   opacity: 1;
+   transition: opacity .3s ease;
+}
+
+#sun {
+   opacity: 0;
+   transition: opacity .3s ease;
+}
+
+.dark-mode #moon {
+   opacity: 0;
+}
+
+.dark-mode #sun {
+   opacity: 1;
+}
+
+.h-big {
+   font-size: 6rem;
+   font-weight: 600;
+}
+
+.h-medium {
+   font-size: 3rem;
+   font-weight: 700;
+}
+
+.h-small {
+   font-size: 1.5rem;
+   font-weight: 700;
+}
+
+.p-big {
+   font-size: 2rem;
+   font-weight: 600;
+}
+
+.p-medium {
+   font-size: 1.5rem;
+}
+
+.p-normal {
+   font-size: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+   .h-big {
+      font-size: 5rem;
+   }
+
+   .h-medium {
+      font-size: 2.5rem;
+   }
+
+   .h-small {
+      font-size: 1.25rem;
+   }
+
+   .p-big {
+      font-size: 1.75rem;
+   }
+
+   .p-medium {
+      font-size: 1.25rem;
+   }
+
+   .p-normal {
+      font-size: 0.875rem;
+   }
+}
+
+@media (max-width: 768px) {
+   .h-big {
+      font-size: 4rem;
+   }
+
+   .h-medium {
+      font-size: 2rem;
+   }
+
+   .h-small {
+      font-size: 1rem;
+   }
+
+   .p-big {
+      font-size: 1.5rem;
+   }
+
+   .p-medium {
+      font-size: 1rem;
+   }
+
+   .p-normal {
+      font-size: 0.75rem;
+   }
+}
+
+@media (max-width: 480px) {
+   .h-big {
+      font-size: 3rem;
+   }
+
+   .h-medium {
+      font-size: 1.5rem;
+   }
+
+   .h-small {
+      font-size: 0.875rem;
+   }
+
+   .p-big {
+      font-size: 1.25rem;
+   }
+
+   .p-medium {
+      font-size: 0.875rem;
+   }
+
+   .p-normal {
+      font-size: 0.75rem;
+   }
 }
