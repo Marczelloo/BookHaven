@@ -1,0 +1,168 @@
+:root {
+   --font-family: 'Poppins', sans-serif;
+}
+
+.dark-mode {
+   --background-color: #161616;
+   --primary-color: #2E2E2E;
+   --secondary-color: #000000;
+   --text-color: #FFFFFF;
+}
+
+.light-mode {
+   --background-color: #FFFFFF;
+   --primary-color: #F0F0F0;
+   --secondary-color: #E0E0E0;
+   --text-color: #000000;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: var(--font-family);
+   background-color: var(--background-color);
+   color: var(--text-color);
+}
+
+header, footer, main {
+   padding-right: 10rem !important;
+   padding-left: 10rem !important;
+}
+
+body.dark-mode .icon{
+   filter: invert(1);
+}
+
+.poppins-thin {
+   font-family: "Poppins", serif;
+   font-weight: 100;
+   font-style: normal;
+ }
+ 
+.poppins-extralight {
+   font-family: "Poppins", serif;
+   font-weight: 200;
+   font-style: normal;
+}
+
+.poppins-light {
+   font-family: "Poppins", serif;
+   font-weight: 300;
+   font-style: normal;
+}
+
+.poppins-regular {
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.poppins-medium {
+   font-family: "Poppins", serif;
+   font-weight: 500;
+   font-style: normal;
+}
+
+.poppins-semibold {
+   font-family: "Poppins", serif;
+   font-weight: 600;
+   font-style: normal;
+}
+
+.poppins-bold {
+   font-family: "Poppins", serif;
+   font-weight: 700;
+   font-style: normal;
+}
+
+.poppins-extrabold {
+   font-family: "Poppins", serif;
+   font-weight: 800;
+   font-style: normal;
+}
+
+.poppins-black {
+   font-family: "Poppins", serif;
+   font-weight: 900;
+   font-style: normal;
+}
+
+a, button {
+   all: unset;
+}
+
+a {
+   text-decoration: none;
+   color: var(--text-color);
+}
+
+.button-primary {
+   background-color: var(--primary-color);
+   color: var(--text-color);
+   padding: 1rem 2rem;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-size: 1rem;
+   font-weight: 600;
+
+   transition: background-color .3s ease;
+}
+
+.button-primary:hover {
+   background-color: var(--secondary-color);
+}
+
+.search-input {
+   background-color: var(--primary-color);
+   color: var(--text-color);
+   width: 100%;
+   padding: 1rem;
+   border: none;
+   border-radius: 0.5rem;
+   font-size: 1rem;
+   font-weight: 600;
+
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+
+   transition: .3s ease;
+}
+
+.search-input > input {
+   all: unset;
+   width: 100%;
+}
+
+.search-input > img {
+   width: 1.25rem;
+   height: 1.25rem;
+}
+
+.search-input:hover {
+   background-color: var(--secondary-color);
+}
+
+.search-input:focus-within {
+   background-color: var(--secondary-color);
+}
+
+footer {
+   background-color: var(--primary-color);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   padding: 2rem;
+}
+
+footer > div {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}

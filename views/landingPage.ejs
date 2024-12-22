@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BookHaven</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/global.css">
+   <link rel="stylesheet" href="styles/landingPage.css">
+</head>
+<body>
+   <header>
+      <h1>
+         Explore </br> books
+      </h1>
+      <nav>
+         <ul>
+            <li>
+               <button id="theme-toggle" class="button-primary">
+                  Theme Toggle
+               </button>
+            </li>
+            <li><a href="/login" class="button-primary"> Sign In </a></li>
+            <li><a href="/register" class="button-primary"> Sign Up </a></li>
+         </ul>
+      </nav>
+   </header>
+
+   <main>
+      <section class="hero-section">
+         <div>
+            <img src="assets/images/placeholder.png" alt="Hero Image">
+         </div>
+         <div>
+            <h1>
+               Discover your next favourite read
+            </h1>
+            
+            <div class="hero-search">
+               <div class="search-input">
+                  <input type="text" placeholder="Search for books" class="input-search">
+                  <img src="assets/svg/search.svg" alt="Search Icon" class="icon">
+               </div>
+               <button class="button-primary">Search</button>
+            </div>
+         </div>
+         <div>
+            <img src="assets/images/placeholder.png" alt="Hero Image">
+         </div>
+      </section>
+
+      <section class="dropdown-section">
+         <button>
+            <p> How BookHaven works </p>
+            <img src="assets/svg/arrow-down.svg" alt="Arrow Down" class="icon">
+         </button>
+         <div class="dropdown-content-first">
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <h3> Step 1 </h3>
+               <p> Enter book title or author. Find your next literary adventure with ease.</p>
+            </div>
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <h3> Step 2 </h3>
+               <p> Select a book and add it to your cart. You're one step closer to diving into a new story. </p>
+            </div>
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <h3> Step 3 </h3>
+               <p> Complete your purchase. Sit back and wait for your books to arive.</p>
+            </div>
+         </div>
+      </section>
+
+      <section class="dropdown-section">
+         <button>
+            <p> Join BookHaven </p>
+            <img src="assets/svg/arrow-down.svg" alt="Arrow Down" class="icon">
+         </button>
+         <div class="dropdown-content-second">
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <div>
+                  <h3> As a delivery </h3>
+                  <p> Earn money by delivering books to readers. All you need is a love for books and mode of transport. </p>
+                  <button class="button-primary"> Delivery with us </button>
+               </div>
+            </div>
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <div>
+                  <h3> As a partner </h3>
+                  <p> BookHaven supports authors and publishers with online sales, promotions and more. </p>
+                  <button class="button-primary"> Partner with us </button>
+               </div>
+            </div>
+            <div>
+               <img src="assets/images/placeholder.png" alt="Placeholder Image">
+               <div>
+                  <h3> As a team </h3>
+                  <p> Join a team dedicated to providing top-notch book delivery services. </p>
+                  <button class="button-primary"> Work with us </button>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="dropdown-section">
+         <button>
+            <p> Get our app now </p>
+            <img src="assets/svg/arrow-down.svg" alt="Arrow Down" class="icon">
+         </button>
+         <div class="dropdown-content-third">
+            <div>
+               <h3> Order now! </h3>
+               <p> Explore a world of books delivered to your doorstep with BookHaven. Our swift delivery services offer books across genres from top authors.</p>
+               <button class="button-primary"> Download </button>
+            </div>
+            <img src="assets/images/placeholder.png" alt="Placeholder Image">
+         </div>
+      </section>
+   </main>
+   
+   <%- include('partials/footer') %>
+
+   <script src="/scripts/theme-toggle.js"></script>
+</body>
+</html>
