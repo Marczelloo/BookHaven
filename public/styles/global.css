@@ -186,6 +186,108 @@ footer > div {
    gap: 1rem;
 }
 
+.header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   padding: 2rem;
+   background-color: var(--primary-color);
+}
+
+.header > div {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+.header > div a {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   font-weight: 500;
+}
+
+.header > div:nth-child(2) {
+   width: 40%;
+}
+
+.header > div  img {
+   display: flex;
+   width: 2rem;
+   height: 2rem;
+}
+
+.profile-button {
+   all: unset;
+   cursor: pointer;
+
+   width: 3rem;
+   height: 3rem;
+
+   border-radius: 50%;
+}
+
+.header > #theme-toggle {
+   border-radius: 50%;
+}
+
+.header > div > nav button img {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+}
+
+.header > div > nav > ul {
+   display: flex;
+   align-items: center;
+   gap: 2rem;
+   list-style: none;
+}
+
+.header .search-input {
+   padding: .5rem 1rem;
+   border-radius: 1rem;
+   background-color: var(--background-color);
+}
+
+.header .search-input > img {
+   width: 1.25rem;
+   height: 1.25rem;
+}
+
+.header .search-input:hover {
+   background-color: var(--secondary-color);
+}
+
+.header .search-input:focus-within {
+   background-color: var(--secondary-color);
+}
+
+.header a, .profile-button {
+   transition: opacity .3s ease;
+}
+
+.header a:hover, .header a:active, .profile-button:hover, .profile-button:active {
+   opacity: 0.6;
+}
+
+.header #theme-toggle {
+   border-radius: 50%;
+   transition: opacity .3s ease;
+   padding: 0;
+}
+
+.header #theme-toggle svg {
+   width: 2rem;
+   height: 2rem;
+}
+
+.header #theme-toggle:hover {
+   background-color: var(--primary-color);
+   opacity: 0.6;
+}
+
 #moon {
    opacity: 1;
    transition: opacity .3s ease;
@@ -202,6 +304,96 @@ footer > div {
 
 .dark-mode #sun {
    opacity: 1;
+}
+
+.book-card-explore {
+   position: relative;
+
+   width: 100%;
+   height: 500px;
+
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1rem;
+
+   background-color: var(--primary-color);
+   border-radius: 1rem;
+   padding: 1rem;
+}
+
+.book-card-explore > .wishlist-button {
+   position: absolute;
+   top: 1rem;
+   left: 1rem;
+   z-index: 1;
+
+   height: 3rem;
+   width: 3rem;
+   padding: .5rem;
+
+   opacity: .75;
+
+   transition: opacity .3s ease;
+}
+
+.book-card-explore > .wishlist-button img {
+   filter: invert(1);
+}
+
+.book-card-explore > .wishlist-button:hover {
+   opacity: 1;
+}
+
+.book-card-explore img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   object-position: center;
+   border-radius: 1rem;
+}
+
+
+.book-card-explore .book-info {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 1rem;
+}
+
+.book-card-explore .book-info > div {
+   height: 100%;
+   display: grid;
+   grid-template-rows: 4rem auto auto 1fr;
+   gap: .5rem;
+}
+
+.book-card-explore .book-info .author {
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.book-card-explore .book-info .price {
+   font-size: 1.25rem;
+   align-self: flex-end;
+   text-align: right;
+}
+
+.book-card-explore .book-info .price span {
+   font-weight: 600;
+}
+
+.book-card-explore .book-info .title {
+   font-size: 1.5rem;
+   font-weight: 600;
+}
+
+.book-card-explore .book-info button {
+   background-color: var(--secondary-color);
+}
+
+.book-card-explore .book-info button:hover {
+   background-color: var(--background-color);
 }
 
 .h-big {

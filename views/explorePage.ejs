@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BookHaven</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/global.css">
+   <link rel="stylesheet" href="styles/explorePage.css">
+   <script>
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.documentElement.classList.add(savedTheme);
+      document.documentElement.classList.add('no-transition')
+ </script>
+</head>
+<body>
+   <%- include('partials/header') %>
+   
+   <main>
+      <section>
+         <h2> Featured Books</h2>
+         <div class="carousel">
+            <button class="carousel-button prev" id="featured-books-prev">‹</button>
+            <div class="carousel-track-container">
+               <ul class="carousel-track" id="featured-books">
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test test test test test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+               </ul>
+            </div>
+            <button class="carousel-button next" id="featured-books-next">›</button>
+         </div>
+      </section>
+
+      <section>
+         <h2> Popular Books </h2>
+         <div class="carousel">
+            <button class="carousel-button prev" id="popular-books-prev">‹</button>
+            <div class="carousel-track-container">
+               <ul class="carousel-track" id="popular-books">
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test test test test test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+               </ul>
+            </div>
+            <button class="carousel-button next" id="popular-books-next">›</button>
+         </div>
+      </section>
+
+      <section>
+         <h2> New Releases </h2>
+         <div class="carousel">
+            <button class="carousel-button prev" id="new-books-prev">‹</button>
+            <div class="carousel-track-container">
+               <ul class="carousel-track" id="new-books">
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test test test test test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+               </ul>
+            </div>
+            <button class="carousel-button next" id="new-books-next">›</button>
+         </div>
+      </section>
+
+      <section>
+         <h2> Top Rated Books </h2>
+         <div class="carousel">
+            <button class="carousel-button prev" id="top-books-prev">‹</button>
+            <div class="carousel-track-container">
+               <ul class="carousel-track" id="top-books">
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test test test test test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+               </ul>
+            </div>
+            <button class="carousel-button next" id="top-books-next">›</button>
+         </div>
+      </section>
+
+      <section>
+         <h2> Promotions </h2>
+         <div class="carousel">
+            <button class="carousel-button prev" id="promotions-books-prev">‹</button>
+            <div class="carousel-track-container">
+               <ul class="carousel-track" id="promotions-books">
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test test test test test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+                  <li class="carousel-slide">
+                     <%- include('partials/bookCard-explore', { book: { 
+                        title: 'test',
+                        author: 'test',
+                        genre: 'test',
+                        pages: 100,
+                        rating: 5,
+                        price: 10,
+                        cover: 'assets/images/placeholder.png'
+                        } }) 
+                     %>
+                  </li>
+               </ul>
+            </div>
+            <button class="carousel-button next" id="promotions-books-next">›</button>
+         </div>
+      </section>
+
+   </main>
+   
+   <%- include('partials/footer') %>
+   <script src="/scripts/theme-toggle.js"></script>
+   <script src="/scripts/explorePage.js"></script>
+   <script>
+      document.documentElement.classList.remove('no-transition');
+   </script>
+</body>
+</html>
