@@ -30,6 +30,7 @@ app.use(session({
 const pageRoutes = [
    { path: '/', route: require('./routers/landingPage.js')},
    { path: '/explore', route : require('./routers/explorePage.js')},
+   { path: '/book', route: require('./routers/bookPage.js')},
    // { path: '/login', route: require('./routers/login.js')},
    // { path: '/register', route: require('./routers/register.js')},
    // { path: '/logout', route: require('./routers/logout.js')},

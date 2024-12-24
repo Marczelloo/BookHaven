@@ -1,0 +1,26 @@
+<div class="user-review">
+   <img src="<%= review.user.avatar %>" alt="User Avatar"/>
+   <div>
+      <p class="username"> <%= review.user.username %> </p>
+      <div>
+         <div class="stars">
+            <div class="stars-inner" style="width: <%= review.rating %>%;">
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+            </div>
+            <div class="stars-outer">
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+               <img src="assets/svg/star.svg" alt="Star Icon"/>
+            </div>
+         </div>
+         <p> <%= review.timeAgo %> </p>
+      </div>
+      <p class="review-text"> <%= review.text %> </p>
+   </div>
+</div>
