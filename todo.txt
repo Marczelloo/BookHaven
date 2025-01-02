@@ -1,0 +1,6 @@
+- add backend to all pages
+- add forms to all kinds of inputs
+- add to header avatar placeholder when user dont have avatar set (first letter of username)
+- add to all cards promotion price
+- add to user avatar menu after clicking it containing settings, orders, logout button
+- add to header showing sign in sign up buttons when user is not logged in

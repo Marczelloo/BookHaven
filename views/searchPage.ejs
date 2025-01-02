@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> BookHaven - <%= title %>  </title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/global.css">
+   <link rel="stylesheet" href="styles/searchPage.css">
+   <script>
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.documentElement.classList.add(savedTheme);
+      document.documentElement.classList.add('no-transition')
+ </script>
+</head>
+<body>
+   <%- include('partials/header') %>
+   
+   <main>
+      <section class="sort-bar">
+         <div>
+            Sort by: Title 
+            <div>
+               <button> Title </button>
+               <button> Author </button>
+               <button> Price </button>
+               <button> Rating </button>
+            </div>
+         </div>
+         <button>
+            asc desc
+         </button>
+      </section>
+
+      <section class="params-bar">
+         <button> Clear filters </button>
+         <div>
+            <h4> Price Range </h4>
+            <div>
+               <input type="number" placeholder="Min" value="0.00" class="input-search">
+               <input type="number" placeholder="Max" value="50.00" class="input-search">
+            </div>
+         </div>
+         <div>
+            <h4> Genre </h4>
+            <div>
+               <label for="fiction"> <input type="radio" name="category" id="fiction" value="fiction"> Fiction </label>
+               <label for="non-fiction"> <input type="radio" name="category" id="non-fiction" value="non-fiction"> Non-Fiction </label>
+               <label for="mystery"> <input type="radio" name="category" id="mystery" value="mystery"> Mystery </label>
+               <label for="thriller"> <input type="radio" name="category" id="thriller" value="thriller"> Thriller </label>
+               <label for="romance"> <input type="radio" name="category" id="romance" value="romance"> Romance </label>
+               <label for="biography"> <input type="radio" name="category" id="biography" value="biography"> Biography </label>
+            </div>
+         </div>
+         <div>
+            <h4> Format </h4>
+            <div>
+               <label for="fantasy"> <input type="radio" name="subcategory" id="fantasy" value="fantasy"> Fantasy </label>
+               <label for="sci-fi"> <input type="radio" name="subcategory" id="sci-fi" value="sci-fi"> Sci-Fi </label>
+               <label for="horror"> <input type="radio" name="subcategory" id="horror" value="horror"> Horror </label>
+               <label for="self-help"> <input type="radio" name="subcategory" id="self-help" value="self-help"> Self-Help </label>
+               <label for="history"> <input type="radio" name="subcategory" id="history" value="history"> History </label>
+               <label for="autobiography"> <input type="radio" name="subcategory" id="autobiography" value="autobiography"> Autobiography </label>
+            </div>
+         </div>
+         <div>
+            <!-- replace text later with stars images -->
+            <h4> Rating </h4>
+            <div>
+               <label for="5"> <input type="radio" name="rating" id="5" value="5"> 5 Stars </label>
+               <label for="4"> <input type="radio" name="rating" id="4" value="4"> 4 Stars </label>
+               <label for="3"> <input type="radio" name="rating" id="3" value="3"> 3 Stars </label>
+               <label for="2"> <input type="radio" name="rating" id="2" value="2"> 2 Stars </label>
+               <label for="1"> <input type="radio" name="rating" id="1" value="1"> 1 Star </label>
+            </div>
+      </section>
+
+      <section class="items-list">
+         <div>
+
+         </div>
+      </section>
+   </main>
+   
+   <%- include('partials/footer') %>
+   <script src="/scripts/searchPage.js"></script>
+   <script src="/scripts/theme-toggle.js"></script>
+   <script>
+      document.documentElement.classList.remove('no-transition');
+   </script>
+</body>
+</html>
