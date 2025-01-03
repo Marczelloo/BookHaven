@@ -6,14 +6,18 @@ html.dark-mode {
    --background-color: #161616;
    --primary-color: #2E2E2E;
    --secondary-color: #000000;
-   --text-color: #FFFFFF;
+   --accent-color: #1c1d1d;
+   --text-color: rgb(255, 255, 255);
+   --text-color-secondary: rgba(255, 255, 255, 0.7);
 }
 
 html.light-mode {
    --background-color: #FFFFFF;
    --primary-color: #F0F0F0;
    --secondary-color: #E0E0E0;
+   --accent-color: #F5F5F5;
    --text-color: #000000;
+   --text-color-secondary: rgba(0, 0, 0, 0.7);
 }
 
 html.no-transition * {
@@ -524,4 +528,37 @@ footer > div {
 /* Style the scrollbar corner */
 ::-webkit-scrollbar-corner {
    background-color: var(--primary-color);
+}
+
+.stars {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+}
+
+.stars-outer {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+.stars-inner {
+   position: relative;
+   display: inline-block;
+   white-space: nowrap;
+   overflow: hidden;
+   color: gold;
+}
+
+.stars-inner img,
+.stars-outer img {
+   width: 1.5rem; /* Adjust the size as needed */
+   height: 1.5rem; /* Adjust the size as needed */
+}
+
+.stars-outer {
+   opacity: .4;
 }

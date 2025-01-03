@@ -20,67 +20,232 @@
    
    <main>
       <section class="sort-bar">
-         <div>
-            Sort by: Title 
-            <div>
-               <button> Title </button>
-               <button> Author </button>
-               <button> Price </button>
-               <button> Rating </button>
-            </div>
+         <div class="filter-by">
+            <p> Filter by: </p>
+            <button class="button-primary"> Title </button>
+            <button class="button-primary"> Author </button>
+            <button class="button-primary"> Description </button>
          </div>
-         <button>
-            asc desc
-         </button>
+         <div>
+            <div class="sort-by" id="sortBySelect">
+               <p> Sort by: <span> Title </span></p><img src="assets/svg/arrow-down.svg" alt="arrow-down">
+               <div class="sort-by-options" id="sortByOptions">
+                  <div class="option selected"> Title </div>
+                  <div class="option"> Author </div>
+                  <div class="option"> Price </div>
+                  <div class="option"> Rating </div>
+               </div>
+            </div>
+            <button class="button-primary sort-button">
+               <img src="assets/svg/sort-asc-desc.svg" alt="sort-asc-desc" class="icon">
+            </button>
+         </div> 
       </section>
 
       <section class="params-bar">
-         <button> Clear filters </button>
-         <div>
+         <div class="price-range">
             <h4> Price Range </h4>
             <div>
-               <input type="number" placeholder="Min" value="0.00" class="input-search">
-               <input type="number" placeholder="Max" value="50.00" class="input-search">
+               <div class="input-container">
+                  <span>$</span>
+                  <input type="number" placeholder="Min" value="0.00" class="input-search" id="minPrice">
+               </div>
+               <span> - </span>
+               <div class="input-container">
+                  <span>$</span>
+                  <input type="number" placeholder="Max" value="50.00" class="input-search" id="maxPrice">
+               </div>   
             </div>
          </div>
-         <div>
+         <div class="genre-filter">
             <h4> Genre </h4>
             <div>
-               <label for="fiction"> <input type="radio" name="category" id="fiction" value="fiction"> Fiction </label>
-               <label for="non-fiction"> <input type="radio" name="category" id="non-fiction" value="non-fiction"> Non-Fiction </label>
-               <label for="mystery"> <input type="radio" name="category" id="mystery" value="mystery"> Mystery </label>
-               <label for="thriller"> <input type="radio" name="category" id="thriller" value="thriller"> Thriller </label>
-               <label for="romance"> <input type="radio" name="category" id="romance" value="romance"> Romance </label>
-               <label for="biography"> <input type="radio" name="category" id="biography" value="biography"> Biography </label>
+               <div class="radio-container">
+                  <input type="radio" id="fiction" name="category" value="fiction" class="custom-radio">
+                  <label for="fiction"> Fiction </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="non-fiction" name="category" value="non-fiction" class="custom-radio">
+                  <label for="non-fiction"> Non-Fiction </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="mystery" name="category" value="mystery" class="custom-radio">
+                  <label for="mystery"> Mystery </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="thriller" name="category" value="thriller" class="custom-radio">
+                  <label for="thriller"> Thriller </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="romance" name="category" value="romance" class="custom-radio">
+                  <label for="romance"> Romance </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="biography" name="category" value="biography" class="custom-radio">
+                  <label for="biography"> Biography </label>
+               </div>
             </div>
          </div>
-         <div>
-            <h4> Format </h4>
+         <div class="format-filter">
+            <h4> Subcategory </h4>
             <div>
-               <label for="fantasy"> <input type="radio" name="subcategory" id="fantasy" value="fantasy"> Fantasy </label>
-               <label for="sci-fi"> <input type="radio" name="subcategory" id="sci-fi" value="sci-fi"> Sci-Fi </label>
-               <label for="horror"> <input type="radio" name="subcategory" id="horror" value="horror"> Horror </label>
-               <label for="self-help"> <input type="radio" name="subcategory" id="self-help" value="self-help"> Self-Help </label>
-               <label for="history"> <input type="radio" name="subcategory" id="history" value="history"> History </label>
-               <label for="autobiography"> <input type="radio" name="subcategory" id="autobiography" value="autobiography"> Autobiography </label>
+               <div class="radio-container">
+                  <input type="radio" id="fantasy" name="subcategory" value="fantasy" class="custom-radio">
+                  <label for="fantasy"> Fantasy </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="sci-fi" name="subcategory" value="sci-fi" class="custom-radio">
+                  <label for="sci-fi"> Sci-Fi </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="horror" name="subcategory" value="horror" class="custom-radio">
+                  <label for="horror"> Horror </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="self-help" name="subcategory" value="self-help" class="custom-radio">
+                  <label for="self-help"> Self-Help </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="history" name="subcategory" value="history" class="custom-radio">
+                  <label for="history"> History </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="autobiography" name="subcategory" value="autobiography" class="custom-radio">
+                  <label for="autobiography"> Autobiography </label>
+               </div>
             </div>
          </div>
-         <div>
-            <!-- replace text later with stars images -->
+         <div class="rating-filter">
             <h4> Rating </h4>
             <div>
-               <label for="5"> <input type="radio" name="rating" id="5" value="5"> 5 Stars </label>
-               <label for="4"> <input type="radio" name="rating" id="4" value="4"> 4 Stars </label>
-               <label for="3"> <input type="radio" name="rating" id="3" value="3"> 3 Stars </label>
-               <label for="2"> <input type="radio" name="rating" id="2" value="2"> 2 Stars </label>
-               <label for="1"> <input type="radio" name="rating" id="1" value="1"> 1 Star </label>
+               <div class="radio-container">
+                  <input type="radio" id="5" name="rating" value="5" class="custom-radio">
+                  <label for="5" class="stars">
+                     <div class="stars-container">
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                     </div>
+                  </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="4" name="rating" value="4" class="custom-radio">
+                  <label for="4" class="stars">
+                     <div class="stars-container">
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                     </div>
+                  </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="3" name="rating" value="3" class="custom-radio">
+                  <label for="3" class="stars">
+                     <div class="stars-container">
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                     </div>
+                  </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="2" name="rating" value="2" class="custom-radio">
+                  <label for="2" class="stars">
+                     <div class="stars-container">
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                     </div>
+                  </label>
+               </div>
+               <div class="radio-container">
+                  <input type="radio" id="1" name="rating" value="1" class="custom-radio">
+                  <label for="1" class="stars">
+                     <div class="stars-container">
+                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
+                     </div>
+                  </label>
+               </div>  
             </div>
+         </div>
+         <button class="button-primary clear-params"> 
+            Clear
+         </button>
       </section>
 
       <section class="items-list">
-         <div>
-
-         </div>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
+         <%- include('partials/bookCard-search', { book: {
+            cover: 'assets/images/placeholder.png',
+            title: 'Test tes test',
+            author: 'Test test',
+            price: 20.00,} 
+         }) %>
       </section>
    </main>
    

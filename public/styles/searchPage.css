@@ -1,0 +1,400 @@
+main {
+   display: grid;
+   grid-template-areas:
+   "top-bar top-bar"
+   "left-column main-content";
+   grid-template-columns: 1fr 3fr;
+   grid-template-rows: auto 1fr;
+   gap: 2rem;
+   padding: 2rem 0;
+   min-height: 0; /* Ensure grid items can grow independently */
+}
+
+.sort-bar {
+   grid-area: top-bar;
+   display: flex;
+   justify-content: space-between;
+   gap: 1rem;
+}
+
+.sort-bar > div:last-of-type {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+.filter-by {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+.filter-by > p {
+   color: var(--text-color);
+   font-size: 1.25rem;
+   font-weight: 500;
+}
+
+.filter-by > button {
+   padding: .75rem 1.5rem;
+}
+
+
+.sort-by {
+   width: 12rem;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: .5rem;
+   border: 1px solid var(--primary-color);
+   background-color: var(--accent-color);
+   border-radius: .75rem;
+   color: var(--text-color-secondary);
+   opacity: 1;
+   cursor: pointer;
+   transition: background-color .3s ease, color .3s ease;
+}
+
+.sort-by img {
+   width: 1.25rem;
+   height: 1.25rem;
+   filter: invert(1);
+   transition: transform .3s ease;  
+   opacity: .7;
+}
+
+.sort-by:hover {
+   background-color: var(--primary-color);
+   color: var(--text-color);
+}
+
+.sort-by:hover > img {
+   opacity: 1;
+}
+
+.sort-by:has(.active) {
+   background-color: var(--primary-color);
+   color: var(--text-color);
+}
+
+.sort-by:has(.active) > img {
+   transform: rotate(180deg);
+   opacity: 1;
+}
+
+.sort-by-options {
+   display: none;
+   overflow: hidden;
+   width:100%;
+   flex-direction: column;
+   position: absolute;
+   top: 3.25rem;
+   left: 0;
+   background-color: var(--accent-color);
+   border: 1px solid var(--primary-color);
+   border-radius: .75rem;
+   z-index: 1;
+}
+
+.sort-by-options.active {
+   display: flex;
+}
+
+.sort-by-options > div {
+   line-height: 2.2;
+   padding: 0 .5rem;
+   border-bottom: 1px solid var(--primary-color);
+   background-color: var(--accent-color);
+   color: var(--text-color-secondary);
+   cursor: pointer;
+   overflow: hidden;
+   transition: color .3s ease, background-color .3s ease;
+}
+
+.sort-by-options > div:last-child {
+   border-bottom: none;
+}
+
+.sort-by-options > div:hover {
+   background-color: var(--primary-color);
+   color: var(--text-color);
+}
+
+.sort-by-options > div.selected {
+   font-weight: 600;
+   color: var(--text-color);
+}
+
+.sort-button {
+   width: 3rem;
+   height: 3rem;
+   padding: .75rem !important;
+}
+
+.sort-button img {
+   width: 100%;
+   height: 100%;
+   transition: transform .3s ease;
+}
+
+.sort-button.asc img {
+   transform: scaleY(-1);
+}
+
+.params-bar {
+   grid-area: left-column;
+   align-self: start;
+   padding: 1.5rem;
+   background-color: var(--primary-color);
+   border-radius: 1rem;
+   display: grid;
+   gap: 1rem;
+}
+
+.params-bar > h2 {
+   color: var(--text-color);
+   font-size: 1.5rem;
+   font-weight: 600;
+}
+
+.params-bar > div{
+   display: grid;
+   gap: .5rem;
+}
+
+.price-range > div {
+   display: flex;
+   align-items: center;  
+   gap: 1rem;
+}
+
+.input-container {
+   display: flex;
+   align-items: center;
+   gap: .25rem;
+   padding: .5rem;
+   border-radius: .75rem;
+   background-color: var(--background-color);
+   color: var(--text-color-secondary);
+   outline: none;
+   border: none;
+   transition: background-color .3s ease; 
+}
+
+.input-container input {
+   width: 100%;
+   height: 100%;
+   background-color: transparent;
+   color: var(--text-color-secondary);
+   font-size: 1rem;
+   outline: none;
+   border: none;
+}
+
+.input-container:hover, .input-container:focus-within {
+   background-color: var(--secondary-color);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+.genre-filter > div, .format-filter > div, .rating-filter > div {
+   display: flex;
+   flex-direction: column;
+   gap: .25rem;
+}
+
+.genre-filter label, .format-filter label, .rating-filter label {
+   color: var(--text-color);
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+.custom-radio {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+}
+
+.radio-container {
+   display: flex;
+   align-items: center;
+   position: relative;
+   padding-left: 1.5rem;
+   cursor: pointer;
+   font-size: 1rem;
+   user-select: none;
+}
+
+.radio-container input:checked ~ label::before {
+   background-color: var(--primary-color);
+   border-color: var(--primary-color);
+}
+
+.radio-container label::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   height: .75rem;
+   width: .75rem;
+   background-color: var(--primary-color);
+   border: 2px solid var(--secondary-color);
+   border-radius: 50%;
+}
+
+.radio-container label::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%) scale(0);
+   height: 0.75rem;
+   width: 0.75rem;
+   background-color: var(--secondary-color);
+   border: 2px solid var(--text-color);
+   border-radius: 50%;
+   transition: transform 0.2s ease;
+}
+
+.radio-container input:checked ~ label::after {
+   transform: translateY(-50%) scale(1);
+   background-color: var(--secondary-color);
+}
+
+.radio-container label {
+   color: var(--text-color);
+   font-size: 1rem;
+   font-weight: 400;
+   transition: color .3s ease;
+}
+
+.radio-container:hover input ~ label {
+   color: var(--text-color-secondary);
+}
+
+.radio-container input:checked ~ label {
+   font-weight: 500;
+}
+
+.radio-container:hover input ~ label::before {
+   background-color: var(--secondary-color);
+   border-color: var(--secondary-color);
+}
+
+.rating-filter .stars-container > img {
+   width: 1.5rem;
+   height: 1.5rem;
+   cursor: pointer;
+   filter: invert(1);
+}
+
+.rating-filter .radio-container {
+   padding-left: 0;
+}
+
+.rating-filter .stars-container > img.grayed {
+   opacity: .7;
+}
+
+.rating-filter .stars-container {
+   padding-left: 1.5rem;
+   display: flex;
+   gap: .5rem;
+}
+
+.clear-params {
+   margin-top: 1rem;
+   background-color: var(--secondary-color);
+}
+
+.clear-params:hover {
+   background-color: var(--background-color);
+}
+
+.items-list {
+   grid-area: main-content;
+   overflow-y: auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+   gap: 1rem;
+}
+
+.book-card {
+   display: grid;
+   grid-template-rows:  auto 1fr auto;
+   gap: 1rem;
+   padding: 1rem;
+   background-color: var(--primary-color);
+   border-radius: 1rem;
+   position: relative;
+}
+
+.book-card img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 1rem;
+}
+
+.book-card > .button-primary {
+   background-color: var(--secondary-color);
+}
+
+.book-card > .button-primary:hover {
+   background-color: var(--background-color);
+}
+
+.book-card .title {
+   color: var(--text-color);
+   font-size: 1.25rem;
+   font-weight: 600;
+}
+
+.book-card .author {
+   color: var(--text-color-secondary);
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+.book-card .price {
+   color: var(--text-color);
+   font-size: 1rem;
+   font-weight: 400;
+   text-align: right;
+}
+
+.book-card .price span {
+   font-weight: 600;
+}
+
+.book-card .wishlist-button {
+   position: absolute;
+   top: 1.25rem;
+   left: 1.25rem;
+   width: 2.5rem;
+   height: 2.5rem;
+   opacity: .7;
+   transition: opacity .3s ease;
+}
+
+.book-card .wishlist-button:hover {
+   opacity: 1;
+}
+
+.book-card .wishlist-button img {
+   width: 100%;
+   height: 100%;
+}
+
+
+
