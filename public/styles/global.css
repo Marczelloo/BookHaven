@@ -9,6 +9,7 @@ html.dark-mode {
    --accent-color: #1c1d1d;
    --text-color: rgb(255, 255, 255);
    --text-color-secondary: rgba(255, 255, 255, 0.7);
+   --error-color: #FF4C4C;
 }
 
 html.light-mode {
@@ -18,6 +19,7 @@ html.light-mode {
    --accent-color: #F5F5F5;
    --text-color: #000000;
    --text-color-secondary: rgba(0, 0, 0, 0.7);
+   --error-color: #FF4C4C;
 }
 
 html.no-transition * {

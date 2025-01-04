@@ -24,7 +24,6 @@ section h2 {
 .carousel {
    position: relative;
    width: 100%;
-   overflow: hidden;
 
    display: flex;
    gap: 1rem;
@@ -48,9 +47,9 @@ section h2 {
 }
 
 .carousel-button {
+   position: absolute;
    width: 3rem;
    color: var(--text-color);
-   background-color: var(--primary-color);
    border-radius: 1rem;
    opacity: .5;
    font-size: 4rem;
@@ -68,9 +67,13 @@ section h2 {
 }
 
 .carousel-button.prev {
-   left: 0;
+   left: -3rem;
+   top: 50%;
+   transform: translateY(-50%);
 }
 
 .carousel-button.next {
-   right: 0;
+   right: -3rem;
+   top: 50%;
+   transform: translateY(-50%);
 }

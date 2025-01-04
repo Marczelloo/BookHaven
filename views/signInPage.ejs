@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> BookHaven - <%= title %>  </title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/global.css">
+   <link rel="stylesheet" href="styles/signInPage.css">
+   <script>
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.documentElement.classList.add(savedTheme);
+      document.documentElement.classList.add('no-transition')
+ </script>
+</head>
+<body>
+   <header class="header">
+      <div>
+         <a href="/explore" class="p-big">
+            <img src="assets/svg/logo.svg" alt="BookHaven Logo" class="logo icon"> BookHaven
+         </a>
+      </div>
+      <div>
+         
+      </div>
+      <div>
+         <nav>
+            <ul>
+               <li>
+                  <button id="theme-toggle" class="button-primary">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" width="24" height="24">
+                        <path id="sun" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        <path id="moon" stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                      </svg>
+                  </button>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+   
+   <main>
+      <section>
+          <form>
+            <div class="form-header">
+               <h1> Sign In </h1>
+               <p> Sign in to explore a world of books </p>
+            </div>
+            <div class="email-input">
+               <label for="email"> Email </label>
+               <input type="email" id="email" name="email" placeholder="example@mail.com"/>
+               <p class="email-error"></p>
+            </div>
+            <div>
+               <label for="password"> Password </label>
+               <div class="password-input">
+                  <input type="password" id="password" name="password" placeholder="********"/>
+                  <button id="show-password">
+                     <img src="assets/svg/eye.svg" alt="Show Password" id="show-password-icon"/>
+                     <img src="assets/svg/eye-off.svg" alt="Hide Password" id="hide-password-icon" class="hide"/>
+                  </button>
+               </div>
+               <p class="password-error"> </p>
+            </div>
+            <div class="form-footer">
+               <div class="remember-me">
+                  <input type="checkbox" id="remember-me" name="remember-me" class="custom-checkbox"/>
+                  <label for="remember-me"> Remember Me </label>
+               </div>
+               <div class="form-links">
+                  <a href="/forgot-password" class="p-small"> Forgot Password? </a>
+                  <a href="/signup" class="p-small"> Don't have an account? Sign Up </a>
+               </div>
+            </div>
+            <button class="button-primary" id="login-button"> Sign In </button>
+          </form>
+      </section>
+   </main>
+   
+   <%- include('partials/footer') %>
+   <script src="/scripts/signInPage.js"></script>
+   <script src="/scripts/theme-toggle.js"></script>
+   <script>
+      document.documentElement.classList.remove('no-transition');
+   </script>
+</body>
+</html>

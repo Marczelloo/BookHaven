@@ -34,8 +34,9 @@ const pageRoutes = [
    { path: '/search', route: require('./routers/searchPage.js')},
    // { path: '/cart', route: require('./routers/cartPage.js')},
    // { path: '/wishlist', route: require('./routers/wishlistPage.js')},
-   // { path: '/login', route: require('./routers/login.js')},
-   // { path: '/register', route: require('./routers/register.js')},
+   { path: '/signin', route: require('./routers/signInPage.js')},
+   { path: '/signup', route: require('./routers/signUpPage.js')},
+   // { path" '/password-reset', route: require('./routers/passwordReset.js')},
    // { path: '/logout', route: require('./routers/logout.js')},
 ]
 

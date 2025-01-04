@@ -330,6 +330,7 @@ input[type="number"] {
 }
 
 .book-card {
+   height: 30rem;
    display: grid;
    grid-template-rows:  auto 1fr auto;
    gap: 1rem;
@@ -354,6 +355,11 @@ input[type="number"] {
    background-color: var(--background-color);
 }
 
+.book-card > div {
+   display: grid;
+   grid-template-rows: auto 1fr auto;  
+}
+
 .book-card .title {
    color: var(--text-color);
    font-size: 1.25rem;
@@ -371,6 +377,7 @@ input[type="number"] {
    font-size: 1rem;
    font-weight: 400;
    text-align: right;
+   align-self: flex-end;
 }
 
 .book-card .price span {
