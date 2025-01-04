@@ -358,7 +358,6 @@ footer > div {
    border-radius: 1rem;
 }
 
-
 .book-card-explore .book-info {
    height: 100%;
    display: flex;
@@ -370,7 +369,7 @@ footer > div {
 .book-card-explore .book-info > div {
    height: 100%;
    display: grid;
-   grid-template-rows: 4rem auto auto 1fr;
+   grid-template-rows: auto auto auto 1fr;
    gap: .5rem;
 }
 
