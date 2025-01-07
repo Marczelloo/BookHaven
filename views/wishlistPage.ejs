@@ -8,6 +8,7 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="styles/global.css">
+   <link rel="stylesheet" href="styles/cartPage.css">
    <link rel="stylesheet" href="styles/wishlistPage.css">
    <script>
       const savedTheme = localStorage.getItem('theme') || 'light-mode';
@@ -17,18 +18,145 @@
 </head>
 <body>
    <%- include('partials/header') %>
-   
    <main>
-      <section>
-         <h1> Shopping cart </h1>
+      <section class="cart">
+         <h1> Wishlist </h1>
+         <div class="cart-header">
+            <p> Cover </p>
+            <p> Product </p>
+            <p> Pages </p>
+            <p> Quantity </p>
+            <p> Price </p>
+            <p> </p>
+         </div>
          <div class="cart-items">
             <div class="cart-item">
                <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
+            </div>
+            <div class="cart-item">
+               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
+            </div>
+            <div class="cart-item">
+               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
+            </div>
+            <div class="cart-item">
+               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
+            </div>
+            <div class="cart-item">
+               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
+            </div>
+            <div class="cart-item">
+               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+               <div class="cart-item-title-author">
+                  <h2> Book Title </h2>
+                  <p> Author </p>
+               </div>
+               <p class="cart-item-pages"> 200 pages </p>
+               <div class="cart-item-quantity">
+                  <button class="quantity-button"> - </button>
+                  <p> 1 </p>
+                  <button class="quantity-button"> + </button>
+               </div>
+               <p class="cart-item-price"> $10.00 </p>
+               <button>
+                  <img src="assets/svg/close.svg" alt="Close Icon">
+               </button>
             </div>
          </div>
+        
       </section>
-      <section>
-
+      <section class="shipping-info">
+         <h1> Wishlist Total </h1>
+         <div class="cart-total">
+            <div>
+               <p> Subtotal: </p>
+               <p> $30.00 </p>
+            </div>
+            <div>
+               <p> Discounts: </p>
+               <p> -$5.00 </p>
+            </div>
+            <div>
+               <p> Shipping: </p>
+               <p> $5.00 </p>
+            </div>
+            <div>
+               <p> Total: </p>
+               <p> $35.00 </p>
+            </div>
+         </div>  
+         <button class="button-primary clear"> Clear wishlist </button>
+         <button class="button-primary"> Add to cart </button>
       </section>
    </main>
    

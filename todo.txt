@@ -4,3 +4,5 @@
 - add to all cards promotion price
 - add to user avatar menu after clicking it containing settings, orders, logout button
 - add to header showing sign in sign up buttons when user is not logged in
+- add to wishlist buttons for adding seperate items to cart 
+- rebuild cart and wishlist containers and placement 
