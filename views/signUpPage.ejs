@@ -43,7 +43,7 @@
    
    <main>
       <section>
-          <form>
+          <form id="signup-form" method="POST" action="/user/signup">
             <div class="form-header">
                <h1> Sign Up </h1>
                <p> Create an account to explore a world of books </p>
@@ -67,9 +67,9 @@
                      <img src="assets/svg/eye-off.svg" alt="Hide Password" id="hide-password-icon" class="hide"/>
                   </button>
                </div>
-               <label class="confirm-pass" for="confirm-password"> Confirm Password </label>
+               <label class="confirm-pass" for="passwordConfirm"> Confirm Password </label>
                <div class="password-input">
-                  <input type="password" id="password-confirm" name="password-confirm" placeholder="********"/>
+                  <input type="password" id="password-confirm" name="passwordConfirm" placeholder="********"/>
                </div>
                <p class="password-error"> </p>
             </div>

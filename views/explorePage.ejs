@@ -25,66 +25,11 @@
             <button class="carousel-button prev" id="featured-books-prev">‹</button>
             <div class="carousel-track-container">
                <ul class="carousel-track" id="featured-books">
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test test test test test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
+                  <% featuredBooks.forEach(element => { %>
+                     <li class="carousel-slide">
+                        <%- include('partials/bookCard-explore', { book: element }) %>
+                     </li>
+                  <% }) %>
                </ul>
             </div>
             <button class="carousel-button next" id="featured-books-next">›</button>
@@ -97,66 +42,11 @@
             <button class="carousel-button prev" id="popular-books-prev">‹</button>
             <div class="carousel-track-container">
                <ul class="carousel-track" id="popular-books">
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test test test test test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
+                  <% popularBooks.forEach(element => { %>
+                     <li class="carousel-slide">
+                        <%- include('partials/bookCard-explore', { book: element }) %>
+                     </li>
+                  <% }); %>
                </ul>
             </div>
             <button class="carousel-button next" id="popular-books-next">›</button>
@@ -169,66 +59,11 @@
             <button class="carousel-button prev" id="new-books-prev">‹</button>
             <div class="carousel-track-container">
                <ul class="carousel-track" id="new-books">
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test test test test test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
+                  <% newReleases.forEach(element => { %>
+                     <li class="carousel-slide">
+                        <%- include('partials/bookCard-explore', { book: element }) %>
+                     </li>
+                  <% }); %>
                </ul>
             </div>
             <button class="carousel-button next" id="new-books-next">›</button>
@@ -241,66 +76,11 @@
             <button class="carousel-button prev" id="top-books-prev">‹</button>
             <div class="carousel-track-container">
                <ul class="carousel-track" id="top-books">
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test test test test test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
+                  <% topRatedBooks.forEach(element => { %>
+                     <li class="carousel-slide">
+                        <%- include('partials/bookCard-explore', { book: element }) %>
+                     </li>
+                  <% }); %>
                </ul>
             </div>
             <button class="carousel-button next" id="top-books-next">›</button>
@@ -313,66 +93,11 @@
             <button class="carousel-button prev" id="promotions-books-prev">‹</button>
             <div class="carousel-track-container">
                <ul class="carousel-track" id="promotions-books">
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test test test test test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
-                  <li class="carousel-slide">
-                     <%- include('partials/bookCard-explore', { book: { 
-                        title: 'test',
-                        author: 'test',
-                        genre: 'test',
-                        pages: 100,
-                        rating: 5,
-                        price: 10,
-                        cover: 'assets/images/placeholder.png'
-                        } }) 
-                     %>
-                  </li>
+                  <% promotions.forEach(element => { %>
+                     <li class="carousel-slide">
+                        <%- include('partials/bookCard-explore', { book: element }) %>
+                     </li>
+                  <% }); %>
                </ul>
             </div>
             <button class="carousel-button next" id="promotions-books-next">›</button>

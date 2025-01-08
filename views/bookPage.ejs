@@ -7,8 +7,8 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="styles/global.css">
-   <link rel="stylesheet" href="styles/bookPage.css">
+   <link rel="stylesheet" href="/styles/global.css">
+   <link rel="stylesheet" href="/styles/bookPage.css">
    <script>
       const savedTheme = localStorage.getItem('theme') || 'light-mode';
       document.documentElement.classList.add(savedTheme);
@@ -20,30 +20,38 @@
    
    <main>
       <section class="book-info">
-         <img src="assets/images/placeholder.png" alt="Book Cover"/>
+         <img src="/assets/images/placeholder.png" alt="Book Cover"/>
          <div>
-            <h1 class="title"> Test </h1>
-            <h3 class="author"> by Test </h3>
-            <p class="desc"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic tempora quas tenetur? Repellendus blanditiis itaque incidunt, quae consequatur a. Officia aspernatur hic ullam suscipit pariatur qui minus porro excepturi deserunt? </p>
+            <h1 class="title"> <%= book.title %> </h1>
+            <h3 class="author"> <%= book.author %> </h3>
+            <div class="book-details">
+               <h4> <span> Language: </span> <%= book.language %> </h4> 
+               <h4> <span> Category: </span> <%= book.category.name %> </h4>
+               <h4> <span> Subcategory: </span> <%= book.subcategory.name %> </h4>
+               <h4> <span> Pages: </span><%= book.pages %> </h4>
+               <h4> <span> Published on:</span> <%= new Date(book.realaseDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %> </h4>
+            </div>
+            <p class="desc"> <%= book.description %> </p>
             <div>
-               <p class="price"> $29.99 </p>
+               <p class="price"> $<%= book.price.toFixed(2) %> </p>
                <div class="stars" id="reviews-btn">
-                  <div class="stars-inner" style="width: 90%;">
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
+                  <div class="stars-inner" style="width: <%= (book.averageRating / 5) * 100 %>%;">
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
                   </div>
                   <div class="stars-outer">
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
                   </div>
                </div>
-               <p class="rating-text"> (4.5 / 5) </p>
+               <p class="rating-text"> (<%= book.averageRating %> / 5) </p>
+               <p class="reviews-count"> <%= book.reviewsCount %> reviews </p>
             </div>
             <div class="buttons">
                <div class="quantity">
@@ -51,8 +59,8 @@
                   <p id="quantity"> 1 </p>
                   <button id="quantity-increase"> + </button>
                </div>
-               <button class="button-primary "> Add to Cart </button>
-               <button class="button-primary"> Add to Wishlist </button>
+               <button class="button-primary" id="addToCart" data-id="<%= book._id %>"> Add to Cart </button>
+               <button class="button-primary" id="wishlist" data-id="<% book._id %>"> Add to Wishlist </button>
             </div>
          </div>
 
@@ -61,28 +69,16 @@
       <section class="related-books">
          <h2> Related Books </h2>
          <div>
-            <%- include('partials/bookCard-related', { book: {
-               cover: 'assets/images/placeholder.png',
-               title: 'Test tes test',
-               author: 'Test Test',
-            }}) %>
-            <%- include('partials/bookCard-related', { book: {
-               cover: 'assets/images/placeholder.png',
-               title: 'Test tes test',
-               author: 'Test Test',
-            }}) %>
-            <%- include('partials/bookCard-related', { book: {
-               cover: 'assets/images/placeholder.png',
-               title: 'Test tes test',
-               author: 'Test Test',
-            }}) %>
+            <% relatedBooks.forEach(element => { %>
+               <%- include('partials/bookCard-related', { book: element }) %>
+            <% }); %>
          </div>
       </section>
 
       <section class="reviews">
          <div class="reviews-container">
             <button class="review-close"> 
-               <img src="assets/svg/close.svg" alt="close icon" /> 
+               <img src="/assets/svg/close.svg" alt="close icon" /> 
             </button>
             <h2> Leave a review </h2>
             <form class="review-form" action="/review" method="POST">
@@ -93,18 +89,18 @@
                <div class="review-rating">
                   <div class="stars">
                      <div class="stars-inner" id="review-stars-inner" style="width: 0%">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
                      </div>
                      <div class="stars-outer" id="review-stars">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
+                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
                      </div>
                   </div>
                   <button class="button-primary"> Submit </button>
@@ -112,60 +108,13 @@
             </form>
             <h2> Reviews </h2>
             <div class="reviews-list">
-               <%- include('partials/userReview', { review: {
-                  user: {
-                     avatar: 'assets/images/placeholder.png',
-                     username: 'User Name'
-                  },
-                  rating: 100,
-                  timeAgo: 'Week ago',
-                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod at ea voluptate numquam laborum eius velit cum inventore nesciunt. Mollitia voluptatum quasi doloribus libero, eligendi accusantium alias voluptate saepe sapiente?'
-               }}) %>
-               <%- include('partials/userReview', { review: {
-                  user: {
-                     avatar: 'assets/images/placeholder.png',
-                     username: 'User Name'
-                  },
-                  rating: 40,
-                  timeAgo: 'Week ago',
-                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod at ea voluptate numquam laborum eius velit cum inventore nesciunt. Mollitia voluptatum quasi doloribus libero, eligendi accusantium alias voluptate saepe sapiente?'
-               }}) %>
-               <%- include('partials/userReview', { review: {
-                  user: {
-                     avatar: 'assets/images/placeholder.png',
-                     username: 'User Name'
-                  },
-                  rating: 60,
-                  timeAgo: 'Week ago',
-                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod at ea voluptate numquam laborum eius velit cum inventore nesciunt. Mollitia voluptatum quasi doloribus libero, eligendi accusantium alias voluptate saepe sapiente?'
-               }}) %>
-               
-               <div class="user-review last-review">
-                  <img src="assets/images/placeholder.png" alt="User Avatar"/>
-                  <div>
-                     <p class="username"> User Name </p>
-                     <div>
-                        <div class="stars">
-                           <div class="stars-inner" style="width: 50%;">
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                           </div>
-                           <div class="stars-outer">
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                              <img src="assets/svg/star.svg" alt="Star Icon"/>
-                           </div>
-                        </div>
-                        <p> Week ago </p>
-                     </div>
-                     <p class="review-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod at ea voluptate numquam laborum eius velit cum inventore nesciunt. Mollitia voluptatum quasi doloribus libero, eligendi accusantium alias voluptate saepe sapiente?</p>
-                  </div>
-               </div>
+               <% if(book.reviews) { %>
+                  <% book.reviews?.forEach((element, index) => { %>
+                     <%- include('partials/userReview', { review: element, isLast: index === reviews.length - 1 }) %>
+                  <% }); %>
+               <% } else { %>
+                  <p> No reviews yet </p>
+               <% } %>
             </div>
          </div>
       </section>

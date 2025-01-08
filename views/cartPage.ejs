@@ -29,83 +29,22 @@
             <p> </p>
          </div>
          <div class="cart-items">
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
+            <% if(cartItems) { %>
+               <% cartItems?.forEach(item => { %>
+                  <%- include('partials/cartItem', { book: item.book, quantity: item.quantity }) %>
+               <% }) %>
+            <% } else { %>
+               <p> Your cart is empty </p>
+            <% } %>
          </div>
          <div class="cart-total">
             <div>
                <p> Subtotal: </p>
-               <p> $30.00 </p>
+               <p id="subtotal"> $<%= subtotal.toFixed(2) %> </p>
             </div>
             <div>
                <p> Discounts: </p>
-               <p> -$5.00 </p>
+               <p id="discount"> -$<%= discount.toFixed(2) %> </p>
             </div>
             <div>
                <p> Shipping: </p>
@@ -113,7 +52,7 @@
             </div>
             <div>
                <p> Total: </p>
-               <p> $35.00 </p>
+               <p id="total"> $<%= total.toFixed(2) %> </p>
             </div>
          </div>  
       </section>
@@ -123,39 +62,46 @@
             <div>
                <label for="name"> Name </label>
                <input type="text" id="name" name="name" placeholder="Your full name"/>
+               <p class="name-error"></p>
             </div>
             <div>
                <label for="surname"> Surname </label>
                <input type="text" id="surname" name="surname" placeholder="Your surname"/>
+               <p class="surname-error"></p>
             </div>
          </div>
          <div>
             <label for="phone-number"> Phone Number </label>
-            <input type="tel" id="phone-number" name="phone-number" placeholder="Your phone number"/>
+            <input type="tel" id="phoneNumber" name="phone-number" placeholder="Your phone number"/>
+            <p class="phone-number-error"></p>
          </div>
          <div>
             <label for="address"> Address </label>
             <input type="text" id="address" name="address" placeholder="Your address"/>
+            <p class="address-error"></p>
          </div>
          <div>
             <label for="city"> City </label>
             <input type="text" id="city" name="city" placeholder="Your city"/>
+            <p class="city-error"></p>
          </div>
          <div class="shipping-info-row">
             <div>
                <label for="zip-code"> Zip Code </label>
-               <input type="text" id="zip-code" name="zip-code" placeholder="Your zip code"/>
+               <input type="text" id="zipCode" name="zip-code" placeholder="Your zip code"/>
+               <p class="zip-code-error"></p>
             </div>
             <div>
                <label for="country"> Country </label>
                <input type="text" id="country" name="country" placeholder="Your country"/>
+               <p class="country-error"></p>
             </div>
          </div>
          <div class="shipping-info-checkbox">
-            <input type="checkbox" id="use-billing-address" name="use-billing-address" class="custom-checkbox"/>
+            <input type="checkbox" id="useBillingAddress" name="use-billing-address" class="custom-checkbox"/>
             <label for="use-billing-address"> Use as Billing Address </label>
          </div>
-         <button class="button-primary"> Proceed to Payment > </button>
+         <button class="button-primary" id="proceedToPayment"> Proceed to Payment > </button>
       </section>
    </main>
    

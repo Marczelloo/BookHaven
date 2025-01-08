@@ -1,5 +1,6 @@
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
+const signinForm = document.getElementById('signin-form');
 const loginButton = document.getElementById('login-button');
 const showPassword = document.getElementById('show-password');
 const showPasswordIcon = document.getElementById('show-password-icon');
@@ -21,6 +22,45 @@ loginButton.addEventListener('click', async (e) => {
    if(!validate()) return;
 
    console.log('validation success');
+
+   try
+   {
+      const response = await fetch('/user/signin', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({
+            email: emailInput.value,
+            password: passwordInput.value,
+            rememberMe: document.getElementById('rememberme').checked
+         }),
+      })
+
+      const result = await response.json();
+
+      if(response.ok)
+      {
+         console.log('signin success');
+         window.location.href = '/explore';
+      }
+      else
+      {
+         if(result.email)
+         {
+            emailError.textContent = result.message;
+         }
+
+         if(result.password)
+         {
+            passwordError.textContent = result.message;
+         }
+      }
+   }
+   catch(error)
+   {
+      console.log(error);
+   }
 });
 
 function validate()

@@ -1,4 +1,4 @@
-<div class="user-review">
+<div class="user-review <%= isLast ? 'last-review' : '' %>">
    <img src="<%= review.user.avatar %>" alt="User Avatar"/>
    <div>
       <p class="username"> <%= review.user.username %> </p>

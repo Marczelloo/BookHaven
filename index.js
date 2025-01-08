@@ -4,10 +4,20 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const { route } = require('./routers/landingPage.js');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+
+mongoose.connect(process.env.MONGO_URI,{
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
+}).then(() => {
+   console.log('Database connected');
+}).catch((err) => {
+   console.log('Database connection error', err);
+})
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -27,22 +37,20 @@ app.use(session({
    }
 }))
 
-const pageRoutes = [
-   { path: '/', route: require('./routers/landingPage.js')},
-   { path: '/explore', route : require('./routers/explorePage.js')},
-   { path: '/book', route: require('./routers/bookPage.js')},
-   { path: '/search', route: require('./routers/searchPage.js')},
-   { path: '/cart', route: require('./routers/cartPage.js')},
-   { path: '/wishlist', route: require('./routers/wishlistPage.js')},
-   { path: '/signin', route: require('./routers/signInPage.js')},
-   { path: '/signup', route: require('./routers/signUpPage.js')},
-   // { path" '/password-reset', route: require('./routers/passwordReset.js')},
-   // { path: '/logout', route: require('./routers/logout.js')},
-]
+const setAuthStatusMiddleware = require('./middleware/setAuthStatusMiddleware');
+app.use(setAuthStatusMiddleware);
 
-pageRoutes.forEach(route => {
-   app.use(route.path, route.route);
-})
+const pageRoutes = require('./routers/pageRoutes');
+const userRoutes = require('./routers/userRoutes');
+const cartRoutes = require('./routers/cartRoutes');
+const wishlistRoutes = require('./routers/wishlistRoutes');
+const orderRoutes = require('./routers/orderRoutes');
+
+app.use('/', pageRoutes);
+app.use('/user', userRoutes);
+app.use('/cart', cartRoutes);
+app.use('/wishlist', wishlistRoutes);
+app.use('/order', orderRoutes);
 
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}`);

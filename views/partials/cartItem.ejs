@@ -1,0 +1,17 @@
+<div class="cart-item">
+   <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
+   <div class="cart-item-title-author">
+      <h2> <%= book.title %> </h2>
+      <p> <%= book.author %> </p>
+   </div>
+   <p class="cart-item-pages"> <%= book.pages %> pages </p>
+   <div class="cart-item-quantity">
+      <button class="quantity-button" data-id="<%= book._id %>" data-action="decrease"> - </button>
+      <p> <%= quantity %> </p>
+      <button class="quantity-button" data-id="<%= book._id %>" data-action="increase"> + </button>
+   </div>
+   <p class="cart-item-price"> $<%= book.price.toFixed(2) %> </p>
+   <button class="remove-button" data-id="<%= book._id %>">
+      <img src="assets/svg/close.svg" alt="Close Icon">
+   </button>
+</div>

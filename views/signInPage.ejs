@@ -43,7 +43,7 @@
    
    <main>
       <section>
-          <form>
+          <form id="signin-form" method="POST" action="/user/signin">
             <div class="form-header">
                <h1> Sign In </h1>
                <p> Sign in to explore a world of books </p>
@@ -66,8 +66,8 @@
             </div>
             <div class="form-footer">
                <div class="remember-me">
-                  <input type="checkbox" id="remember-me" name="remember-me" class="custom-checkbox"/>
-                  <label for="remember-me"> Remember Me </label>
+                  <input type="checkbox" id="rememberme" name="rememberme" class="custom-checkbox"/>
+                  <label for="rememberme"> Remember Me </label>
                </div>
                <div class="form-links">
                   <a href="/forgot-password" class="p-small"> Forgot Password? </a>

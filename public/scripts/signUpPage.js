@@ -2,6 +2,7 @@ const usernameInput = document.getElementById('username');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const passwordConfirmInput = document.getElementById('password-confirm');
+const signupForm = document.getElementById('signup-form');
 
 const loginButton = document.getElementById('login-button');
 const agreeTerms = document.getElementById('agree-terms');
@@ -29,6 +30,51 @@ loginButton.addEventListener('click', async (e) => {
    if(!validate()) return;
 
    console.log('validation success');
+   
+   try
+   {
+      const response = await fetch('/user/signup', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({
+            username: usernameInput.value,
+            email: emailInput.value,
+            password: passwordInput.value,
+            passwordConfirm: passwordConfirmInput.value,
+         }),
+      });
+
+      const result = await response.json();
+
+      if(response.ok)
+      {
+         console.log('signup success');
+         window.location.href = '/explore';
+      }
+      else
+      {
+         if(result.email)
+         {
+            emailError.textContent = result.message;
+         }
+
+         if(result.password)
+         {
+            passwordError.textContent = result.message;
+         }
+
+         if(result.username)
+         {
+            usernameError.textContent = result.message;
+         }
+      }
+   }
+   catch(error)
+   {
+      console.log(error);
+   }
 });
 
 function validate()

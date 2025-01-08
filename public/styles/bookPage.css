@@ -58,6 +58,22 @@ main {
    font-weight: 600;
 }
 
+.book-info .book-details {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: .25rem;
+}
+
+.book-info .book-details > h4 {
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+.book-info .book-details > h4 > span {
+   font-weight: 500;
+}
+
 .book-info .rating-text {
    font-size: 1rem;
    font-weight: 500;
@@ -68,7 +84,7 @@ main {
    gap: 1rem;
    align-items: center;
    background-color: var(--secondary-color);
-   padding: 1rem;
+   padding: .9rem;
    border-radius: 1rem;
 }
 
@@ -313,6 +329,13 @@ main {
    display: grid;
    gap: 1rem;
    overflow-y: auto;
+}
+
+.reviews-list > p {
+   font-size: 2rem;
+   font-weight: 700;
+   margin: auto 0;
+   text-align: center;
 }
 
 .user-review {
