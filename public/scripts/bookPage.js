@@ -81,7 +81,8 @@ wishlistBtn.addEventListener('click', async () => {
             'Content-Type': 'application/json'
          },
          body: JSON.stringify({
-            bookId: wishlistBtn.dataset.id
+            bookId: wishlistBtn.dataset.id,
+            quantity: parseInt(quantity.innerText)
          }),
       });
 
