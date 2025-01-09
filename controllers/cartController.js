@@ -36,10 +36,12 @@ exports.addToCart = async (req, res) => {
 exports.removeFromCart = async (req, res) => {
    const { bookId } = req.body;
 
-   if (!mongoose.Types.ObjectId.isValid(bookId)) {
+   if (!mongoose.Types.ObjectId.isValid(bookId)) 
+   {
       console.error('Invalid book ID:', bookId);
       return res.status(400).json({ error: 'Invalid book ID' });
    }
+
    try
    {
       let cart = req.session.cart || [];
@@ -151,5 +153,6 @@ exports.getCart = async (req, res) => {
    catch(error)
    {
       console.error("Error fetching cart: ", error);
+      res.status(500).send('Internal Server Error');
    }
 }

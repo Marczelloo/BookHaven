@@ -1,5 +1,5 @@
 <a href="/book/<%= book._id %>" class="book-card-explore">
-   <button class="wishlist-button">
+   <button class="wishlist-button" data-id="<%= book._id %>">
       <img src="assets/svg/bookmark.svg" alt="bookmark icon" class="icon">
    </button>
    <img src="assets/images/placeholder.png" alt="<%= book.title %>" class="book-cover" />
@@ -10,6 +10,6 @@
           <p class="rating">Rating: <%= book.rating ? book.rating : 'Not rated yet' %></p>
           <p class="price"><span>$<%= book.price.toFixed(2) %></span> / 1 pc</p>
       </div>
-      <button class="button-primary">Add to Cart</button>
+      <button class="button-primary add-to-cart" data-id="<%= book._id %>">Add to Cart</button>
    </div>
 </a>

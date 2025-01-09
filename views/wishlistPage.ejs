@@ -30,121 +30,25 @@
             <p> </p>
          </div>
          <div class="cart-items">
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
-            <div class="cart-item">
-               <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover">
-               <div class="cart-item-title-author">
-                  <h2> Book Title </h2>
-                  <p> Author </p>
-               </div>
-               <p class="cart-item-pages"> 200 pages </p>
-               <div class="cart-item-quantity">
-                  <button class="quantity-button"> - </button>
-                  <p> 1 </p>
-                  <button class="quantity-button"> + </button>
-               </div>
-               <p class="cart-item-price"> $10.00 </p>
-               <button>
-                  <img src="assets/svg/close.svg" alt="Close Icon">
-               </button>
-            </div>
+            <% if(wishlistItems) { %>
+               <% wishlistItems?.forEach(item => { %>
+                  <%- include('partials/cartItem', { book: item.book, quantity: item.quantity }) %>
+               <% }) %>
+            <% } else { %>
+               <p> Your wishlist is empty </p>
+            <% } %>
          </div>
-        
       </section>
       <section class="shipping-info">
          <h1> Wishlist Total </h1>
          <div class="cart-total">
-            <div>
+            <<div>
                <p> Subtotal: </p>
-               <p> $30.00 </p>
+               <p id="subtotal"> $<%= subtotal.toFixed(2) %> </p>
             </div>
             <div>
                <p> Discounts: </p>
-               <p> -$5.00 </p>
+               <p id="discount"> -$<%= discount.toFixed(2) %> </p>
             </div>
             <div>
                <p> Shipping: </p>
@@ -152,11 +56,11 @@
             </div>
             <div>
                <p> Total: </p>
-               <p> $35.00 </p>
+               <p id="total"> $<%= total.toFixed(2) %> </p>
             </div>
          </div>  
-         <button class="button-primary clear"> Clear wishlist </button>
-         <button class="button-primary"> Add to cart </button>
+         <button class="button-primary clear" id="clear-wishlist"> Clear wishlist </button>
+         <button class="button-primary" id="add-to-cart"> Add to cart all </button>
       </section>
    </main>
    

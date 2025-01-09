@@ -1,8 +1,10 @@
-- add backend to all pages
-- add forms to all kinds of inputs
 - add to header avatar placeholder when user dont have avatar set (first letter of username)
 - add to all cards promotion price
 - add to user avatar menu after clicking it containing settings, orders, logout button
 - add to header showing sign in sign up buttons when user is not logged in
 - add to wishlist buttons for adding seperate items to cart 
 - rebuild cart and wishlist containers and placement 
+- add functionality to wishlist controllers routes are mode controllers need to be added
+- add functionality to button in explore card
+- add search bar
+- add functionality to search page

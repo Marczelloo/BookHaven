@@ -11,6 +11,6 @@ router.post('/remove', authMiddleware, wishlistController.removeFromWishlist);
 
 router.post('/clear', authMiddleware, wishlistController.clearWishlist);
 
-router.get('/get', authMiddleware, wishlistController.getWishlist);
+router.post('/addToCart', authMiddleware, wishlistController.addToCart);
 
 module.exports = router;
