@@ -45,12 +45,14 @@ const userRoutes = require('./routers/userRoutes');
 const cartRoutes = require('./routers/cartRoutes');
 const wishlistRoutes = require('./routers/wishlistRoutes');
 const orderRoutes = require('./routers/orderRoutes');
+const searchRoutes = require('./routers/searchRoutes');
 
 app.use('/', pageRoutes);
 app.use('/user', userRoutes);
 app.use('/cart', cartRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('/order', orderRoutes);
+app.use('/search', searchRoutes);
 
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}`);

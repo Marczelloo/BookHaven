@@ -72,6 +72,6 @@ exports.signout = (req, res) => {
       if(error) return res.status(500).json({ message: 'Error signing out', error });
 
       res.clearCookie('connect.sid');
-      res.status(200).json({ message: 'User signed out successfully' });
+      res.redirect('/');
    })
 }

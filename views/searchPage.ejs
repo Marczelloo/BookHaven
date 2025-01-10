@@ -186,66 +186,9 @@
       </section>
 
       <section class="items-list">
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test test test test test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
-         <%- include('partials/bookCard-search', { book: {
-            cover: 'assets/images/placeholder.png',
-            title: 'Test tes test',
-            author: 'Test test',
-            price: 20.00,} 
-         }) %>
+         <% books.forEach(element => { %>
+            <%- include('partials/bookCard-search', { book: element }) %>
+         <% }); %>
       </section>
    </main>
    

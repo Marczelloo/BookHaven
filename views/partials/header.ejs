@@ -7,6 +7,9 @@
    <div class="search-input">
       <input type="text" placeholder="Search for books" class="input-search">
       <img src="/assets/svg/search.svg" alt="Search Icon" class="icon">
+      <div class="search-results">
+         
+      </div>
    </div>
    <div>
       <% if(isAuthenticated) { %>
@@ -31,9 +34,32 @@
                </a>
             </li>
             <button class="profile-button">
-               <img src="/assets/images/placeholder.png" alt="user avatar"/>
+               <% if(user && user.avatar) { %>
+                  <img src="<%= user.avatar %>" alt="user">
+               <% } else { %>
+                  <%= user.username.charAt(0).toUpperCase() %>
+               <% } %>
             </button>
-         </ul>
+            <div class="user-menu-popup">
+               <a href="/profile"> 
+                  <img src="/assets/svg/profile.svg" alt="user icon" class="icon">
+                  <span> Profile </span>
+               </a>
+               <a href="/orders"> 
+                  <img src= "/assets/svg/orders.svg" alt="orders icon" class="icon">
+                  <span> Orders  </span>
+               </a>
+               <a href="/settings"> 
+                  <img src="/assets/svg/settings.svg" alt="settings icon" class="icon">   
+                  <span> Settings </span>
+                </a>
+               <div class="spacer"></div>
+               <a href="/user/signout"> 
+                  <img src="/assets/svg/logout.svg" alt="logout icon" class="icon">
+                  <span> Logout </span> 
+               </a>
+            </div>
+         </ul>         
       </nav>
       <% } else { %>
       <nav class="not-logged">
@@ -53,3 +79,4 @@
       <% } %>
    </div>
 </header>
+<script src="/scripts/header.js"></script>

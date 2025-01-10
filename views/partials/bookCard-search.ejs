@@ -2,11 +2,11 @@
    <button class="wishlist-button">
       <img src="assets/svg/bookmark.svg" alt="bookmark icon" class="icon">
    </button>
-   <img src="<%= book.cover %>" alt="Book Cover">
+   <img src="/assets/images/placeholder.png" alt="Book Cover">
    <div>
       <h3 class="title"> <%= book.title %> </h3>
       <p class="author"> <%= book.author %> </p>
-      <p class="price"> <span> $<%= book.price %> </span> / 1 pc </p>
+      <p class="price"> <span> $<%= book.price.toFixed(2) %> </span> / 1 pc </p>
    </div>
    <button class="button-primary"> Add to Cart </button>
 </a>

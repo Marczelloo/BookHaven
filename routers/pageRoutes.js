@@ -4,7 +4,10 @@ const redirectIfAuthenticated = require('../middleware/redirectIfAuthenticated')
 const bookController = require('../controllers/bookController');
 const authMiddleware = require('../middleware/authMiddleware');
 const cartController = require('../controllers/cartController');
-wishlistController = require('../controllers/wishlistController');
+const wishlistController = require('../controllers/wishlistController');
+const attachUser = require('../middleware/attachUser');
+
+router.use(attachUser);
 
 router.get('/', (req, res) => {
    res.render('landingPage', { title: 'Book Haven' });
@@ -13,10 +16,6 @@ router.get('/', (req, res) => {
 router.get('/explore', bookController.getExplorePage)
 
 router.get('/book/:id', bookController.getBookPage);
-
-router.get('/search', (req, res) => {
-   res.render('searchPage', { title: 'Search' });
-});
 
 router.get('/cart', authMiddleware, cartController.getCart);
 
