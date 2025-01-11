@@ -22,21 +22,21 @@
       <section class="sort-bar">
          <div class="filter-by">
             <p> Filter by: </p>
-            <button class="button-primary"> Title </button>
-            <button class="button-primary"> Author </button>
-            <button class="button-primary"> Description </button>
+            <button class="button-primary selected" id="filterByTitleBtn"> Title </button>
+            <button class="button-primary" id="filterByAuthorBtn"> Author </button>
+            <button class="button-primary" id="filterByDescBtn"> Description </button>
          </div>
          <div>
             <div class="sort-by" id="sortBySelect">
-               <p> Sort by: <span> Title </span></p><img src="assets/svg/arrow-down.svg" alt="arrow-down">
+               <p> Sort by: <span>  </span></p><img src="assets/svg/arrow-down.svg" alt="arrow-down">
                <div class="sort-by-options" id="sortByOptions">
-                  <div class="option selected"> Title </div>
+                  <div class="option"> Title </div>
                   <div class="option"> Author </div>
                   <div class="option"> Price </div>
                   <div class="option"> Rating </div>
                </div>
             </div>
-            <button class="button-primary sort-button">
+            <button class="button-primary sort-button asc">
                <img src="assets/svg/sort-asc-desc.svg" alt="sort-asc-desc" class="icon">
             </button>
          </div> 
@@ -59,60 +59,19 @@
          </div>
          <div class="genre-filter">
             <h4> Genre </h4>
-            <div>
-               <div class="radio-container">
-                  <input type="radio" id="fiction" name="category" value="fiction" class="custom-radio">
-                  <label for="fiction"> Fiction </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="non-fiction" name="category" value="non-fiction" class="custom-radio">
-                  <label for="non-fiction"> Non-Fiction </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="mystery" name="category" value="mystery" class="custom-radio">
-                  <label for="mystery"> Mystery </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="thriller" name="category" value="thriller" class="custom-radio">
-                  <label for="thriller"> Thriller </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="romance" name="category" value="romance" class="custom-radio">
-                  <label for="romance"> Romance </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="biography" name="category" value="biography" class="custom-radio">
-                  <label for="biography"> Biography </label>
-               </div>
+            <div id="genre">
+               <% categories?.forEach(element => { %>
+                  <div class="radio-container">
+                     <input type="radio" id="<%= element.name %>" name="category" value="<%= element._id %>" class="custom-radio">
+                     <label for="<%= element.name %>"> <%= element.name %> </label>
+                  </div>
+               <% }); %>
             </div>
          </div>
          <div class="format-filter">
             <h4> Subcategory </h4>
-            <div>
-               <div class="radio-container">
-                  <input type="radio" id="fantasy" name="subcategory" value="fantasy" class="custom-radio">
-                  <label for="fantasy"> Fantasy </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="sci-fi" name="subcategory" value="sci-fi" class="custom-radio">
-                  <label for="sci-fi"> Sci-Fi </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="horror" name="subcategory" value="horror" class="custom-radio">
-                  <label for="horror"> Horror </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="self-help" name="subcategory" value="self-help" class="custom-radio">
-                  <label for="self-help"> Self-Help </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="history" name="subcategory" value="history" class="custom-radio">
-                  <label for="history"> History </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="autobiography" name="subcategory" value="autobiography" class="custom-radio">
-                  <label for="autobiography"> Autobiography </label>
-               </div>
+            <div id="subcategory">
+               <p> Select a genre to see subcategories </p>
             </div>
          </div>
          <div class="rating-filter">

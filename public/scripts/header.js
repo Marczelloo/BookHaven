@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
    searchInput.addEventListener('blur', function() {
       setTimeout(() => {
         searchResultsContainer.classList.remove('visible');
-      }, 100); // Delay to allow click event to register
+      }, 100);
     });
 
    searchInput.addEventListener('keyup', function(event) {
@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
          if(response.ok)
          {
-            console.log(results);
-
             results.books.forEach(book => {
                const bookElement = document.createElement('a');
                   bookElement.href = `/book/${book.id}`;

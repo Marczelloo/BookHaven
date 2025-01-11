@@ -6,4 +6,8 @@ router.get('/', searchController.getSearchPage);
 
 router.post('/', searchController.getSearchSuggestions);
 
+router.post('/subcategories', searchController.getSubcategories);
+
+router.post('/results', searchController.getResults);
+
 module.exports = router;

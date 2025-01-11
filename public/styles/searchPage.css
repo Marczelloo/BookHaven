@@ -39,6 +39,11 @@ main {
    padding: .75rem 1.5rem;
 }
 
+.filter-by > button.selected {
+   background-color: var(--accent-color);
+   color: var(--text-color);
+}
+
 
 .sort-by {
    width: 12rem;
