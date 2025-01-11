@@ -55,20 +55,21 @@ addToCartBtn.addEventListener('click', async () => {
 
       if(response.ok)
       {
-         console.log('add to cart success');
+         showNotification('Item added to cart', false);
       }
       else if(response.status === 401)
       {
-         window.location.href = '/signin';
+         showNotification('Please sign in to add book to cart', true);
       }
       else
       {
-         console.log('add to cart failed');
+         showNotification(result.message, true);
       }
    }
    catch(error)
    {
       console.log(error);
+      showNotification('An error occurred. Please try again later!', true);
    }
 });
 
@@ -90,19 +91,20 @@ wishlistBtn.addEventListener('click', async () => {
 
       if(response.ok)
       {
-         console.log('add to wishlist success');
+         showNotification('Item added to wishlist', false);
       }
       else if(response.status === 401)
       {
-         window.location.href = '/signin';
+         showNotification('Please sign in to add book to wishlist', true);
       }
       else
       {
-         console.log('add to wishlist failed');
+         showNotification(result.message, true);
       }
    }
    catch(error)
    {
       console.log(error);
+      showNotification('An error occurred. Please try again later!', true);
    }
 });

@@ -10,6 +10,7 @@ html.dark-mode {
    --text-color: rgb(255, 255, 255);
    --text-color-secondary: rgba(255, 255, 255, 0.7);
    --error-color: #FF4C4C;
+   --confirm-color: rgb(6, 228, 13);
 }
 
 html.light-mode {
@@ -694,3 +695,62 @@ footer > div {
    height: 2.5rem;
    border-radius: .25rem;
 }
+
+.notification-container {
+   position: fixed;
+
+   width: 20%;
+   bottom: 1.5rem;
+   right: 0;
+
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
+}
+
+.notification {
+   position: relative;
+   padding: .5rem 1rem .5rem 1.5rem;
+   background-color: var(--accent-color);
+   font-size: 1rem;
+   font-weight: 500;
+   color: var(--text-color);
+
+   animation: slideIn 1s ease-out forwards, fadeOut 1s ease-in forwards 3s;
+}
+
+.notification::before {
+   position: absolute;
+   top: 0;
+   left: 0;
+   content: '';
+   height: 100%;
+   width: 1rem;
+   background-color: var(--confirm-color);
+}  
+
+.notification.error::before {
+   background-color: var(--error-color);
+}
+
+@keyframes slideIn {
+   0% {
+      transform: translateX(100%);
+      opacity: 0;
+   }
+   100% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+@keyframes fadeOut {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+      transform: translateX(100%);
+   }
+}
+ 

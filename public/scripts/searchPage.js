@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             wishlistBtn.addEventListener('click', async (event) => {
                   event.preventDefault();
 
-                  console.log(wishlistBtn.dataset.id);
                   try
                   {
                         const response = await fetch('/wishlist/add', {
@@ -69,20 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if(response.ok)
                         {
-                        console.log('add to wishlist success');
+                              showNotification('Added to wishlist', false);
                         }
                         else if(response.status === 401)
                         {
-                        window.location.href = '/signin';
+                              showNotification('Please sign in to add book to wishlist', true);
                         }
                         else
                         {
-                        console.log('add to wishlist failed');
+                              showNotification('Failed to add book to wishlist', true);
                         }
                   }
                   catch(error)
                   {
                         console.log(error);
+                        showNotification('Failed to add book to wishlist', true);
                   }
             });
       });
@@ -92,8 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addToCartBtn.addEventListener('click', async (event) => {
                   event.preventDefault();
 
-                  console.log(addToCartBtn.dataset.id);
-                  console.log(event.target.dataset.id);
                   try
                   {
                         const response = await fetch('/cart/add', {
@@ -111,20 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if(response.ok)
                         {
-                        console.log('add to cart success');
+                              showNotification('Added to cart', false);
                         }
                         else if(response.status === 401)
                         {
-                        window.location.href = '/signin';
+                              showNotification('Please sign in to add book to cart', true);
                         }
                         else
                         {
-                        console.log('add to cart failed');
+                              showNotification('Failed to add book to cart', true);
                         }
                   }
                   catch(error)
                   {
                         console.log(error);
+                        showNotification('Failed to add book to cart', true);
                   }
             });
       });
@@ -284,20 +283,21 @@ sortByOptions.forEach(option => {
 
                                     if(response.ok)
                                     {
-                                    console.log('add to wishlist success');
+                                          showNotification('Added to wishlist', false);
                                     }
                                     else if(response.status === 401)
                                     {
-                                    window.location.href = '/signin';
+                                          showNotification('Please sign in to add book to wishlist', true);
                                     }
                                     else
                                     {
-                                    console.log('add to wishlist failed');
+                                          showNotification('Failed to add book to wishlist', true);
                                     }
                               }
                               catch(error)
                               {
                                     console.log(error);
+                                    showNotification('Failed to add book to wishlist', true);
                               }
                         });
                   });
@@ -323,20 +323,21 @@ sortByOptions.forEach(option => {
 
                                     if(response.ok)
                                     {
-                                    console.log('add to cart success');
+                                          showNotification('Added to cart', false);
                                     }
                                     else if(response.status === 401)
                                     {
-                                    window.location.href = '/signin';
+                                          showNotification('Please sign in to add book to cart', true);
                                     }
                                     else
                                     {
-                                    console.log('add to cart failed');
+                                          showNotification('Failed to add book to cart', true);
                                     }
                               }
                               catch(error)
                               {
                                     console.log(error);
+                                    showNotification('Failed to add book to cart', true);
                               }
                         });
                   });
@@ -445,9 +446,7 @@ getSubcategories = async () => {
             {
                   const subcategoryContainer = document.getElementById('subcategory');
                   subcategoryContainer.innerHTML = '';
-      
-                  console.log(results);
-      
+            
                   results.subcategories.forEach(subcategory => {
                         const subcategoryElement = document.createElement('div');
                         subcategoryElement.classList.add('radio-container');
@@ -463,12 +462,14 @@ getSubcategories = async () => {
             }
             else
             {
+                  showNotification('Error fetching subcategories. Please try again later!', true);
                   return console.error('Error fetching subcategories');
             }
       }
       catch(error)
       {
             console.error('Error fetching subcategories:', error);
+            showNotification('Error fetching subcategories. Please try again later!', true);
       }
 }
 
@@ -491,8 +492,6 @@ getResults = async () => {
                   resultsContainer.innerHTML = '';
 
                   books = results.books;
-
-                  console.log(results.books);
       
                   results.books.forEach(book => {
                         const bookElement = document.createElement('a');
@@ -534,20 +533,21 @@ getResults = async () => {
 
                                     if(response.ok)
                                     {
-                                    console.log('add to wishlist success');
+                                          showNotification('Added to wishlist', false);
                                     }
                                     else if(response.status === 401)
                                     {
-                                    window.location.href = '/signin';
+                                          showNotification('Please sign in to add book to wishlist', true);
                                     }
                                     else
                                     {
-                                    console.log('add to wishlist failed');
+                                          showNotification('Failed to add book to wishlist', true);
                                     }
                               }
                               catch(error)
                               {
                                     console.log(error);
+                                    showNotification('Failed to add book to wishlist', true);
                               }
                         });
                   });
@@ -573,32 +573,35 @@ getResults = async () => {
 
                                     if(response.ok)
                                     {
-                                    console.log('add to cart success');
+                                          showNotification('Added to cart', false);
                                     }
                                     else if(response.status === 401)
                                     {
-                                    window.location.href = '/signin';
+                                          showNotification('Please sign in to add book to cart', true);
                                     }
                                     else
                                     {
-                                    console.log('add to cart failed');
+                                          showNotification('Failed to add book to cart', true);
                                     }
                               }
                               catch(error)
                               {
                                     console.log(error);
+                                    showNotification('Failed to add book to cart', true);
                               }
                         });
                   });
             }
             else
             {
-                  return console.error('Error fetching books');
+                 console.error('Error fetching books');
+                 showNotification('Error fetching books. Please try again later!', true);
             }
       }
       catch(error)
       {
             console.error('Error fetching books:', error);
+            showNotification('Error fetching books. Please try again later!', true);
       }
 }
 

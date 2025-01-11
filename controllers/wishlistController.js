@@ -65,9 +65,9 @@ exports.removeFromWishlist = async (req, res) => {
       const subtotal = wishlistItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = newCart.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
+      const total = newWishlist.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
 
-      res.status(200).json({ newWishlist, subtotal, discount, total });
+      res.status(200).json({ wishlistItems, subtotal, discount, total });
    }
    catch(error)
    {
@@ -111,9 +111,9 @@ exports.updateWishlist = async (req, res) => {
       const subtotal = wishlistItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = newCart.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
+      const total = wishlistItems.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
 
-      res.status(200).json({ newWishlist, subtotal, discount, total });
+      res.status(200).json({ newQuantity: wishlist[existingItemIndex] ? wishlist[existingItemIndex].quantity : 0, wishlistItems, subtotal, discount, total });
    }
    catch(error)
    {

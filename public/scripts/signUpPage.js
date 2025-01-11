@@ -28,8 +28,6 @@ loginButton.addEventListener('click', async (e) => {
    e.preventDefault();
 
    if(!validate()) return;
-
-   console.log('validation success');
    
    try
    {
@@ -74,6 +72,7 @@ loginButton.addEventListener('click', async (e) => {
    catch(error)
    {
       console.log(error);
+      showNotification('Error signing up. Please try again later.', false);
    }
 });
 

@@ -21,8 +21,6 @@ loginButton.addEventListener('click', async (e) => {
 
    if(!validate()) return;
 
-   console.log('validation success');
-
    try
    {
       const response = await fetch('/user/signin', {
@@ -60,6 +58,7 @@ loginButton.addEventListener('click', async (e) => {
    catch(error)
    {
       console.log(error);
+      showNotification('Error signing in. Please try again later!', true);
    }
 });
 

@@ -42,7 +42,7 @@
       <section class="shipping-info">
          <h1> Wishlist Total </h1>
          <div class="cart-total">
-            <<div>
+            <div>
                <p> Subtotal: </p>
                <p id="subtotal"> $<%= subtotal.toFixed(2) %> </p>
             </div>
@@ -64,6 +64,7 @@
       </section>
    </main>
    
+   <%- include('partials/notifications') %>
    <%- include('partials/footer') %>
    <script src="/scripts/wishlistPage.js"></script>
    <script src="/scripts/theme-toggle.js"></script>

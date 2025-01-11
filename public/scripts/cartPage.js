@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
    const totalText = document.getElementById('total');
    const discountText = document.getElementById('discount');
 
-
    quantityButtons.forEach(button => {
       button.addEventListener('click', async (event) => {
          const bookId = event.target.dataset.id;
@@ -41,12 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } 
             else 
             {
-               console.error(result.message);
+               showNotification(result.message, true);
             }
          } 
          catch (error) 
          {
             console.error('Error updating cart:', error);
+            showNotification('Error updating cart', true);
          }
       });
    });
@@ -77,12 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } 
             else 
             {
-               console.error(result.message);
+               showNotification(result.message, true);
             }
          } 
          catch (error) 
          {
-            console.error('Error removing item from cart:', error);
+            console.error('Error removing book from cart:', error);
+            showNotification('Error removing book from cart', true);
          }
       });
    });
@@ -135,11 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
          else 
          {
             console.error(result.message);
+            showNotification('Error proceeding to payment', true);
          }
       } 
       catch (error) 
       {
          console.error('Error proceeding to payment:', error);
+         showNotification('Error proceeding to payment', true);
       }
    });
 

@@ -69,13 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
 
-            if (response.ok) {
-               console.log(result.message);
-            } else {
-               console.error(result.message);
+            if (response.ok) 
+            {
+               showNotification('Book added to cart', false);
+            } 
+            else 
+            {
+               if(response.status === 401)
+               {
+                  showNotification('Please sign in to add book to cart', true);
+               }
+               else
+               {
+                  showNotification(result.message, true);
+               }
             }
          } catch (error) {
             console.error('Error updating cart:', error);
+            showNotification('An error occurred while adding the book to your cart', true);
          }
       });
    });
@@ -97,13 +108,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
 
-            if (response.ok) {
-               console.log(result.message);
-            } else {
-               console.error(result.message);
+            if (response.ok) 
+            {
+               showNotification('Book added to wishlist', false);
+            } 
+            else 
+            {
+               if(response.status === 401)
+               {
+                  showNotification('Please sign in to add book to wishlist', true);
+               }
+               else
+               {
+                  showNotification(result.message, true);
+               }
             }
-         } catch (error) {
+         } 
+         catch (error) 
+         {
             console.error('Error updating wishlist:', error);
+            showNotification('An error occurred while adding the book to your wishlist', true);
          }
       });
    });

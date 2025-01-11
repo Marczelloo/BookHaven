@@ -42,11 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
             else
             {
                console.error(result.message);
+               showNotification(result.message, true);
             }
          }
          catch(error)
          {
             console.error('Error updating wishlist:', error);
+            showNotification('Error updating wishlist', true);
          }
       })      
    });
@@ -75,15 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
                subtotalText.textContent = `$${result.subtotal.toFixed(2)}`;
                discountText.textContent = `$${result.discount.toFixed(2)}`;
                totalText.textContent = `$${result.total.toFixed(2)}`;
+
+               showNotification('Item removed from wishlist', false);
             }
             else
             {
                console.error(result.message);
+               showNotification(result.message, true);
             }
          }
          catch(error)
          {
             console.error('Error removing item from wishlist:', error);
+            showNotification('Error removing item from wishlist', true);
          }
       })
    });
@@ -111,15 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
             subtotalText.textContent = '$0.00';
             discountText.textContent = '$0.00';
             totalText.textContent = '$0.00';
+
+            showNotification('Wishlist cleared', false);
          }
          else
          {
             console.error(result.message);
+            showNotification(result.message, true);
          }
       }
       catch(error)
       {
          console.error('Error clearing wishlist:', error);
+         showNotification('Error clearing wishlist', true);
       }
    });
 
@@ -143,15 +153,19 @@ document.addEventListener('DOMContentLoaded', () => {
             subtotalText.textContent = '$0.00';
             discountText.textContent = '$0.00';
             totalText.textContent = '$0.00';
+
+            showNotification('Items added to cart', false);
          }
          else
          {
             console.error(result.message);
+            showNotification(result.message, true);
          }
       }
       catch(error)
       {
          console.error('Error adding to cart:', error);
+         showNotification('Error adding to cart', true);
       }
    });
 });

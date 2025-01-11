@@ -74,8 +74,6 @@ exports.getResults = async (req, res) => {
    const maxPrice = req.body.maxPrice;
    const rating = req.body.rating;
 
-   console.log(req.body);
-
    if (!search) return res.status(400).json({ message: 'No search input' });
    if (!searchBy) return res.status(400).json({ message: 'No searchBy input' });
 
@@ -86,7 +84,7 @@ exports.getResults = async (req, res) => {
       if (searchBy === 'title') query.title = { $regex: search, $options: 'i' };
       if (searchBy === 'author') query.author = { $regex: search, $options: 'i' };
       if (searchBy === 'description') query.description = { $regex: search, $options: 'i' };
-      if (category) query.category = category; // Use category name directly
+      if (category) query.category = category;
       if (subcategory) query.subcategory = subcategory;
       if (minPrice && maxPrice) query.price = { $gte: minPrice, $lte: maxPrice };
       if (rating) query.averageRating = { $gte: rating };
