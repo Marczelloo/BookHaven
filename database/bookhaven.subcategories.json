@@ -1,0 +1,486 @@
+[{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc1f"
+  },
+  "name": "Contemporary",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc20"
+  },
+  "name": "Literary",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc21"
+  },
+  "name": "Historical",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc22"
+  },
+  "name": "Short Stories",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc23"
+  },
+  "name": "Classics",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc24"
+  },
+  "name": "Essays",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc25"
+  },
+  "name": "True Crime",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc26"
+  },
+  "name": "Narrative",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc27"
+  },
+  "name": "Self-Help",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc28"
+  },
+  "name": "Science",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc29"
+  },
+  "name": "Space Opera",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2a"
+  },
+  "name": "Cyberpunk",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2b"
+  },
+  "name": "High Fantasy",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2c"
+  },
+  "name": "Urban Fantasy",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2d"
+  },
+  "name": "Dystopian",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2e"
+  },
+  "name": "Cozy Mystery",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc2f"
+  },
+  "name": "Crime",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc30"
+  },
+  "name": "Suspense",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc31"
+  },
+  "name": "Legal Thriller",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc32"
+  },
+  "name": "Psychological",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc33"
+  },
+  "name": "Contemporary Romance",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc34"
+  },
+  "name": "Historical Romance",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc35"
+  },
+  "name": "Fantasy Romance",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc36"
+  },
+  "name": "Romantic Comedy",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc37"
+  },
+  "name": "Erotic Romance",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc38"
+  },
+  "name": "Picture Books",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc39"
+  },
+  "name": "Early Readers",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3a"
+  },
+  "name": "Middle Grade",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3b"
+  },
+  "name": "Activity Books",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3c"
+  },
+  "name": "Chapter Books",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3d"
+  },
+  "name": "Autobiography",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3e"
+  },
+  "name": "Biography",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc3f"
+  },
+  "name": "Memoir",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc40"
+  },
+  "name": "Letters & Journals",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc41"
+  },
+  "name": "Ancient History",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc42"
+  },
+  "name": "World History",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc43"
+  },
+  "name": "American History",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc44"
+  },
+  "name": "Military History",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc45"
+  },
+  "name": "Political History",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc46"
+  },
+  "name": "Physics",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc47"
+  },
+  "name": "Chemistry",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc48"
+  },
+  "name": "Biology",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc49"
+  },
+  "name": "Computer Science",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4a"
+  },
+  "name": "Engineering",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4b"
+  },
+  "name": "Adventure",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4c"
+  },
+  "name": "Guides",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4d"
+  },
+  "name": "Travel Memoir",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4e"
+  },
+  "name": "Photography",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc4f"
+  },
+  "name": "Cultural",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc50"
+  },
+  "name": "Baking",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc51"
+  },
+  "name": "Vegetarian",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc52"
+  },
+  "name": "Vegan",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc53"
+  },
+  "name": "International",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d42b94fa2e2a43570cc54"
+  },
+  "name": "Healthy",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  }
+}]

@@ -1,0 +1,2497 @@
+[{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0af"
+  },
+  "cover": "https://m.media-amazon.com/images/I/51rgg75u9CL._SY445_SX342_.jpg",
+  "title": "It Ends With Us",
+  "author": "Colleen Hoover",
+  "price": 14.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A poignant love story that explores the complexities of relationships and domestic abuse, following Lily as she navigates her feelings for two different men.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc1f"
+  },
+  "pages": 376,
+  "realaseDate": {
+    "$date": "2016-08-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b0"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71a1+W0Yv2L._SY466_.jpg",
+  "title": "Where the Crawdads Sing",
+  "author": "Delia Owens",
+  "price": 16.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A coming-of-age story and a murder mystery set in the marshes of North Carolina, following Kya as she becomes a prime suspect in a local man's death.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc1f"
+  },
+  "pages": 368,
+  "realaseDate": {
+    "$date": "2018-08-14T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b1"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81N5p5k1yOL._SY466_.jpg",
+  "title": "Little Fires Everywhere",
+  "author": "Celeste Ng",
+  "price": 15.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 7,
+  "description": "Set in a seemingly perfect suburb, the story delves into the lives of two families and explores themes of class, race, and motherhood, culminating in a dramatic fire.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc20"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2017-09-12T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b2"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71s0dJgQ5hL._SY466_.jpg",
+  "title": "Normal People",
+  "author": "Sally Rooney",
+  "price": 12.8,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A novel exploring the complicated relationship between Marianne and Connell through their adolescence and university years, tackling themes of love, class and communication.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc20"
+  },
+  "pages": 273,
+  "realaseDate": {
+    "$date": "2018-08-28T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b3"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81s06kX67cL._SY466_.jpg",
+  "title": "The Nightingale",
+  "author": "Kristin Hannah",
+  "price": 17.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A powerful story of two sisters in Nazi-occupied France, highlighting their struggles, bravery, and different ways of resisting during World War II.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc21"
+  },
+  "pages": 440,
+  "realaseDate": {
+    "$date": "2015-02-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b4"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81sK1H0m4zL._SY466_.jpg",
+  "title": "The Book Thief",
+  "author": "Markus Zusak",
+  "price": 12.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "Narrated by Death, the story follows a young girl in Nazi Germany who finds solace and strength through stolen books, portraying the harsh realities of war.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc21"
+  },
+  "pages": 552,
+  "realaseDate": {
+    "$date": "2005-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b5"
+  },
+  "cover": "https://m.media-amazon.com/images/I/917d5F3Pj4L._SY466_.jpg",
+  "title": "Tenth of December",
+  "author": "George Saunders",
+  "price": 12.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 6,
+  "description": "A collection of sharp, funny and deeply moving short stories, exploring the lives of ordinary individuals and pushing the boundaries of the genre.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc22"
+  },
+  "pages": 272,
+  "realaseDate": {
+    "$date": "2013-01-08T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b6"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71Q1KjD6HlL._SY466_.jpg",
+  "title": "The Lottery and Other Stories",
+  "author": "Shirley Jackson",
+  "price": 9.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A collection of haunting and unsettling short stories that examine the dark side of human nature, including the iconic and disturbing title story.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc22"
+  },
+  "pages": 306,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-662688000000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b7"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71k7mYh28lL._SY466_.jpg",
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "price": 9.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 14,
+  "description": "A beloved classic exploring the social mores and romantic entanglements of the Bennet sisters in 19th century England, with wit and sharp social commentary.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc23"
+  },
+  "pages": 432,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-4952102400000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b8"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71w69lQ656L._SY466_.jpg",
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "price": 11.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A timeless coming-of-age story told from the perspective of a young girl, set in the American South, addressing issues of race and prejudice.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc23"
+  },
+  "pages": 281,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-299030400000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0b9"
+  },
+  "cover": "https://m.media-amazon.com/images/I/51x7Lg5143L._SY466_.jpg",
+  "title": "The Empathy Exams",
+  "author": "Leslie Jamison",
+  "price": 16.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 7,
+  "description": "A collection of deeply personal and insightful essays exploring the limits of empathy and the complex ways we connect with others.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc24"
+  },
+  "pages": 288,
+  "realaseDate": {
+    "$date": "2014-04-29T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ba"
+  },
+  "cover": "https://m.media-amazon.com/images/I/710o401H1WL._SY466_.jpg",
+  "title": "Consider the Lobster",
+  "author": "David Foster Wallace",
+  "price": 13.45,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A collection of insightful and witty essays on a variety of topics, showcasing Wallace's unique voice and exploration of American culture.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc24"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2005-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0bb"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81qB4b4V1WL._SY466_.jpg",
+  "title": "I'll Be Gone in the Dark",
+  "author": "Michelle McNamara",
+  "price": 18.7,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A gripping true crime narrative that follows McNamara's investigation into the Golden State Killer and her dedication to bringing him to justice.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc25"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2018-02-27T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0bc"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81WpC7o91KL._SY466_.jpg",
+  "title": "In Cold Blood",
+  "author": "Truman Capote",
+  "price": 14.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A groundbreaking true crime novel that reconstructs the brutal murder of a Kansas family and explores the psyche of their killers.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc25"
+  },
+  "pages": 343,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-124848000000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0bd"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81GkXfG8-PL._SY466_.jpg",
+  "title": "Educated",
+  "author": "Tara Westover",
+  "price": 19.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A powerful memoir about Westover's journey from being raised in a survivalist family to earning a PhD from Cambridge University.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc26"
+  },
+  "pages": 336,
+  "realaseDate": {
+    "$date": "2018-02-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0be"
+  },
+  "cover": "https://m.media-amazon.com/images/I/719p36Xj7uL._SY466_.jpg",
+  "title": "Sapiens: A Brief History of Humankind",
+  "author": "Yuval Noah Harari",
+  "price": 21.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A sweeping narrative that traces the history of humankind, from ancient times to the present, exploring the forces that have shaped our species.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc26"
+  },
+  "pages": 443,
+  "realaseDate": {
+    "$date": "2014-02-11T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0bf"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71e3d5m9x9L._SY466_.jpg",
+  "title": "The 7 Habits of Highly Effective People",
+  "author": "Stephen Covey",
+  "price": 17.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A self-help classic that presents a principle-centered approach to personal and interpersonal effectiveness, with practical advice for achieving success and happiness.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc27"
+  },
+  "pages": 400,
+  "realaseDate": {
+    "$date": "1989-08-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c0"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71wYl8b6QWL._SY466_.jpg",
+  "title": "Atomic Habits",
+  "author": "James Clear",
+  "price": 15.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A practical guide to building good habits and breaking bad ones, using science-backed strategies and techniques for personal growth.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc27"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2018-10-16T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c1"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71y07Y10ZNL._SY466_.jpg",
+  "title": "A Brief History of Time",
+  "author": "Stephen Hawking",
+  "price": 16.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A popular science book that explores the origins of the universe, black holes, and the nature of time, making complex ideas accessible to a wide audience.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc28"
+  },
+  "pages": 256,
+  "realaseDate": {
+    "$date": "1988-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c2"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71mB+F2HwNL._SY466_.jpg",
+  "title": "Cosmos",
+  "author": "Carl Sagan",
+  "price": 14.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A beautifully written exploration of the universe, from its origins to its future, combining science and philosophy to inspire wonder and curiosity.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc28"
+  },
+  "pages": 368,
+  "realaseDate": {
+    "$date": "1980-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c3"
+  },
+  "cover": "https://m.media-amazon.com/images/I/813tI+k-5DL._SY466_.jpg",
+  "title": "Dune",
+  "author": "Frank Herbert",
+  "price": 15.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "An epic science fiction novel set in a far-future feudal interstellar society, exploring complex themes of politics, religion, and ecology on the desert planet Arrakis.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc29"
+  },
+  "pages": 896,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-157766400000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c4"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81Lp08v-8WL._SY466_.jpg",
+  "title": "The Martian",
+  "author": "Andy Weir",
+  "price": 13.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A thrilling science fiction novel about an astronaut stranded on Mars and his struggle to survive, using his ingenuity and science to overcome challenges.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc29"
+  },
+  "pages": 369,
+  "realaseDate": {
+    "$date": "2011-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c5"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71aT09t7yZL._SY466_.jpg",
+  "title": "Neuromancer",
+  "author": "William Gibson",
+  "price": 14.8,
+  "language": "English",
+  "condition": "New",
+  "quantity": 7,
+  "description": "A groundbreaking cyberpunk novel that explores the intersection of virtual reality, artificial intelligence, and corporate power, introducing a dystopian future of hacking and high-tech crime.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2a"
+  },
+  "pages": 304,
+  "realaseDate": {
+    "$date": "1984-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c6"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71zI52l6Y6L._SY466_.jpg",
+  "title": "Snow Crash",
+  "author": "Neal Stephenson",
+  "price": 12.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A fast-paced cyberpunk novel that combines virtual reality, linguistics, ancient mythology, and conspiracy theories in a complex and thrilling narrative.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2a"
+  },
+  "pages": 470,
+  "realaseDate": {
+    "$date": "1992-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c7"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71k7yv0t1PL._SY466_.jpg",
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "price": 10.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A classic fantasy adventure that follows Bilbo Baggins on his quest to reclaim a stolen treasure, featuring a rich world, memorable characters, and thrilling encounters.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2b"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-1041379200000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c8"
+  },
+  "cover": "https://m.media-amazon.com/images/I/717n3aXk-FL._SY466_.jpg",
+  "title": "A Game of Thrones",
+  "author": "George R.R. Martin",
+  "price": 18.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "The first book in the epic 'A Song of Ice and Fire' series, this high fantasy novel delves into a complex world of political intrigue, war, and mythical creatures.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2b"
+  },
+  "pages": 694,
+  "realaseDate": {
+    "$date": "1996-08-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0c9"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81G9L7973ML._SY466_.jpg",
+  "title": "Neverwhere",
+  "author": "Neil Gaiman",
+  "price": 11.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A captivating urban fantasy novel that follows a man who falls into a hidden world beneath London, filled with magic, myth, and strange creatures.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2c"
+  },
+  "pages": 370,
+  "realaseDate": {
+    "$date": "1996-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ca"
+  },
+  "cover": "https://m.media-amazon.com/images/I/817aF15f9mL._SY466_.jpg",
+  "title": "Rivers of London",
+  "author": "Ben Aaronovitch",
+  "price": 13.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "An exciting urban fantasy novel where a young police officer discovers that magic is real and becomes a detective solving supernatural crimes in London.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2c"
+  },
+  "pages": 304,
+  "realaseDate": {
+    "$date": "2011-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0cb"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71fHl2KPDZL._SY466_.jpg",
+  "title": "1984",
+  "author": "George Orwell",
+  "price": 10.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 14,
+  "description": "A chilling dystopian novel set in a totalitarian society, exploring themes of surveillance, propaganda, and the loss of individual freedom.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2d"
+  },
+  "pages": 328,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-649036800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0cc"
+  },
+  "cover": "https://m.media-amazon.com/images/I/615X510u7yL._SY466_.jpg",
+  "title": "The Hunger Games",
+  "author": "Suzanne Collins",
+  "price": 12.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A thrilling dystopian young adult novel set in a post-apocalyptic world where children are forced to compete in a televised battle for survival.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2d"
+  },
+  "pages": 374,
+  "realaseDate": {
+    "$date": "2008-09-14T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0cd"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81YfJ167HqL._SY466_.jpg",
+  "title": "The Thursday Murder Club",
+  "author": "Richard Osman",
+  "price": 15.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 7,
+  "description": "A lighthearted and charming cozy mystery about a group of elderly friends in a retirement village who meet to discuss old murder cases and become involved in solving a new one.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2e"
+  },
+  "pages": 368,
+  "realaseDate": {
+    "$date": "2020-09-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ce"
+  },
+  "cover": "https://m.media-amazon.com/images/I/812+37k85GL._SY466_.jpg",
+  "title": "A Killer's Cookbook",
+  "author": "Penny Pike",
+  "price": 9.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A cozy mystery set in a small town where a food blogger has to solve a series of murders while also discovering new recipes",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2e"
+  },
+  "pages": 280,
+  "realaseDate": {
+    "$date": "2017-06-16T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0cf"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81o0C8hY+LL._SY466_.jpg",
+  "title": "The Girl with the Dragon Tattoo",
+  "author": "Stieg Larsson",
+  "price": 16.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A dark and gripping crime novel that follows a journalist and a mysterious hacker as they investigate a decades-old disappearance, uncovering a world of secrets and violence.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2f"
+  },
+  "pages": 464,
+  "realaseDate": {
+    "$date": "2005-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d0"
+  },
+  "cover": "https://m.media-amazon.com/images/I/816bBw20sXL._SY466_.jpg",
+  "title": "The Godfather",
+  "author": "Mario Puzo",
+  "price": 14.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "An iconic crime novel that tells the story of the Corleone family and their complex web of power, loyalty, and betrayal in the world of organized crime.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc2f"
+  },
+  "pages": 448,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-31536000000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d1"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81u6aYl05yL._SY466_.jpg",
+  "title": "Gone Girl",
+  "author": "Gillian Flynn",
+  "price": 17.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A suspenseful thriller that follows the twists and turns of a marriage gone wrong, as the husband becomes a prime suspect in his wife's disappearance.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc30"
+  },
+  "pages": 416,
+  "realaseDate": {
+    "$date": "2012-06-05T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d2"
+  },
+  "cover": "https://m.media-amazon.com/images/I/712+vV90LqL._SY466_.jpg",
+  "title": "The Girl on the Train",
+  "author": "Paula Hawkins",
+  "price": 13.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A psychological thriller told from multiple perspectives, following the story of a woman who becomes entangled in a missing person investigation.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc30"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2015-01-13T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d3"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71j77nB1T6L._SY466_.jpg",
+  "title": "The Firm",
+  "author": "John Grisham",
+  "price": 12.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A gripping legal thriller that follows a young lawyer who discovers that his prestigious law firm is involved in shady dealings, putting him in grave danger.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc31"
+  },
+  "pages": 466,
+  "realaseDate": {
+    "$date": "1991-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d4"
+  },
+  "cover": "https://m.media-amazon.com/images/I/817J0Qj1FDL._SY466_.jpg",
+  "title": "The Silent Patient",
+  "author": "Alex Michaelides",
+  "price": 16.8,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A gripping psychological thriller that follows a psychotherapist as he attempts to unravel the mystery behind a famous artist who has gone silent after killing her husband.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc32"
+  },
+  "pages": 323,
+  "realaseDate": {
+    "$date": "2019-02-05T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d5"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71z53tq6oGL._SY466_.jpg",
+  "title": "Rebecca",
+  "author": "Daphne du Maurier",
+  "price": 10.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A classic gothic novel and psychological thriller, exploring themes of jealousy, identity and the lingering presence of the past in the life of a young woman.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc32"
+  },
+  "pages": 448,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-1009843200000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d6"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71h089A6DlL._SY466_.jpg",
+  "title": "Red, White & Royal Blue",
+  "author": "Casey McQuiston",
+  "price": 14.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A charming and heartwarming contemporary romance about the son of the US President and a British prince who fall in love despite their royal obligations.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc33"
+  },
+  "pages": 417,
+  "realaseDate": {
+    "$date": "2019-05-14T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d7"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71qH87c0-iL._SY466_.jpg",
+  "title": "People We Meet on Vacation",
+  "author": "Emily Henry",
+  "price": 12.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A sweet and engaging contemporary romance about two best friends who take annual vacations together and navigate their complicated feelings for each other.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc33"
+  },
+  "pages": 363,
+  "realaseDate": {
+    "$date": "2021-05-11T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d8"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71Zq5bI6-LL._SY466_.jpg",
+  "title": "The Duke and I",
+  "author": "Julia Quinn",
+  "price": 13.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "The first book in the beloved Bridgerton series, a historical romance set in Regency-era England, filled with love, family drama, and societal expectations.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc34"
+  },
+  "pages": 384,
+  "realaseDate": {
+    "$date": "2000-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0d9"
+  },
+  "cover": "https://m.media-amazon.com/images/I/819f9tJ5R0L._SY466_.jpg",
+  "title": "Outlander",
+  "author": "Diana Gabaldon",
+  "price": 16.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A captivating historical romance with elements of time travel, following the story of a World War II nurse who is transported back to 18th century Scotland, where she falls in love with a Highlander.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc34"
+  },
+  "pages": 850,
+  "realaseDate": {
+    "$date": "1991-06-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0da"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81eHn1R7wYL._SY466_.jpg",
+  "title": "A Court of Thorns and Roses",
+  "author": "Sarah J. Maas",
+  "price": 15.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A popular fantasy romance novel with strong enemies-to-lovers vibes, following a human woman who becomes entangled in the affairs of faeries.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc35"
+  },
+  "pages": 416,
+  "realaseDate": {
+    "$date": "2015-05-05T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0db"
+  },
+  "cover": "https://m.media-amazon.com/images/I/712q3v7v+cL._SY466_.jpg",
+  "title": "From Blood and Ash",
+  "author": "Jennifer L. Armentrout",
+  "price": 17.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "An enthralling fantasy romance with a focus on forbidden love between a maiden and a mysterious guard, filled with magic, action, and complex characters.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc35"
+  },
+  "pages": 634,
+  "realaseDate": {
+    "$date": "2020-03-30T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0dc"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71nI7kGv2UL._SY466_.jpg",
+  "title": "The Hating Game",
+  "author": "Sally Thorne",
+  "price": 12.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A witty and hilarious romantic comedy about two office rivals who find themselves falling for each other, despite their constant bickering and competitive nature.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc36"
+  },
+  "pages": 368,
+  "realaseDate": {
+    "$date": "2016-08-09T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0dd"
+  },
+  "cover": "https://m.media-amazon.com/images/I/713W1nS1zOL._SY466_.jpg",
+  "title": "Get a Life, Chloe Brown",
+  "author": "Talia Hibbert",
+  "price": 11.8,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A fun and feel-good romantic comedy following a chronically ill woman who decides to create a 'get a life' list, leading her to new experiences and a charming love interest.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc36"
+  },
+  "pages": 374,
+  "realaseDate": {
+    "$date": "2019-11-05T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0de"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71w0pI587LL._SY466_.jpg",
+  "title": "Fifty Shades of Grey",
+  "author": "E.L. James",
+  "price": 13.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 7,
+  "description": "A highly popular erotic romance that follows the intense and passionate relationship between a college graduate and a mysterious billionaire, exploring themes of power, dominance, and submission.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc37"
+  },
+  "pages": 514,
+  "realaseDate": {
+    "$date": "2011-06-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0df"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91070fVjQPL._SY466_.jpg",
+  "title": "Bared to You",
+  "author": "Sylvia Day",
+  "price": 14.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "The first book in the 'Crossfire' series, an erotic romance that depicts the intense and often tumultuous relationship between two people with dark pasts and strong desires.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc37"
+  },
+  "pages": 304,
+  "realaseDate": {
+    "$date": "2012-04-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e0"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81j3X2q3nDL._SY466_.jpg",
+  "title": "The Very Hungry Caterpillar",
+  "author": "Eric Carle",
+  "price": 8.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 14,
+  "description": "A classic picture book about a caterpillar who eats his way through a variety of foods before transforming into a beautiful butterfly, using vibrant illustrations and a simple narrative.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc38"
+  },
+  "pages": 26,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-18316800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e1"
+  },
+  "cover": "https://m.media-amazon.com/images/I/817bQc8t+FL._SY466_.jpg",
+  "title": "Where the Wild Things Are",
+  "author": "Maurice Sendak",
+  "price": 10.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A timeless picture book about a boy who sails away to a land of wild creatures, exploring themes of imagination, anger and adventure through iconic illustrations",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc38"
+  },
+  "pages": 40,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-220924800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e2"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71o16U8o1uL._SY466_.jpg",
+  "title": "Frog and Toad Are Friends",
+  "author": "Arnold Lobel",
+  "price": 9.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A gentle collection of short stories about the friendship between two lovable characters, Frog and Toad, perfect for beginning readers.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc39"
+  },
+  "pages": 64,
+  "realaseDate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e3"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81Xm+c59JPL._SY466_.jpg",
+  "title": "Fly Guy Presents: Sharks",
+  "author": "Tedd Arnold",
+  "price": 7.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A fun and engaging early reader book that combines facts about sharks with a humorous narrative that is perfect for young learners.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc39"
+  },
+  "pages": 32,
+  "realaseDate": {
+    "$date": "2018-03-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e4"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81vVj87U3rL._SY466_.jpg",
+  "title": "Wonder",
+  "author": "R.J. Palacio",
+  "price": 11.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A heartwarming and inspiring middle-grade novel about a boy with facial differences who enters mainstream school for the first time, teaching valuable lessons about empathy and acceptance.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3a"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2012-02-14T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e5"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81L2t0x3yPL._SY466_.jpg",
+  "title": "The Lightning Thief",
+  "author": "Rick Riordan",
+  "price": 10.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "The first book in the Percy Jackson series, a thrilling fantasy adventure that follows a young boy who discovers he's the son of Poseidon and gets involved in a world of Greek mythology.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3a"
+  },
+  "pages": 377,
+  "realaseDate": {
+    "$date": "2005-07-28T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e6"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81y5l-aJqYL._SY466_.jpg",
+  "title": "Brain Quest Workbook: Grade 2",
+  "author": "Workman Publishing",
+  "price": 12.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "An educational activity book that reinforces school curriculum through a variety of interactive activities, perfect for children in second grade to learn and have fun.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3b"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2020-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e7"
+  },
+  "cover": "https://m.media-amazon.com/images/I/913T6t3Q6mL._SY466_.jpg",
+  "title": "Paint by Sticker: Animals",
+  "author": "Workman Publishing",
+  "price": 9.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A fun and creative activity book that combines art and puzzles, allowing children to create beautiful sticker art by following numbered patterns.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3b"
+  },
+  "pages": 52,
+  "realaseDate": {
+    "$date": "2016-07-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e8"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81yUfJ6qfML._SY466_.jpg",
+  "title": "Charlotte's Web",
+  "author": "E.B. White",
+  "price": 10.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A beloved chapter book about the friendship between a pig and a spider, exploring themes of life, death, and the power of loyalty and compassion.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3c"
+  },
+  "pages": 184,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-543196800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0e9"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81bCjE1p-mL._SY466_.jpg",
+  "title": "Matilda",
+  "author": "Roald Dahl",
+  "price": 9.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A charming and fun chapter book about a gifted young girl with neglectful parents who discovers her magical abilities, showcasing her resilience and love for learning",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3c"
+  },
+  "pages": 240,
+  "realaseDate": {
+    "$date": "1988-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ea"
+  },
+  "cover": "https://m.media-amazon.com/images/I/712Z-w3zJWL._SY466_.jpg",
+  "title": "The Diary of a Young Girl",
+  "author": "Anne Frank",
+  "price": 14.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A powerful autobiography based on Anne Frank's diary, detailing her life and experience in hiding during World War II, offering a poignant and personal perspective on history.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3d"
+  },
+  "pages": 304,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-710726400000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0eb"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81H6U7H-2ZL._SY466_.jpg",
+  "title": "Long Walk to Freedom",
+  "author": "Nelson Mandela",
+  "price": 18.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "The autobiography of Nelson Mandela, recounting his life, activism, and struggle against apartheid, providing a firsthand account of his unwavering commitment to justice.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3d"
+  },
+  "pages": 630,
+  "realaseDate": {
+    "$date": "1994-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ec"
+  },
+  "cover": "https://m.media-amazon.com/images/I/914b4i93wRL._SY466_.jpg",
+  "title": "Steve Jobs",
+  "author": "Walter Isaacson",
+  "price": 20.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A comprehensive biography of Steve Jobs, co-founder of Apple, exploring his complex personality, business acumen, and revolutionary contributions to the tech industry.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3e"
+  },
+  "pages": 630,
+  "realaseDate": {
+    "$date": "2011-10-24T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ed"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81y141D37AL._SY466_.jpg",
+  "title": "Alexander Hamilton",
+  "author": "Ron Chernow",
+  "price": 19.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "An in-depth biography of Alexander Hamilton, one of the founding fathers of the United States, examining his pivotal role in shaping the nation.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3e"
+  },
+  "pages": 818,
+  "realaseDate": {
+    "$date": "2004-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ee"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81312O9uHXL._SY466_.jpg",
+  "title": "Eat, Pray, Love",
+  "author": "Elizabeth Gilbert",
+  "price": 13.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A popular memoir recounting Elizabeth Gilbert's journey of self-discovery after a divorce, as she travels through Italy, India, and Indonesia.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3f"
+  },
+  "pages": 384,
+  "realaseDate": {
+    "$date": "2006-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ef"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81zL+Fp87ZL._SY466_.jpg",
+  "title": "Wild",
+  "author": "Cheryl Strayed",
+  "price": 15.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A powerful memoir following Cheryl Strayed's solo hike along the Pacific Crest Trail after experiencing personal tragedies, showcasing resilience and self-healing.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc3f"
+  },
+  "pages": 315,
+  "realaseDate": {
+    "$date": "2012-03-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f0"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71z15-lQ04L._SY466_.jpg",
+  "title": "Letters to a Young Poet",
+  "author": "Rainer Maria Rilke",
+  "price": 11.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A compilation of ten insightful letters written by Rainer Maria Rilke to a young poet, offering profound reflections on art, life, and the creative process.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc40"
+  },
+  "pages": 120,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-1293840000000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f1"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81x1J9oG+NL._SY466_.jpg",
+  "title": "The Journal of a Disappointed Man",
+  "author": "W. N. P. Barbellion",
+  "price": 12.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A compelling journal revealing the inner life and struggles of a naturalist, Barbellion's experiences with illness, ambition and disappointments.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc40"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-1609459200000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f2"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81h5x4O0q9L._SY466_.jpg",
+  "title": "SPQR: A History of Ancient Rome",
+  "author": "Mary Beard",
+  "price": 17.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A comprehensive and engaging history of ancient Rome, exploring its rise, culture, and lasting legacy, with insights into the political, social, and military aspects of the empire.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc41"
+  },
+  "pages": 608,
+  "realaseDate": {
+    "$date": "2015-10-08T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f3"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81R7t3yLdZL._SY466_.jpg",
+  "title": "The Histories",
+  "author": "Herodotus",
+  "price": 15.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A foundational text of Western history, this book offers an account of the Greco-Persian Wars, exploring a vast variety of cultures, stories and events of ancient civilizations.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc41"
+  },
+  "pages": 735,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-48755438640000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f4"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71oM7fR4TCL._SY466_.jpg",
+  "title": "Guns, Germs, and Steel",
+  "author": "Jared Diamond",
+  "price": 16.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A groundbreaking book that explores the geographical and environmental factors contributing to the dominance of certain civilizations and their impact on world history.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc42"
+  },
+  "pages": 490,
+  "realaseDate": {
+    "$date": "1997-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f5"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71i1Q-7l9RL._SY466_.jpg",
+  "title": "A History of the World in 100 Objects",
+  "author": "Neil MacGregor",
+  "price": 21.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A history of the world told through the stories and significance of 100 objects from the collection of the British Museum.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc42"
+  },
+  "pages": 704,
+  "realaseDate": {
+    "$date": "2010-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f6"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91eEw61jXQL._SY466_.jpg",
+  "title": "Team of Rivals",
+  "author": "Doris Kearns Goodwin",
+  "price": 19.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A thorough account of Abraham Lincoln's presidency and his cabinet, examining how he strategically brought together his political rivals to steer the nation through the Civil War.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc43"
+  },
+  "pages": 916,
+  "realaseDate": {
+    "$date": "2005-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f7"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91l3-eA0DIL._SY466_.jpg",
+  "title": "Bury My Heart at Wounded Knee",
+  "author": "Dee Brown",
+  "price": 14.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A deeply moving historical account of the Native American experience during the expansion of the American West, written from the perspective of the indigenous peoples.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc43"
+  },
+  "pages": 487,
+  "realaseDate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f8"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71U5YfT3u2L._SY466_.jpg",
+  "title": "The Guns of August",
+  "author": "Barbara W. Tuchman",
+  "price": 17.8,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A detailed analysis of the events leading up to World War I, focusing on the political and military decisions that shaped the early stages of the conflict.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc44"
+  },
+  "pages": 511,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-252460800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0f9"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71Ie5e+L5FL._SY466_.jpg",
+  "title": "Band of Brothers",
+  "author": "Stephen E. Ambrose",
+  "price": 16.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A gripping military history that follows the experiences of Easy Company, 506th Regiment of the 101st Airborne Division, through their training and combat during World War II.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc44"
+  },
+  "pages": 432,
+  "realaseDate": {
+    "$date": "1992-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0fa"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91-0GzW0wDL._SY466_.jpg",
+  "title": "All the President's Men",
+  "author": "Carl Bernstein and Bob Woodward",
+  "price": 15.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A firsthand account of the Watergate scandal by the two journalists who broke the story, revealing the political intrigue and cover-ups within the Nixon administration.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc45"
+  },
+  "pages": 349,
+  "realaseDate": {
+    "$date": "1974-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0fb"
+  },
+  "cover": "https://m.media-amazon.com/images/I/814b2p7-rIL._SY466_.jpg",
+  "title": "No Easy Day",
+  "author": "Mark Owen",
+  "price": 14.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A gripping insider's account of the raid that killed Osama bin Laden, written by a Navy SEAL who was part of the operation.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc45"
+  },
+  "pages": 336,
+  "realaseDate": {
+    "$date": "2012-09-04T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0fc"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71zR6-130mL._SY466_.jpg",
+  "title": "The Elegant Universe",
+  "author": "Brian Greene",
+  "price": 17.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A popular science book that explores the concepts of string theory and its potential to unify general relativity and quantum mechanics.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc46"
+  },
+  "pages": 448,
+  "realaseDate": {
+    "$date": "1999-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0fd"
+  },
+  "cover": "https://m.media-amazon.com/images/I/718+j7QWzAL._SY466_.jpg",
+  "title": "Seven Brief Lessons on Physics",
+  "author": "Carlo Rovelli",
+  "price": 12.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A concise and accessible introduction to modern physics, covering key concepts such as relativity, quantum mechanics, and black holes.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc46"
+  },
+  "pages": 128,
+  "realaseDate": {
+    "$date": "2014-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0fe"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71xX4t362EL._SY466_.jpg",
+  "title": "The Disappearing Spoon",
+  "author": "Sam Kean",
+  "price": 16.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A popular science book that explores the periodic table and the stories behind the elements, combining science with history, humor, and fascinating anecdotes.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc47"
+  },
+  "pages": 390,
+  "realaseDate": {
+    "$date": "2010-07-13T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc0ff"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81oX6F+j6RL._SY466_.jpg",
+  "title": "Napoleon's Buttons",
+  "author": "Penny Le Couteur",
+  "price": 15.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "An engaging exploration of how 17 molecules have shaped key historical events, blending chemistry with history.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc47"
+  },
+  "pages": 380,
+  "realaseDate": {
+    "$date": "2003-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc100"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81NlV+y55dL._SY466_.jpg",
+  "title": "The Selfish Gene",
+  "author": "Richard Dawkins",
+  "price": 18.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A groundbreaking book that explores the evolutionary theory from a gene-centric perspective, explaining the nature of selfishness and altruism in the animal kingdom.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc48"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "1976-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc101"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71lXn+j-YpL._SY466_.jpg",
+  "title": "Sapiens: A Brief History of Humankind",
+  "author": "Yuval Noah Harari",
+  "price": 21.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A sweeping narrative that traces the history of humankind, from ancient times to the present, exploring the forces that have shaped our species.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc48"
+  },
+  "pages": 443,
+  "realaseDate": {
+    "$date": "2014-02-11T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc102"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71Y9XhW+K0L._SY466_.jpg",
+  "title": "Code Complete",
+  "author": "Steve McConnell",
+  "price": 24.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A comprehensive and widely respected guide to software development, covering coding techniques, best practices, and advanced topics for experienced and beginner programmers.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc49"
+  },
+  "pages": 960,
+  "realaseDate": {
+    "$date": "2004-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc103"
+  },
+  "cover": "https://m.media-amazon.com/images/I/51s46t6j3ZL._SY466_.jpg",
+  "title": "The Innovators",
+  "author": "Walter Isaacson",
+  "price": 22.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A comprehensive history of the computer and internet, exploring the stories of the people who transformed technology and had a dramatic impact on the world.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc49"
+  },
+  "pages": 544,
+  "realaseDate": {
+    "$date": "2014-10-07T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc104"
+  },
+  "cover": "https://m.media-amazon.com/images/I/818tFk6Y6YL._SY466_.jpg",
+  "title": "Structures",
+  "author": "J.E. Gordon",
+  "price": 18.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "A classic text that provides a fascinating explanation of structures in both the natural and built environment, for those interested in engineering and design.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4a"
+  },
+  "pages": 400,
+  "realaseDate": {
+    "$date": "1978-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc105"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71yY012QJ0L._SY466_.jpg",
+  "title": "To Engineer Is Human",
+  "author": "Henry Petroski",
+  "price": 15.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A insightful examination of the history of engineering failures and the key role that failure plays in the progress of engineering and innovation.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4a"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "1982-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc106"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91586qC9iFL._SY466_.jpg",
+  "title": "Into the Wild",
+  "author": "Jon Krakauer",
+  "price": 14.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A compelling account of the journey and fate of Christopher McCandless, who left behind his conventional life to seek adventure in the Alaskan wilderness.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4b"
+  },
+  "pages": 207,
+  "realaseDate": {
+    "$date": "1996-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc107"
+  },
+  "cover": "https://m.media-amazon.com/images/I/710eG8L+pXL._SY466_.jpg",
+  "title": "Touching the Void",
+  "author": "Joe Simpson",
+  "price": 16.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A thrilling and terrifying story of survival in the Andes, where two climbers face a life-or-death situation on a dangerous descent.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4b"
+  },
+  "pages": 288,
+  "realaseDate": {
+    "$date": "1988-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc108"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71uJ0nKzIcL._SY466_.jpg",
+  "title": "Lonely Planet's Best in Travel 2023",
+  "author": "Lonely Planet",
+  "price": 18.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A popular and comprehensive travel guide featuring the top destinations, experiences, and trends in travel for the year 2023.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4c"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2022-10-18T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc109"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91L7b7m0bFL._SY466_.jpg",
+  "title": "National Geographic Guide to National Parks",
+  "author": "National Geographic",
+  "price": 21.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A detailed guide to the National Parks across the United States, featuring detailed maps, practical planning and guidance.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4c"
+  },
+  "pages": 576,
+  "realaseDate": {
+    "$date": "2019-03-19T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10a"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81uY9tX6QcL._SY466_.jpg",
+  "title": "Eat, Pray, Love",
+  "author": "Elizabeth Gilbert",
+  "price": 13.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A popular memoir recounting Elizabeth Gilbert's journey of self-discovery after a divorce, as she travels through Italy, India, and Indonesia.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4d"
+  },
+  "pages": 384,
+  "realaseDate": {
+    "$date": "2006-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10b"
+  },
+  "cover": "https://m.media-amazon.com/images/I/719lF8lTqXL._SY466_.jpg",
+  "title": "Into Thin Air",
+  "author": "Jon Krakauer",
+  "price": 15.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A gripping firsthand account of the disastrous 1996 Mount Everest disaster, exploring the challenges of high-altitude mountaineering and the human drama that unfolded.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4d"
+  },
+  "pages": 368,
+  "realaseDate": {
+    "$date": "1997-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10c"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71f+c9r4c9L._SY466_.jpg",
+  "title": "National Geographic Complete Photography",
+  "author": "Joel Sartore",
+  "price": 24.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A comprehensive guide to photography from National Geographic, covering techniques, composition and insights for aspiring and established photographers alike.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4e"
+  },
+  "pages": 400,
+  "realaseDate": {
+    "$date": "2016-11-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10d"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91bI46Kj2RL._SY466_.jpg",
+  "title": "The Travel Photographer's Way",
+  "author": "Nori Jemil",
+  "price": 22.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A helpful guide to improve your travel photography, offering practical advice, inspirational stories and tips on composition, techniques and workflow.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4e"
+  },
+  "pages": 304,
+  "realaseDate": {
+    "$date": "2019-05-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10e"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71y6u9eY43L._SY466_.jpg",
+  "title": "The Geography of Bliss",
+  "author": "Eric Weiner",
+  "price": 13.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "An intriguing travelogue exploring the idea of happiness through different cultures around the world, blending travel writing with cultural analysis.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4f"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2008-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc10f"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81DqRk16DGL._SY466_.jpg",
+  "title": "Neither Here nor There",
+  "author": "Bill Bryson",
+  "price": 12.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A hilarious travel memoir detailing Bryson's backpacking journey through Europe, exploring the quirks, differences, and humor found within different cultures.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc4f"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "1991-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc110"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81hO556E-6L._SY466_.jpg",
+  "title": "The Bread Baker's Apprentice",
+  "author": "Peter Reinhart",
+  "price": 23.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A comprehensive guide to bread baking, offering professional techniques, recipes and insights to master artisan bread making at home.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc50"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2001-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc111"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71B+KjB4sHL._SY466_.jpg",
+  "title": "The Cake Bible",
+  "author": "Rose Levy Beranbaum",
+  "price": 25.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 12,
+  "description": "An extensive guide to cake baking, with precise recipes and techniques for achieving excellent results, with focus on ingredients and the science behind baking.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc50"
+  },
+  "pages": 648,
+  "realaseDate": {
+    "$date": "1988-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc112"
+  },
+  "cover": "https://m.media-amazon.com/images/I/811q99sH7BL._SY466_.jpg",
+  "title": "Plenty",
+  "author": "Yotam Ottolenghi",
+  "price": 22.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A popular vegetarian cookbook featuring inventive and flavorful recipes that showcase the diversity and richness of plant-based cuisine.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc51"
+  },
+  "pages": 288,
+  "realaseDate": {
+    "$date": "2010-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc113"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91z9J9+r5JL._SY466_.jpg",
+  "title": "The Vegetarian Cookbook",
+  "author": "DK",
+  "price": 19.2,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A comprehensive cookbook filled with a wide variety of vegetarian recipes from across different cuisines, catering to all levels of cooking.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc51"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2019-04-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc114"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81Z6QGk+1VL._SY466_.jpg",
+  "title": "Veganomicon",
+  "author": "Isa Chandra Moskowitz and Terry Hope Romero",
+  "price": 20.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 8,
+  "description": "A comprehensive and innovative guide to vegan cooking, offering a wide variety of recipes and tips for creating flavorful plant-based dishes.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc52"
+  },
+  "pages": 352,
+  "realaseDate": {
+    "$date": "2007-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc115"
+  },
+  "cover": "https://m.media-amazon.com/images/I/91oV2c41lOL._SY466_.jpg",
+  "title": "The Plant-Based Cookbook",
+  "author": "DK",
+  "price": 18.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A well-illustrated guide to plant-based cuisine that offers over 200 recipes to suit different tastes, with lots of tips and guidance for beginners.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc52"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2020-05-05T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc116"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81+5g0N5QLL._SY466_.jpg",
+  "title": "Jerusalem",
+  "author": "Yotam Ottolenghi and Sami Tamimi",
+  "price": 23.25,
+  "language": "English",
+  "condition": "New",
+  "quantity": 13,
+  "description": "A celebration of Jerusalem's diverse culinary landscape, blending the flavors of Jewish and Arab cuisine with rich recipes and beautiful photography.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc53"
+  },
+  "pages": 320,
+  "realaseDate": {
+    "$date": "2012-10-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc117"
+  },
+  "cover": "https://m.media-amazon.com/images/I/813Gj9mD6FL._SY466_.jpg",
+  "title": "Mastering the Art of French Cooking",
+  "author": "Julia Child",
+  "price": 26.5,
+  "language": "English",
+  "condition": "New",
+  "quantity": 11,
+  "description": "A classic French cookbook that has been helping home cooks master classic French techniques, filled with detailed recipes and explanations.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc53"
+  },
+  "pages": 736,
+  "realaseDate": {
+    "$date": {
+      "$numberLong": "-283996800000"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc118"
+  },
+  "cover": "https://m.media-amazon.com/images/I/71d4u9yJ+mL._SY466_.jpg",
+  "title": "How Not to Die",
+  "author": "Michael Greger, M.D.",
+  "price": 20.99,
+  "language": "English",
+  "condition": "New",
+  "quantity": 10,
+  "description": "A comprehensive guide to using nutrition and food to combat and prevent the leading causes of death, with detailed scientific backing and practical advice.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc54"
+  },
+  "pages": 560,
+  "realaseDate": {
+    "$date": "2015-12-08T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677d4ddbbe067fc8e52fc119"
+  },
+  "cover": "https://m.media-amazon.com/images/I/81rO1339vKL._SY466_.jpg",
+  "title": "The Food Lab",
+  "author": "J. Kenji López-Alt",
+  "price": 25.75,
+  "language": "English",
+  "condition": "New",
+  "quantity": 9,
+  "description": "A scientific approach to cooking that explores the 'why' behind cooking methods, with detailed explanations and recipes for both beginners and experienced cooks.",
+  "category": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "subcategory": {
+    "$oid": "677d42b94fa2e2a43570cc54"
+  },
+  "pages": 950,
+  "realaseDate": {
+    "$date": "2015-09-21T00:00:00.000Z"
+  }
+}]

@@ -4,3 +4,4 @@
 - add functionality to search bar in landing page
 - add functionalit to adding reviews and fetching them for books
 - adjust style of profile page (orders and settings form)
+- add canceling orders to profile page (only if status is pending)

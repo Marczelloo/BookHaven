@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbcf"
+  },
+  "name": "History"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbd1"
+  },
+  "name": "Travel"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbcc"
+  },
+  "name": "Romance"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbcd"
+  },
+  "name": "Children's Books"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbce"
+  },
+  "name": "Biographies & Memoirs"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbcb"
+  },
+  "name": "Mystery & Thriller"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbc8"
+  },
+  "name": "Fiction"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbd2"
+  },
+  "name": "Cooking & Food"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbca"
+  },
+  "name": "Science Fiction & Fantasy"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbd0"
+  },
+  "name": "Science & Technology"
+},
+{
+  "_id": {
+    "$oid": "677d3fde4fa2e2a43570cbc9"
+  },
+  "name": "Non-Fiction"
+}]
