@@ -6,6 +6,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 const cartController = require('../controllers/cartController');
 const wishlistController = require('../controllers/wishlistController');
 const attachUser = require('../middleware/attachUser');
+const userController = require('../controllers/userController');
 
 router.use(attachUser);
 
@@ -28,5 +29,7 @@ router.get('/signin', redirectIfAuthenticated, (req, res) => {
 router.get('/signup', redirectIfAuthenticated, (req, res) => {   
    res.render('signUpPage', { title: 'Sign Up' });
 });
+
+router.get('/profile', authMiddleware, userController.getProfile);
 
 module.exports = router;

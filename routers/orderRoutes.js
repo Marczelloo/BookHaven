@@ -5,6 +5,4 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 router.post('/place', authMiddleware, orderController.placeOrder);
 
-router.post('/get', authMiddleware, orderController.getOrders);
-
 module.exports = router;

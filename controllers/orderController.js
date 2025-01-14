@@ -81,19 +81,3 @@ exports.placeOrder = async (req, res) => {
       res.status(500).json({ message: 'Error adding order', error });
    }
 }
-
-exports.getOrders = async (req, res) => {
-   const userId = req.session.user._id;
-
-   try 
-   {
-      const orders = await Order.find({ user: userId }).populate('items.book').populate('address');
-
-      res.status(200).json(orders);
-   } 
-   catch(error) 
-   {
-      console.error("Error fetching orders: ", error);
-      res.status(500).json({ message: 'Error fetching orders', error });
-   }
-};
