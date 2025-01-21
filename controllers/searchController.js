@@ -71,6 +71,8 @@ exports.getResults = async (req, res) => {
    const maxPrice = req.body.maxPrice;
    const rating = req.body.rating;
 
+   console.log(maxPrice);
+
    if (!search) return res.status(400).json({ message: 'No search input' });
    if (!searchBy) return res.status(400).json({ message: 'No searchBy input' });
 

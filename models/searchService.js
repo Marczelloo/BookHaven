@@ -27,7 +27,7 @@ class SearchService {
       if (searchBy === 'description') query.description = { $regex: search, $options: 'i' };
       if (category) query.category = category;
       if (subcategory) query.subcategory = subcategory;
-      if (minPrice && maxPrice) query.price = { $gte: minPrice, $lte: maxPrice };
+      if (minPrice || maxPrice) query.price = { $gte: minPrice, $lte: maxPrice };
       if (rating) query.averageRating = { $gte: rating };
 
       let books = await Book.find(query);
