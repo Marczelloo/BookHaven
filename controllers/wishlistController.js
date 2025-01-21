@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const Book = require("../models/book");
+const WishlistService = require("../models/wishlistService");
 const shippingPrice = 5;
+const mongoose = require('mongoose');
 
 exports.addToWishlist = async (req, res) => { 
    const { bookId, quantity } = req.body;
@@ -13,21 +13,8 @@ exports.addToWishlist = async (req, res) => {
 
    try
    {
-      const book = await Book.findById(bookId);
+      const wishlist = await WishlistService.addToWishlist(req.session, bookId, quantity);
 
-      if(!book) return res.status(404).json('Book not found');
-
-      const wishlist = req.session.wishlist || [];
-
-      const existingItemIndex = wishlist.findIndex(item => item.bookId.toString() === bookId);
-      if (existingItemIndex > -1) 
-         wishlist[existingItemIndex].quantity += quantity;
-      else 
-         wishlist.push({ bookId, quantity });
-
-      req.session.wishlist = wishlist;
-
-      console.log('wishlist: ', req.session.wishlist);
       res.status(200).json(wishlist);
    }
    catch(error)
@@ -44,28 +31,12 @@ exports.removeFromWishlist = async (req, res) => {
 
    try
    {
-      let wishlist = req.session.wishlist || [];
-
-      const newWishlist = wishlist.filter(item => item.bookId.toString() !== bookId);
-
-      req.session.wishlist = newWishlist;
-
-      const bookIds = newWishlist.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const wishlistItems = books.map(book => {
-         const item = wishlist.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         }
-      })
-
+      const wishlistItems = await WishlistService.removeFromWishlist(req.session, bookId);
+      
       const subtotal = wishlistItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = newWishlist.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
+      const total = wishlistItems.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
 
       res.status(200).json({ wishlistItems, subtotal, discount, total });
    }
@@ -85,35 +56,16 @@ exports.updateWishlist = async (req, res) => {
    
    try
    {
-      let wishlist = req.session.wishlist || [];
-
-      const existingItemIndex = wishlist.findIndex(item => item.bookId.toString() === bookId);
-
-      if(existingItemIndex === -1) return res.status(404).json('Book not found in wishlist');
-
-      if(action === 'increase' && wishlist[existingItemIndex].quantity < 10) wishlist[existingItemIndex].quantity++;
-      else if(action === 'decrease' && wishlist[existingItemIndex]) wishlist[existingItemIndex].quantity--;
-
-      req.session.wishlist = wishlist;
-
-      const bookIds = wishlist.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const wishlistItems = books.map(book => {
-         const item = wishlist.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         }
-      })
-
+      const wishlistItems = await WishlistService.updateWishlist(req.session, bookId, action);
+      
       const subtotal = wishlistItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
       const total = wishlistItems.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
 
-      res.status(200).json({ newQuantity: wishlist[existingItemIndex] ? wishlist[existingItemIndex].quantity : 0, wishlistItems, subtotal, discount, total });
+      const existingItemIndex = wishlistItems.findIndex(item => item.book._id.toString() === bookId);
+
+      res.status(200).json({ newQuantity: wishlistItems[existingItemIndex] ? wishlistItems[existingItemIndex].quantity : 0, wishlistItems, subtotal, discount, total });
    }
    catch(error)
    {
@@ -125,26 +77,7 @@ exports.updateWishlist = async (req, res) => {
 exports.getWishlist = async (req, res) => {
    try
    {
-      const wishlist = req.session.wishlist || [];
-
-      if(wishlist.length === 0) return res.render('wishlistPage', { title: 'Wishlist', wishlistItems: [], subtotal: 0, discount: 0, total: 0 });
-
-      const bookIds = wishlist.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const wishlistItems = books.map(book => {
-         const item = wishlist.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         }
-      })
-
-      const subtotal = wishlistItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
-      const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
-      const discount = (discountPercent / 100) * subtotal;
-      const total = (shippingPrice + subtotal) - discount;
+      const { wishlistItems, subtotal, discount, total } = await WishlistService.getWishlist(req.session);
 
       res.render('wishlistPage', { title: 'Wishlist', wishlistItems, subtotal, discount, total });
    }
@@ -156,12 +89,29 @@ exports.getWishlist = async (req, res) => {
 }
 
 exports.addToCart = async (req, res) => {
-   req.session.cart = req.session.wishlist || [];
-   req.session.wishlist = [];
-   res.status(200).json('Wishlist added to cart');
+   try
+   {
+      const message = await WishlistService.addToCart(req.session);
+
+      res.status(200).json('Wishlist added to cart');
+   }
+   catch(error)
+   {
+      console.error("Error adding wishlist to cart: ", error);
+      res.status(500).json({ error: 'Internal Server Error' });
+   }
 }
 
 exports.clearWishlist = async (req, res) => {
-   req.session.wishlist = [];
-   res.status(200).json('Wishlist cleared'); 
+   try
+   {
+      const message = await WishlistService.clearWishlist(req.session);
+
+      res.status(200).json('Wishlist cleared'); 
+   }
+   catch(error)
+   {
+      console.error("Error clearing wishlist: ", error);
+      res.status(500).json({ error: 'Internal Server Error' });
+   }
 }

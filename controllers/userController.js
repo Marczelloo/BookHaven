@@ -1,8 +1,6 @@
-const User = require('../models/user');
 const path = require('path');
 const multer = require('multer');
-const Order = require('../models/order');
-const fs = require('fs');
+const UserService = require('../models/userService');
 
 const storage = multer.diskStorage({
    destination: (req, file, cb) => {
@@ -19,8 +17,6 @@ exports.signup = async (req, res) =>
 {
    const { username, email, password, passwordConfirm } = req.body;
 
-   console.log(req.body);
-
    if (password !== passwordConfirm) 
    {
       return res.status(400).json({ message: 'Passwords do not match', password: true });
@@ -28,18 +24,11 @@ exports.signup = async (req, res) =>
 
    try 
    {
-      const existingUser = await User.findOne({ email });
+      const existingUser = await UserService.findUserByEmail(email);
       if (existingUser) return res.status(400).json({ message: 'Email already in use', email: true });
+
+      const newUser = await UserService.createUser({ username, email, password });
       
-
-      const newUser = new User({
-         username,
-         email,
-         password
-      });
-
-      await newUser.save();
-
       req.session.user = newUser;
 
       const userResponse = newUser.toObject();
@@ -59,11 +48,11 @@ exports.signin = async (req, res) =>
 
    try 
    {
-      const user = await User.findOne({ email });
+      const user = await UserService.findUserByEmail(email);
       if (!user) return res.status(404).json({ message: 'User not found', email: true });
       
 
-      const isMatch = await user.comparePassword(password);
+      const isMatch = await UserService.comparePassword(user, password);
       if (!isMatch) return res.status(400).json({ message: 'Invalid credentials', password: true });
       
       req.session.user = user;
@@ -96,18 +85,7 @@ exports.getProfile = async (req, res) => {
 
    try 
    {
-      const orders = await Order.find({ user: userId })
-           .populate('items.bookId')
-           .populate('orderAddress');
-
-      orders.forEach(order => {
-         order.totalAmount = order.totalAmount.toFixed(2);
-         order.formattedOrderDate = new Date(order.orderDate).toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-         });
-      });
+      const orders = await UserService.getUserOrders(userId);
 
       res.render('profilePage', { title: 'Profile', orders, user: req.session.user });
    } 
@@ -124,37 +102,38 @@ exports.updateProfile = [upload.single('avatar'), async (req, res) => {
 
    try
    {
-      const user = await User.findById(req.session.user._id);
+      const user = await UserService.findUserById(req.session.user._id);
 
       if(!user) return res.status(404).json({ message: 'User not found' });
 
-      if (email && email !== user.email) {
-         const existingUser = await User.findOne({ email });
-         if (existingUser) {
-            console.log('Email already exists:', email);
-            return res.status(400).json({ message: 'Email already exists', email: true });
+      if (email && email !== user.email) 
+      {
+         const existingUser = await UserService.findUserByEmail(email);
+         if (existingUser) 
+         {
+             console.log('Email already exists:', email);
+             return res.status(400).json({ message: 'Email already exists', email: true });
          }
       }
 
-      if (avatar && user.avatar) {
-         const previousAvatarPath = path.join(__dirname, '..', user.avatar);
-         fs.unlink(previousAvatarPath, (err) => {
-             if (err) console.error('Error removing previous avatar:', err);
-             else console.log('Previous avatar removed:', previousAvatarPath);
-         });
-     }
+      if (avatar && user.avatar) 
+      {
+         await UserService.deleteUserAvatar(user.avatar);
+      }
       
-      if(username) user.username = username;
-      if(email) user.email = email;
-      if(newPassword) user.password = newPassword;
-      if(avatar) user.avatar = avatar;
+      const updateFields = {};
+      if (username) updateFields.username = username;
+      if (email) updateFields.email = email;
+      if (newPassword) updateFields.password = newPassword;
+      if (avatar) updateFields.avatar = avatar;
 
-      await user.save();
+      await UserService.updateUser(req.session.user._id, updateFields);
+      
+      const updatedUser = await UserService.findUserById(req.session.user._id);
+      const userResponse = { ...updatedUser.toObject() };
 
-      const userResponse = user.toObject();
       delete userResponse.password;
-
-      req.session.user = user;
+      req.session.user = updatedUser;
 
       res.status(200).json({ message: "Profile updated successfully", userResponse});
    }

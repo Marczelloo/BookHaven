@@ -1,6 +1,4 @@
-const Book = require('../models/book');
-const Subcategory = require('../models/subcategory');
-const Category = require('../models/category');
+const SearchService = require('../models/searchService');
 
 exports.getSearchPage = async (req, res) => {
    const input = req.query.search;
@@ -9,9 +7,8 @@ exports.getSearchPage = async (req, res) => {
 
    try 
    {
-      const books = await Book.find({ title: { $regex: input, $options: 'i' } });
-
-      const categories = await Category.find();
+      const books = await SearchService.searchBooks(input);
+      const categories = await SearchService.getCategories();
 
       res.render('searchPage', { title: 'Search', books: books, categories: categories });
    } 
@@ -29,7 +26,7 @@ exports.getSearchSuggestions = async (req, res) => {
 
    try 
    {
-      const books = await Book.find({ title: { $regex: input, $options: 'i' } }).limit(8);
+      const books = await SearchService.getSearchSuggestions(input);
 
       res.status(200).json({ books: books.map(book => ({
          id: book._id,
@@ -52,7 +49,7 @@ exports.getSubcategories = async (req, res) => {
 
    try
    {
-      const subcategories = await Subcategory.find({ category });
+      const subcategories = await SearchService.getSubcategories(category);
 
       res.status(200).json({ subcategories });
    }
@@ -79,38 +76,7 @@ exports.getResults = async (req, res) => {
 
    try 
    {
-      let query = {};
-
-      if (searchBy === 'title') query.title = { $regex: search, $options: 'i' };
-      if (searchBy === 'author') query.author = { $regex: search, $options: 'i' };
-      if (searchBy === 'description') query.description = { $regex: search, $options: 'i' };
-      if (category) query.category = category;
-      if (subcategory) query.subcategory = subcategory;
-      if (minPrice && maxPrice) query.price = { $gte: minPrice, $lte: maxPrice };
-      if (rating) query.averageRating = { $gte: rating };
-
-      const books = await Book.find(query);
-
-      if(sortBy)
-      {
-         switch(sortBy)
-         {
-            case 'title':
-               books.sort((a, b) => a.title.localeCompare(b.title));
-               break;
-            case 'author':
-               books.sort((a, b) => a.author.localeCompare(b.author));
-               break;
-            case 'price':
-               books.sort((a, b) => a.price - b.price);
-               break;
-            case 'rating':
-               books.sort((a, b) => a.averageRating - b.averageRating);
-               break;
-         }
-      }
-
-      if(!sortOrderAsc) books.reverse();
+      const books = await SearchService.getResults(search, searchBy, sortBy, sortOrderAsc, category, subcategory, minPrice, maxPrice, rating);
       
       res.status(200).json({ books });
   } 

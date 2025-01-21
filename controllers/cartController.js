@@ -1,5 +1,5 @@
+const CartService = require('../models/cartService');
 const mongoose = require('mongoose');
-const Book = require('../models/book');
 const shippingPrice = 5;
 
 exports.addToCart = async (req, res) => {
@@ -9,21 +9,8 @@ exports.addToCart = async (req, res) => {
 
    try
    {
-      const book = await Book.findById(bookId);
+      const cart = await CartService.addToCart(req.session, bookId, quantity);
 
-      if(!book) return res.status(404).json('Book not found');
-
-      let cart = req.session.cart || [];
-
-      const existingItemIndex = cart.findIndex(item => item.bookId.toString() === bookId);
-      if (existingItemIndex > -1) 
-         cart[existingItemIndex].quantity += quantity;
-      else 
-         cart.push({ bookId, quantity });
-
-      req.session.cart = cart;
-
-      console.log('cart: ', req.session.cart);
       res.status(200).json(cart);
    }
    catch(error)
@@ -44,28 +31,14 @@ exports.removeFromCart = async (req, res) => {
 
    try
    {
-      let cart = req.session.cart || [];
+      const newCart = await CartService.removeFromCart(req.session, bookId);
 
-      const newCart = cart.filter(item => item.bookId.toString() !== bookId);
-
-      req.session.cart = newCart;
-
-      const bookIds = newCart.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const cartItems = books.map(book => {
-         const item = cart.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         };
-      });
-
-      const subtotal = cartItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
+      const subtotal = CartService.calculateSubtotal(newCart);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = newCart.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
+      const total = CartService.calculateTotal(subtotal, shippingPrice, discount);
+
+      console.log(newCart);
 
       res.status(200).json({newCart, subtotal, discount, total});
    }
@@ -85,37 +58,15 @@ exports.updateCart = async (req, res) => {
 
    try
    {
-      let cart = req.session.cart || [];
-
-      const existingItemIndex = cart.findIndex(item => item.bookId.toString() === bookId);
-
-      if(existingItemIndex === -1) return res.status(404).send('Item not found in cart');
-
-      if(action === 'increase' && cart[existingItemIndex].quantity < 10) cart[existingItemIndex].quantity++;
-      else if(action === 'decrease' && cart[existingItemIndex]) cart[existingItemIndex].quantity--;
-
-      if(cart[existingItemIndex].quantity === 0) cart = cart.filter(item => item.bookId.toString() !== bookId);
-
-      req.session.cart = cart;
-
-      const bookIds = cart.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const cartItems = books.map(book => {
-         const item = cart.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         };
-      });
-
-      const subtotal = cartItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
+      const cartItems = await CartService.updateCart(req.session, bookId, action);
+      const existingItemIndex = cartItems.findIndex(item => item.book._id.toString() === bookId);
+      
+      const subtotal = CartService.calculateSubtotal(cartItems);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = cart.length === 0 ? 0 : (shippingPrice + subtotal) - discount;
+      const total = CartService.calculateTotal(subtotal, shippingPrice, discount);
 
-      res.status(200).json({ newQuantity: cart[existingItemIndex] ? cart[existingItemIndex].quantity : 0, subtotal, discount, total });
+      res.status(200).json({ newQuantity: cartItems[existingItemIndex] ? cartItems[existingItemIndex].quantity : 0, subtotal, discount, total });
    }
    catch(error)
    {
@@ -127,26 +78,12 @@ exports.updateCart = async (req, res) => {
 exports.getCart = async (req, res) => {
    try
    {
-      const cart = req.session.cart || [];
+      const cartItems = await CartService.getCartItems(req.session);
 
-      if(cart.length === 0) return res.render('cartPage', { title: 'Cart', cartItems: [], subtotal: 0, discount: 0, total: 0 });
-
-      const bookIds = cart.map(item => item.bookId);
-
-      const books = await Book.find({ _id: { $in: bookIds } });
-
-      const cartItems = books.map(book => {
-         const item = cart.find(item => item.bookId.toString() === book._id.toString());
-         return {
-            book,
-            quantity: item.quantity
-         };
-      });
-
-      const subtotal = cartItems.reduce((acc, item) => acc + item.book.price * item.quantity, 0);
+      const subtotal = CartService.calculateSubtotal(cartItems);
       const discountPercent = subtotal > 100 ? 10 : subtotal > 200 ? 20 : 0;
       const discount = (discountPercent / 100) * subtotal;
-      const total = (shippingPrice + subtotal) - discount;
+      const total = CartService.calculateTotal(subtotal, shippingPrice, discount);
 
       res.render('cartPage', { title: 'Cart', cartItems, subtotal, discount, total });
    }
