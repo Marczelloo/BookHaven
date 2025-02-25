@@ -31,8 +31,39 @@
                    </svg>
                </button>
             </li>
-            <li><a href="/signin" class="button-primary"> Sign In </a></li>
-            <li><a href="/signup" class="button-primary"> Sign Up </a></li>
+            <% if(isAuthenticated) { %>
+               <li>
+                  <button class="profile-button">
+                     <% if(user && user.avatar) { %>
+                        <img src="<%= user.avatar %>" alt="user">
+                     <% } else { %>
+                        <%= user.username.charAt(0).toUpperCase() %>
+                     <% } %>
+                  </button>
+                  <div class="user-menu-popup">
+                     <a href="/profile"> 
+                        <img src="/assets/svg/profile.svg" alt="user icon" class="icon">
+                        <span> Profile </span>
+                     </a>
+                     <a href="/profile#orders"> 
+                        <img src= "/assets/svg/orders.svg" alt="orders icon" class="icon">
+                        <span> Orders  </span>
+                     </a>
+                     <a href="/profile#settings"> 
+                        <img src="/assets/svg/settings.svg" alt="settings icon" class="icon">   
+                        <span> Settings </span>
+                        </a>
+                     <div class="spacer"></div>
+                     <a href="/user/signout"> 
+                        <img src="/assets/svg/logout.svg" alt="logout icon" class="icon">
+                        <span> Logout </span> 
+                     </a>
+                  </div>
+               </li>
+            <% } else { %>
+               <li><a href="/signin" class="button-primary"> Sign In </a></li>
+               <li><a href="/signup" class="button-primary"> Sign Up </a></li>
+            <% } %>
          </ul>
       </nav>
    </header>
@@ -51,8 +82,11 @@
                <div class="search-input">
                   <input type="text" placeholder="Search for books" class="input-search">
                   <img src="/assets/svg/search.svg" alt="Search Icon" class="icon">
+                  <div class="search-results">
+         
+                  </div>
                </div>
-               <button class="button-primary">Search</button>
+               <button class="button-primary" id="search-button">Search</button>
             </div>
          </div>
          <div>

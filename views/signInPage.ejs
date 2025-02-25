@@ -85,6 +85,10 @@
    <script src="/scripts/theme-toggle.js"></script>
    <script>
       document.documentElement.classList.remove('no-transition');
+
+      const notificationMessage = '<%= notificationMessage %>';
+
+      if(notificationMessage) showNotification(notificationMessage, true);
    </script>
 </body>
 </html>

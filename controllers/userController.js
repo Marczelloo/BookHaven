@@ -1,6 +1,7 @@
 const path = require('path');
 const multer = require('multer');
 const UserService = require('../models/userService');
+const jwt = require('jsonwebtoken');
 
 const storage = multer.diskStorage({
    destination: (req, file, cb) => {
@@ -42,31 +43,47 @@ exports.signup = async (req, res) =>
    }
 };
 
-exports.signin = async (req, res) => 
-{
+exports.signin = async (req, res) => {
    const { email, password, rememberMe } = req.body;
 
-   try 
-   {
+   try {
       const user = await UserService.findUserByEmail(email);
       if (!user) return res.status(404).json({ message: 'User not found', email: true });
       
-
       const isMatch = await UserService.comparePassword(user, password);
       if (!isMatch) return res.status(400).json({ message: 'Invalid credentials', password: true });
       
-      req.session.user = user;
+      // Generate JWT tokens
+      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
+      const refreshToken = jwt.sign({ userId: user._id }, process.env.JWT_REFRESH_SECRET, { expiresIn: rememberMe ? '30d' : '7d' });
 
-      if (rememberMe) req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; 
-      else req.session.cookie.expires = false; 
+      // Set tokens in httpOnly cookies
+      res.cookie('accessToken', accessToken, {
+         httpOnly: true,
+         secure: process.env.NODE_ENV === 'production',
+         sameSite: 'lax',
+         maxAge: 15 * 60 * 1000
+      });
+      
+      res.cookie('refreshToken', refreshToken, {
+         httpOnly: true,
+         secure: process.env.NODE_ENV === 'production',
+         sameSite: 'lax',
+         maxAge: (rememberMe ? 30 : 7) * 24 * 60 * 60 * 1000
+      });
+
+      // Remove session usage as JWT tokens are used for authentication
+      // req.session.user = user;
+      // if (rememberMe) req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; 
+      // else req.session.cookie.expires = false; 
 
       const userResponse = user.toObject();
       delete userResponse.password;
 
+      req.session.user = userResponse;
+
       res.status(200).json(userResponse);
-   } 
-   catch (error) 
-   {
+   } catch (error) {
       res.status(500).json({ message: 'Error signing in', error });
    }
 };

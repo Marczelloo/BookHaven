@@ -23,7 +23,8 @@ router.get('/cart', authMiddleware, cartController.getCart);
 router.get('/wishlist', authMiddleware, wishlistController.getWishlist);
 
 router.get('/signin', redirectIfAuthenticated, (req, res) => {
-   res.render('signInPage', { title: 'Sign In' });
+   const { message } = req.query;
+   res.render('signInPage', { title: 'Sign In', notificationMessage: message });
 });
 
 router.get('/signup', redirectIfAuthenticated, (req, res) => {   
