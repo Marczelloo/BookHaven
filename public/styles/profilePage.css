@@ -147,6 +147,14 @@ main {
    margin-top: auto;
 }
 
+.profile > .order-history > .orders-list > .order-item > a {
+   background-color: var(--secondary-color);
+}
+
+.profile > .order-history > .orders-list > .order-item > a:hover {
+   background-color: var(--accent-color);
+}
+
 .profile > .order-history > .orders-list > .order-item > button:hover {
    background-color: var(--error-color);
 }

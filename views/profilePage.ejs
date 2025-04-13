@@ -91,14 +91,10 @@
                               </li>
                            <% }); %>
                         </ul>
-                        <div class="order-actions">
-                           <% if (order.status === 'pending_payment' || order.status === 'processing') { %>
-                              <button class="button-secondary cancel-order" data-id="<%= order._id %>">Cancel Order</button>
-                           <% } %>
-                           <% if (order.invoicePath) { %>
-                              <a href="/orders/<%= order._id %>/invoice" class="button-primary" download>Download Invoice</a>
-                           <% } %>
-                        </div>
+                        <% if(order.status === 'processing') { %>
+                           <button class="button-primary cancel-order" data-id="<%= order._id %>">Cancel Order</button>
+                        <% } %>
+                        <a href="/orders/<%= order._id %>/invoice" class="button-primary" download>Download Invoice</a>
                      </li>
                   <% }); %>
                <% } else { %>
