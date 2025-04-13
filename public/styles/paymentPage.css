@@ -1,0 +1,99 @@
+/* public/styles/paymentPage.css */
+
+.payment-container {
+    max-width: 600px; /* Increased width */
+    margin: 2rem auto;
+    padding: 2rem;
+ /* Slightly increased padding */
+    background-color: var(--primary-color); /* Match cart section background */
+    border-radius: 1rem; /* Match cart section border-radius */
+    box-shadow: var(--box-shadow-light); /* Keep shadow if desired */
+    color: var(--text-color);
+}
+
+.payment-container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2rem; /* Match cart h1 */
+    font-weight: 700; /* Match cart h1 */
+    color: var(--text-color);
+}
+
+.payment-container p {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+#payment-form .form-group {
+    margin-bottom: 20px;
+}
+
+#payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Match cart label */
+    font-size: 1.25rem; /* Match cart label */
+    color: var(--text-color); /* Match cart label */
+}
+
+#payment-form input[type="text"] {
+    width: 100%;
+    padding: .85rem; /* Slightly increased padding for inputs */
+    border: none; /* Remove border */
+    border-radius: .5rem; /* Match cart input */
+    background-color: var(--accent-color); /* Match cart input */
+    color: var(--text-color); /* Match cart input */
+    font-size: 1rem; /* Match cart input */
+    box-sizing: border-box;
+    outline: none; /* Remove default outline */
+    transition: background-color 0.3s ease; /* Add transition */
+}
+
+#payment-form input[type="text"]:focus {
+    background-color: var(--secondary-color); /* Optional: Darken on focus */
+}
+
+/* Remove specific button styles, rely on .button-primary from global.css */
+/* #payment-form button[type="submit"] { ... } */
+/* #payment-form button[type="submit"]:hover { ... } */
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.expiry-group {
+    flex: 1;
+}
+
+.cvv-group {
+    flex-basis: 100px;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 1rem; /* Match cart error */
+    font-weight: 400; /* Match cart error */
+    margin-top: 5px;
+    min-height: 1.5em; /* Match cart error */
+}
+
+/* Input specific placeholders */
+#cardNumber::placeholder,
+#expiryDate::placeholder,
+#cvv::placeholder {
+    color: var(--text-color-secondary); /* Use secondary text color for placeholder */
+    opacity: 1;
+}
+
+/* Ensure button has enough space - relies on global .button-primary */
+.pay-button {
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+    margin-top: 15px; /* Added margin-top for spacing */
+}
+
+.pay-button:hover {
+    background-color: var(--accent-color); /* Darken on hover */
+}

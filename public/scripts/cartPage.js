@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
    proceedToPaymentBtn.addEventListener('click', async () => {
+      console.log('Proceed to Payment button clicked.'); // Log button click
       const name = nameInput.value;
       const surname = surnameInput.value;
       const phoneNumber = phoneNumberInput.value;
@@ -116,32 +117,52 @@ document.addEventListener('DOMContentLoaded', () => {
       const country = countryInput.value;
       const zipCode = zipCodeInput.value;
 
-      if (!validate()) return;
+      const isValid = validate();
+      console.log('Validation result:', isValid); // Log validation result
+      if (!isValid) return;
 
+      console.log('Sending request to /orders/place...'); // Log before fetch
       try {
-         const response = await fetch('/order/place', {
+         const response = await fetch('/orders/place', { 
             method: 'POST',
             headers: {
                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name, surname, phoneNumber, address, city, country, zipCode })
          });
+         console.log('Received response. Status:', response.status, 'Ok:', response.ok, 'Redirected:', response.redirected, 'URL:', response.url);
 
-         const result = await response.json();
-
-         if (response.ok) 
-         {
-            window.location.href = '/payment';
+         if (response.ok) {
+             // Check if the fetch request followed a redirect.
+             // If yes, manually navigate the browser to the final URL.
+             if (response.redirected) {
+                 console.log('Redirect detected, navigating to:', response.url);
+                 window.location.href = response.url;
+             } else {
+                 // This case shouldn't happen if the server always redirects on success,
+                 // but handle it just in case.
+                 console.log('Server responded OK but no redirect detected. Check server logic.');
+                 // Maybe show a success message but stay on the page?
+                 showNotification('Order placed, but redirect failed. Please check your orders.', true);
+             }
          } 
          else 
          {
-            console.error(result.message);
-            showNotification('Error proceeding to payment', true);
+            // ... existing error handling ...
+            let errorResult = { message: `HTTP error! status: ${response.status}` };
+            try {
+                errorResult = await response.json();
+            } catch (e) {
+                console.error('Could not parse error response as JSON');
+            }
+            console.error('Error placing order:', errorResult.message);
+            showNotification(errorResult.message || 'Error proceeding to payment', true);
          }
+
       } 
       catch (error) 
       {
-         console.error('Error proceeding to payment:', error);
+         console.error('Error in fetch /orders/place:', error); // Log fetch error
          showNotification('Error proceeding to payment', true);
       }
    });

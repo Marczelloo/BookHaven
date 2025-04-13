@@ -1,3 +1,5 @@
+const UserService = require('../models/userService'); // Import UserService
+
 module.exports = (req, res, next) => {
    if (req.session.user)
    {

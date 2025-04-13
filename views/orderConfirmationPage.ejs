@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven | <%= title %></title>
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/orderConfirmationPage.css"> <!-- Link the new CSS file -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Add theme persistence script -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        document.documentElement.classList.add(savedTheme);
+        document.documentElement.classList.add('no-transition'); // Prevent transition on initial load
+   </script>
+</head>
+<body>
+    <%- include('partials/header', { user: user, currentPage: currentPage }) %>
+    <%- include('partials/notifications', { messages: messages }) %>
+
+    <section class="confirmation-container"> <!-- Remove profile-container class if not needed -->
+        <h1>Order Confirmation</h1>
+
+        <% if (order) { %>
+            <div class="order-summary"> <!-- Remove card class if not needed -->
+                <h2>Thank you for your order!</h2>
+                <p>Your order has been placed successfully.</p>
+                <p><strong>Order ID:</strong> <%= order._id %></p>
+                <p><strong>Order Date:</strong> <%= new Date(order.createdAt).toLocaleDateString() %></p>
+                <p><strong>Order Status:</strong> <span class="status-<%= order.status.replace('_', '-') %>"><%= order.status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()) %></span></p>
+                <p><strong>Total Amount:</strong> $<%= order.totalAmount.toFixed(2) %></p>
+
+                <% if (payment && payment.status === 'succeeded') { %>
+                    <h3>Payment Details</h3>
+                    <p><strong>Payment Method:</strong> Credit Card ending in **** <%= payment.cardLastFour %></p>
+                    <p><strong>Expiry:</strong> <%= payment.cardExpiry %></p>
+                    <p><strong>Transaction ID:</strong> <%= payment.transactionId %></p>
+                <% } else if (order.status === 'pending_payment' || order.status === 'payment_failed') { %>
+                     <p>Waiting for payment or payment failed. <a href="/payment/<%= order._id %>">Complete Payment</a></p>
+                <% } else { %>
+                     <p>Payment details are being processed.</p>
+                <% } %>
+
+                <% if (order.orderAddress) { %>
+                    <h3>Shipping Address</h3>
+                    <p>
+                        <%= order.orderAddress.name %> <%= order.orderAddress.surname %><br>
+                        <%= order.orderAddress.address %><br>
+                        <%= order.orderAddress.city %>, <%= order.orderAddress.zipCode %><br>
+                        <%= order.orderAddress.country %><br>
+                        Phone: <%= order.orderAddress.phoneNumber %>
+                    </p>
+                <% } %>
+
+                 <h3>Order Items</h3>
+                 <ul class="order-items-list">
+                    <% order.items.forEach(item => { %>
+                        <li>
+                            <span><%= item.quantity %> x <%= item.bookId.title %></span>
+                            <span>$<%= (item.bookId.price * item.quantity).toFixed(2) %></span>
+                        </li>
+                    <% }) %>
+                 </ul>
+                 
+                 <a href="/profile#orders" class="button-primary">View My Orders</a>
+                 <a href="/orders/<%= order._id %>/invoice" class="button-primary button-secondary" download>Download Invoice</a>
+                <!-- Add Download Invoice Button -->
+            </div>
+        <% } else { %>
+            <p>Could not load order details.</p>
+        <% } %>
+
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="/scripts/notifications.js"></script>
+    <script src="/scripts/header.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <!-- Add script to remove no-transition class after load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.classList.remove('no-transition');
+        });
+    </script>
+</body>
+</html>

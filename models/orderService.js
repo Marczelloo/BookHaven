@@ -81,13 +81,42 @@ class OrderService {
 
         return await Order.findById(orderId)
             .populate('items.bookId')
-            .populate('orderAddress');
+            .populate('orderAddress')
+            .populate('user', 'username email'); // Populate user details
     }
 
     static async getOrdersByUserId(userId) {
         return await Order.find({ user: userId })
             .populate('items.bookId')
             .populate('orderAddress');
+    }
+
+    static async updateOrderStatus(orderId, newStatus) {
+        const order = await Order.findById(orderId);
+        if (!order) {
+            throw new Error('Order not found');
+        }
+        // Add validation for allowed status transitions if needed
+        const allowedStatuses = ['pending_payment', 'payment_failed', 'processing', 'shipped', 'delivered', 'cancelled'];
+        if (!allowedStatuses.includes(newStatus)) {
+             throw new Error(`Invalid status: ${newStatus}`);
+        }
+        order.status = newStatus;
+        await order.save();
+        return order;
+    }
+
+    // Add the missing updateOrder method
+    static async updateOrder(orderId, updateData) {
+        if (!mongoose.Types.ObjectId.isValid(orderId)) {
+            throw new Error('Invalid order ID');
+        }
+        // Use findByIdAndUpdate to update the order with the provided data
+        const updatedOrder = await Order.findByIdAndUpdate(orderId, { $set: updateData }, { new: true });
+        if (!updatedOrder) {
+            throw new Error('Order not found for update');
+        }
+        return updatedOrder;
     }
 }
 

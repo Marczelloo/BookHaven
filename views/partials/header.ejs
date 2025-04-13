@@ -34,10 +34,13 @@
                </a>
             </li>
             <button class="profile-button">
-               <% if(user && user.avatar) { %>
+               <% if(user && user.avatar) { %> <!-- Check user exists first -->
                   <img src="<%= user.avatar %>" alt="user">
-               <% } else { %>
+               <% } else if (user && user.username) { %> <!-- Then check user.username -->
                   <%= user.username.charAt(0).toUpperCase() %>
+               <% } else { %>
+                  <!-- Fallback if user is null or has no username, even if authenticated -->
+                  ? 
                <% } %>
             </button>
             <div class="user-menu-popup">

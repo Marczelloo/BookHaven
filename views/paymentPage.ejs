@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Remove data-theme="light" -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven | <%= title %></title>
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/paymentPage.css">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Add theme persistence script -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        document.documentElement.classList.add(savedTheme);
+        document.documentElement.classList.add('no-transition'); // Prevent transition on initial load
+   </script>
+</head>
+<body>
+    <%- include('partials/header', { user: user, currentPage: currentPage }) %>
+    <%- include('partials/notifications', { messages: messages }) %>
+
+    <section class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <p>Order ID: <%= order._id %></p>
+        <p>Total Amount: $<%= order.totalAmount.toFixed(2) %></p> <!-- Format currency appropriately -->
+
+        <form id="payment-form" action="/payment/process" method="POST" novalidate>
+             <% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+             <% } %>
+            <input type="hidden" name="orderId" value="<%= order._id %>">
+
+            <div class="form-group">
+                <label for="cardholderName">Cardholder Name</label>
+                <input type="text" id="cardholderName" name="cardholderName" required value="<%= typeof formData !== 'undefined' ? formData.cardholderName : '' %>">
+                <div class="error-message" id="cardholderName-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" required autocomplete="cc-number" value="<%= typeof formData !== 'undefined' ? formData.cardNumber : '' %>">
+                 <div class="error-message" id="cardNumber-error"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group expiry-group">
+                    <label for="expiryDate">Expiry Date (MM/YY)</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required autocomplete="cc-exp" value="<%= typeof formData !== 'undefined' ? formData.expiryDate : '' %>">
+                     <div class="error-message" id="expiryDate-error"></div>
+                </div>
+                <div class="form-group cvv-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" inputmode="numeric" placeholder="123" required autocomplete="cc-csc" value="<%= typeof formData !== 'undefined' ? formData.cvv : '' %>">
+                     <div class="error-message" id="cvv-error"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="pay-button button-primary"> Pay </button>
+        </form>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="/scripts/paymentPage.js"></script>
+    <script src="/scripts/notifications.js"></script>
+    <script src="/scripts/header.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <!-- Add script to remove no-transition class after load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.classList.remove('no-transition');
+        });
+    </script>
+</body>
+</html>
