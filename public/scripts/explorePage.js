@@ -62,12 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/cart/add', {
                method: 'POST',
                headers: {
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
                },
                body: JSON.stringify({ bookId, quantity: 1 })
             });
 
-            const result = await response.json();
+            const isJson = response.headers.get('content-type')?.includes('application/json');
+            const result = isJson ? await response.json() : {};
 
             if (response.ok) 
             {
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                }
                else
                {
-                  showNotification(result.message, true);
+                  showNotification(result.message || 'Failed to add book to cart', true);
                }
             }
          } catch (error) {
@@ -101,12 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/wishlist/add', {
                method: 'POST',
                headers: {
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
                },
                body: JSON.stringify({ bookId, quantity: 1 })
             });
 
-            const result = await response.json();
+            const isJson = response.headers.get('content-type')?.includes('application/json');
+            const result = isJson ? await response.json() : {};
 
             if (response.ok) 
             {
@@ -120,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
                }
                else
                {
-                  showNotification(result.message, true);
+                  showNotification(result.message || 'Failed to add book to wishlist', true);
                }
-            }
+            } 
          } 
          catch (error) 
          {

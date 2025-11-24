@@ -43,7 +43,8 @@ addToCartBtn.addEventListener('click', async () => {
       const response = await fetch('/cart/add', {
          method: 'POST',
          headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
          },
          body: JSON.stringify({
             bookId: addToCartBtn.dataset.id,
@@ -51,7 +52,8 @@ addToCartBtn.addEventListener('click', async () => {
          }),
       });
 
-      const result = await response.json();
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const result = isJson ? await response.json() : {};
 
       if(response.ok)
       {
@@ -79,7 +81,8 @@ wishlistBtn.addEventListener('click', async () => {
       const response = await fetch('/wishlist/add', {
          method: 'POST',
          headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
          },
          body: JSON.stringify({
             bookId: wishlistBtn.dataset.id,
@@ -87,7 +90,8 @@ wishlistBtn.addEventListener('click', async () => {
          }),
       });
 
-      const result = await response.json();
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const result = isJson ? await response.json() : {};
 
       if(response.ok)
       {

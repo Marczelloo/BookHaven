@@ -32,6 +32,52 @@ let resultsParams = { ...initialResultsParams };
 
 let books = [];
 
+async function postJsonSafe(url, payload) {
+      const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+      });
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const result = isJson ? await response.json() : {};
+      return { response, result };
+}
+
+async function addBookToWishlist(bookId) {
+      try {
+            const { response, result } = await postJsonSafe('/wishlist/add', { bookId, quantity: 1 });
+            if (response.ok) {
+                  showNotification('Added to wishlist', false);
+            } else if (response.status === 401) {
+                  showNotification('Please sign in to add book to wishlist', true);
+            } else {
+                  showNotification(result.message || 'Failed to add book to wishlist', true);
+            }
+      } catch (error) {
+            console.log(error);
+            showNotification('Failed to add book to wishlist', true);
+      }
+}
+
+async function addBookToCart(bookId) {
+      try {
+            const { response, result } = await postJsonSafe('/cart/add', { bookId, quantity: 1 });
+            if (response.ok) {
+                  showNotification('Added to cart', false);
+            } else if (response.status === 401) {
+                  showNotification('Please sign in to add book to cart', true);
+            } else {
+                  showNotification(result.message || 'Failed to add book to cart', true);
+            }
+      } catch (error) {
+            console.log(error);
+            showNotification('Failed to add book to cart', true);
+      }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
       const resultsContainer = document.querySelector('.items-list');
       const bookElements = resultsContainer.querySelectorAll('.book-card');
@@ -50,40 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wihslistBtns.forEach(wishlistBtn => {
             wishlistBtn.addEventListener('click', async (event) => {
                   event.preventDefault();
-
-                  try
-                  {
-                        const response = await fetch('/wishlist/add', {
-                        method: 'POST',
-                        headers: {
-                              'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                              bookId: wishlistBtn.dataset.id,
-                              quantity: 1,
-                              }),
-                        });
-
-                        const result = await response.json();
-
-                        if(response.ok)
-                        {
-                              showNotification('Added to wishlist', false);
-                        }
-                        else if(response.status === 401)
-                        {
-                              showNotification('Please sign in to add book to wishlist', true);
-                        }
-                        else
-                        {
-                              showNotification('Failed to add book to wishlist', true);
-                        }
-                  }
-                  catch(error)
-                  {
-                        console.log(error);
-                        showNotification('Failed to add book to wishlist', true);
-                  }
+                  addBookToWishlist(wishlistBtn.dataset.id);
             });
       });
 
@@ -91,40 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addToCartBtns.forEach(addToCartBtn => {
             addToCartBtn.addEventListener('click', async (event) => {
                   event.preventDefault();
-
-                  try
-                  {
-                        const response = await fetch('/cart/add', {
-                        method: 'POST',
-                        headers: {
-                              'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                              bookId: addToCartBtn.dataset.id,
-                              quantity: 1,
-                        }),
-                        });
-
-                        const result = await response.json();
-
-                        if(response.ok)
-                        {
-                              showNotification('Added to cart', false);
-                        }
-                        else if(response.status === 401)
-                        {
-                              showNotification('Please sign in to add book to cart', true);
-                        }
-                        else
-                        {
-                              showNotification('Failed to add book to cart', true);
-                        }
-                  }
-                  catch(error)
-                  {
-                        console.log(error);
-                        showNotification('Failed to add book to cart', true);
-                  }
+                  addBookToCart(addToCartBtn.dataset.id);
             });
       });
 });
@@ -266,39 +246,7 @@ sortByOptions.forEach(option => {
                   wihslistBtns.forEach(wishlistBtn => {
                         wishlistBtn.addEventListener('click', async (event) => {
                               event.preventDefault();
-                              try
-                              {
-                                    const response = await fetch('/wishlist/add', {
-                                    method: 'POST',
-                                    headers: {
-                                          'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                          bookId: wishlistBtn.dataset.id,
-                                          quantity: 1,
-                                    }),
-                                    });
-
-                                    const result = await response.json();
-
-                                    if(response.ok)
-                                    {
-                                          showNotification('Added to wishlist', false);
-                                    }
-                                    else if(response.status === 401)
-                                    {
-                                          showNotification('Please sign in to add book to wishlist', true);
-                                    }
-                                    else
-                                    {
-                                          showNotification('Failed to add book to wishlist', true);
-                                    }
-                              }
-                              catch(error)
-                              {
-                                    console.log(error);
-                                    showNotification('Failed to add book to wishlist', true);
-                              }
+                              addBookToWishlist(wishlistBtn.dataset.id);
                         });
                   });
 
@@ -306,39 +254,7 @@ sortByOptions.forEach(option => {
                   addToCartBtns.forEach(addToCartBtn => {
                         addToCartBtn.addEventListener('click', async (event) => {
                               event.preventDefault();
-                              try
-                              {
-                                    const response = await fetch('/cart/add', {
-                                    method: 'POST',
-                                    headers: {
-                                          'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                          bookId: addToCartBtn.dataset.id,
-                                          quantity: 1,
-                                    }),
-                                    });
-
-                                    const result = await response.json();
-
-                                    if(response.ok)
-                                    {
-                                          showNotification('Added to cart', false);
-                                    }
-                                    else if(response.status === 401)
-                                    {
-                                          showNotification('Please sign in to add book to cart', true);
-                                    }
-                                    else
-                                    {
-                                          showNotification('Failed to add book to cart', true);
-                                    }
-                              }
-                              catch(error)
-                              {
-                                    console.log(error);
-                                    showNotification('Failed to add book to cart', true);
-                              }
+                              addBookToCart(addToCartBtn.dataset.id);
                         });
                   });
       });
@@ -516,39 +432,7 @@ getResults = async () => {
                   wihslistBtns.forEach(wishlistBtn => {
                         wishlistBtn.addEventListener('click', async (event) => {
                               event.preventDefault();
-                              try
-                              {
-                                    const response = await fetch('/wishlist/add', {
-                                    method: 'POST',
-                                    headers: {
-                                          'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                          bookId: wishlistBtn.dataset.id,
-                                          quantity: 1,
-                                    }),
-                                    });
-
-                                    const result = await response.json();
-
-                                    if(response.ok)
-                                    {
-                                          showNotification('Added to wishlist', false);
-                                    }
-                                    else if(response.status === 401)
-                                    {
-                                          showNotification('Please sign in to add book to wishlist', true);
-                                    }
-                                    else
-                                    {
-                                          showNotification('Failed to add book to wishlist', true);
-                                    }
-                              }
-                              catch(error)
-                              {
-                                    console.log(error);
-                                    showNotification('Failed to add book to wishlist', true);
-                              }
+                              addBookToWishlist(wishlistBtn.dataset.id);
                         });
                   });
 
@@ -556,39 +440,7 @@ getResults = async () => {
                   addToCartBtns.forEach(addToCartBtn => {
                         addToCartBtn.addEventListener('click', async (event) => {
                               event.preventDefault();
-                              try
-                              {
-                                    const response = await fetch('/cart/add', {
-                                    method: 'POST',
-                                    headers: {
-                                          'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                          bookId: addToCartBtn.dataset.id,
-                                          quantity: 1,
-                                    }),
-                                    });
-
-                                    const result = await response.json();
-
-                                    if(response.ok)
-                                    {
-                                          showNotification('Added to cart', false);
-                                    }
-                                    else if(response.status === 401)
-                                    {
-                                          showNotification('Please sign in to add book to cart', true);
-                                    }
-                                    else
-                                    {
-                                          showNotification('Failed to add book to cart', true);
-                                    }
-                              }
-                              catch(error)
-                              {
-                                    console.log(error);
-                                    showNotification('Failed to add book to cart', true);
-                              }
+                              addBookToCart(addToCartBtn.dataset.id);
                         });
                   });
             }
