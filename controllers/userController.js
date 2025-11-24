@@ -2,17 +2,49 @@ const path = require('path');
 const multer = require('multer');
 const UserService = require('../models/userService');
 const jwt = require('jsonwebtoken');
+const { uploadFile, createSignedUrl } = require('../services/storageService');
 
-const storage = multer.diskStorage({
-   destination: (req, file, cb) => {
-      cb(null, 'uploads/avatars/');
-    },
-    filename: (req, file, cb) => {
-      cb(null, `${req.session.user._id}-${Date.now()}${path.extname(file.originalname)}`);
-    }
-})
-
+const AVATARS_BUCKET = (process.env.SUPABASE_AVATARS_BUCKET || '').trim();
+const AVATARS_PUBLIC = (process.env.SUPABASE_AVATARS_PUBLIC || '').toLowerCase() === 'true';
+const storage = multer.memoryStorage();
 const upload = multer({ storage });
+
+async function uploadAvatarToSupabase(file, userId) {
+   if (!file) return { avatarUrl: null, avatarPath: null };
+   if (!AVATARS_BUCKET) {
+      throw new Error('Supabase avatars bucket not configured');
+   }
+
+   const extension = path.extname(file.originalname) || '.jpg';
+   const sanitizedUserId = (userId || 'anonymous').toString();
+   const filePath = `avatars/${sanitizedUserId}-${Date.now()}${extension}`;
+
+   const uploadResult = await uploadFile(
+      AVATARS_BUCKET,
+      filePath,
+      file.buffer,
+      file.mimetype || 'application/octet-stream'
+   );
+
+   if (!uploadResult.success) {
+      throw new Error('Failed to upload avatar to storage');
+   }
+
+   let avatarUrl = uploadResult.publicUrl || null;
+
+   // Prefer signed URLs when the bucket is private or if public URL is missing
+   if (!AVATARS_PUBLIC || !avatarUrl) {
+      const signed = await createSignedUrl(AVATARS_BUCKET, uploadResult.path, 60 * 60 * 24 * 365); // 1 year
+      if (signed) {
+         avatarUrl = signed;
+      }
+   }
+
+   return {
+      avatarUrl,
+      avatarPath: uploadResult.path,
+   };
+}
 
 exports.signup = async (req, res) => 
 {
@@ -115,7 +147,6 @@ exports.getProfile = async (req, res) => {
 
 exports.updateProfile = [upload.single('avatar'), async (req, res) => {
    const { username, email, newPassword } = req.body;
-   const avatar = req.file ? `/uploads/avatars/${req.file.filename}` : null;
 
    try
    {
@@ -133,16 +164,23 @@ exports.updateProfile = [upload.single('avatar'), async (req, res) => {
          }
       }
 
-      if (avatar && user.avatar) 
-      {
-         await UserService.deleteUserAvatar(user.avatar);
+      let avatarUpload = { avatarUrl: null, avatarPath: null };
+      if (req.file) {
+         avatarUpload = await uploadAvatarToSupabase(req.file, req.session.user._id);
       }
       
       const updateFields = {};
       if (username) updateFields.username = username;
       if (email) updateFields.email = email;
       if (newPassword) updateFields.password = newPassword;
-      if (avatar) updateFields.avatar = avatar;
+
+      if (avatarUpload.avatarUrl) {
+         if (user.avatarPath) {
+            await UserService.deleteUserAvatar(user.avatarPath);
+         }
+         updateFields.avatar = avatarUpload.avatarUrl;
+         updateFields.avatarPath = avatarUpload.avatarPath;
+      }
 
       await UserService.updateUser(req.session.user._id, updateFields);
       
@@ -150,7 +188,7 @@ exports.updateProfile = [upload.single('avatar'), async (req, res) => {
       const userResponse = { ...updatedUser.toObject() };
 
       delete userResponse.password;
-      req.session.user = updatedUser;
+      req.session.user = userResponse;
 
       res.status(200).json({ message: "Profile updated successfully", userResponse});
    }

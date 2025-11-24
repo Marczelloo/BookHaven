@@ -1,6 +1,5 @@
 const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const path = require('path');
+const { uploadFile } = require('./storageService');
 
 // Assume a VAT rate (e.g., 23%)
 const VAT_RATE = 0.23;
@@ -9,15 +8,14 @@ const COMPANY_NAME = "BookHaven Sp. z o.o.";
 const COMPANY_ADDRESS = "ul. Czytelnicza 1, 00-001 Warszawa";
 const COMPANY_NIP = "123-456-78-90";
 const BANK_ACCOUNT_NUMBER = "PL 12 3456 7890 1234 5678 9012 3456";
+const INVOICES_BUCKET = process.env.SUPABASE_INVOICES_BUCKET;
 
 class InvoiceService {
     constructor(orderService, userService) {
         this.orderService = orderService;
         this.userService = userService;
-        this.invoicesDir = path.join(__dirname, '..', 'invoices');
-        // Ensure the invoices directory exists
-        if (!fs.existsSync(this.invoicesDir)) {
-            fs.mkdirSync(this.invoicesDir, { recursive: true });
+        if (!INVOICES_BUCKET) {
+            throw new Error('Supabase invoices bucket not configured');
         }
     }
 
@@ -68,17 +66,42 @@ class InvoiceService {
              // console.log("--- Generating Invoice --- Address Data:", JSON.stringify(order.orderAddress, null, 2));
              // --- Debug Logging End ---
 
+            const invoiceName = `invoice-${order.orderNumber || orderId}.pdf`;
+            const invoicePath = `invoices/${invoiceName}`;
+            const pdfBuffer = await this.generatePdfBuffer(order, user);
+
+            const uploadResult = await uploadFile(
+                INVOICES_BUCKET,
+                invoicePath,
+                pdfBuffer,
+                'application/pdf'
+            );
+
+            if (!uploadResult.success) {
+                throw new Error('Failed to upload invoice PDF to Supabase');
+            }
+
+            return { success: true, path: invoicePath, name: invoiceName, url: uploadResult.publicUrl || null };
+
+        } catch (error) {
+            console.error("Error generating invoice:", error);
+            throw error; // Re-throw the error to be handled by the caller
+        }
+    }
+
+    generatePdfBuffer(order, user) {
+        return new Promise((resolve, reject) => {
             const doc = new PDFDocument({ margin: 50, autoFirstPage: false }); // Disable auto first page
+            const buffers = [];
+
+            doc.on('data', (data) => buffers.push(data));
+            doc.on('error', (err) => reject(err));
+            doc.on('end', () => resolve(Buffer.concat(buffers)));
+
             doc.addPage(); // Manually add the first page
 
-            const invoiceName = `invoice-${order.orderNumber || orderId}.pdf`;
-            const invoicePath = path.join(this.invoicesDir, invoiceName);
-
-            const writeStream = fs.createWriteStream(invoicePath);
-            doc.pipe(writeStream);
-
             // ---- Invoice Header ----
-            doc.fontSize(20).font('Helvetica-Bold').text(`Invoice #${order.orderNumber || orderId}`, { align: 'center' });
+            doc.fontSize(20).font('Helvetica-Bold').text(`Invoice #${order.orderNumber || order._id}`, { align: 'center' });
             doc.moveDown(0.5);
             doc.fontSize(10).font('Helvetica').text(`Date Issued: ${new Date(order.createdAt).toLocaleDateString('pl-PL')}`, { align: 'center' });
             doc.moveDown(2);
@@ -154,7 +177,8 @@ class InvoiceService {
                 // Check for valid bookId and price within bookId
                 if (!item.bookId || typeof item.bookId.price !== 'number' || isNaN(item.bookId.price)) {
                     console.error(`Invalid or missing price/bookId for item:`, item);
-                    throw new Error(`Invalid or missing price/bookId for item in order ${orderId}`);
+                    reject(new Error(`Invalid or missing price/bookId for item in order ${order._id}`));
+                    return;
                 }
 
                 const price = item.bookId.price; // Get price from bookId
@@ -237,19 +261,7 @@ class InvoiceService {
 
             // Finalize PDF file
             doc.end();
-
-            return new Promise((resolve, reject) => {
-                writeStream.on('finish', () => resolve({ success: true, path: invoicePath, name: invoiceName }));
-                writeStream.on('error', (err) => {
-                    console.error("Error writing PDF stream:", err);
-                    reject(new Error('Failed to write invoice PDF'));
-                });
-            });
-
-        } catch (error) {
-            console.error("Error generating invoice:", error);
-            throw error; // Re-throw the error to be handled by the caller
-        }
+        });
     }
 }
 

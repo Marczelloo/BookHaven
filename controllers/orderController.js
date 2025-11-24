@@ -1,8 +1,9 @@
 const OrderService = require("../models/orderService");
 const CartService = require('../models/cartService'); // Import CartService
 const flash = require('connect-flash'); // Import connect-flash if not already globally available via middleware
-const fs = require('fs'); // Import fs for file system access
-const path = require('path'); // Import path for handling file paths
+const { createSignedUrl } = require('../services/storageService');
+
+const INVOICES_BUCKET = process.env.SUPABASE_INVOICES_BUCKET;
 
 exports.placeOrder = async (req, res) => {
    console.log('--- placeOrder controller START ---'); // Log start
@@ -73,28 +74,18 @@ exports.downloadInvoice = async (req, res) => {
             return res.redirect('/profile#orders');
         }
 
-        // Check if the file exists before attempting to download
-        if (!fs.existsSync(order.invoicePath)) {
-            console.error(`Invoice file not found at path: ${order.invoicePath} for order ${orderId}`);
-            req.flash('error', 'Invoice file could not be found. Please contact support.');
-            // Optionally: Regenerate invoice here if possible, or mark the order
+        if (!INVOICES_BUCKET) {
+            req.flash('error', 'Invoice storage is not configured.');
             return res.redirect('/profile#orders');
         }
 
-        // Use res.download to send the file
-        // The third argument sets the filename the user will see when downloading
-        const filename = path.basename(order.invoicePath);
-        res.download(order.invoicePath, filename, (err) => {
-            if (err) {
-                // Handle errors that occur during file transfer
-                console.error(`Error downloading invoice ${filename} for order ${orderId}:`, err);
-                // Avoid sending flash messages after headers might have been sent
-                if (!res.headersSent) {
-                    req.flash('error', 'Could not download the invoice file.');
-                    res.redirect('/profile#orders');
-                }
-            }
-        });
+        const signedUrl = await createSignedUrl(INVOICES_BUCKET, order.invoicePath, 60 * 10); // 10 minutes
+        if (!signedUrl) {
+            req.flash('error', 'Could not generate invoice download link. Please try again.');
+            return res.redirect('/profile#orders');
+        }
+
+        return res.redirect(signedUrl);
 
     } catch (error) {
         console.error("Error fetching order for invoice download:", error);

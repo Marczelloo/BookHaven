@@ -1,8 +1,7 @@
 const User = require('./user');
 const Order = require('./order');
-const path = require('path');
-const fs = require('fs');
 const mongoose = require('mongoose'); // Use Mongoose's ObjectId
+const { removeFile } = require('../services/storageService');
 
 class UserService {
     static async findUserById(userId) {
@@ -24,11 +23,9 @@ class UserService {
    }
 
     static async deleteUserAvatar(avatarPath) {
-        const previousAvatarPath = path.join(__dirname, '..', avatarPath);
-        fs.unlink(previousAvatarPath, (err) => {
-            if (err) console.error('Error removing previous avatar:', err);
-            else console.log('Previous avatar removed:', previousAvatarPath);
-        });
+        const bucket = process.env.SUPABASE_AVATARS_BUCKET;
+        if (!bucket || !avatarPath) return;
+        await removeFile(bucket, avatarPath);
     }
 
     static async getUserOrders(userId) {

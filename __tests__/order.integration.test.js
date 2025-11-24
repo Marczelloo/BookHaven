@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+process.env.SUPABASE_INVOICES_BUCKET = 'invoices';
 const OrderService = require('../models/orderService');
 const UserService = require('../models/userService');
 const InvoiceService = require('../services/invoiceService');
@@ -7,8 +8,7 @@ const Order = require('../models/order');
 const User = require('../models/user');
 const Book = require('../models/book');
 const Address = require('../models/orderAddress');
-const fs = require('fs');
-const path = require('path');
+const { uploadFile } = require('../services/storageService');
 
 // Mock dependencies
 jest.mock('../models/order');
@@ -16,39 +16,14 @@ jest.mock('../models/user');
 jest.mock('../models/book');
 jest.mock('../models/orderAddress');
 jest.mock('../models/paymentService'); // Mock payment service to simulate success/failure
-
-// Mock fs selectively: allow reads for pdfkit fonts, mock writes
-jest.mock('fs', () => {
-    const originalFs = jest.requireActual('fs');
-    const EventEmitter = require('events'); // Import EventEmitter
-
-    // Create a more complete mock stream that inherits from EventEmitter
-    class MockWriteStream extends EventEmitter {
-        constructor() {
-            super();
-            this.writable = true; // Indicate it's writable
-        }
-        write = jest.fn();
-        end = jest.fn(() => {
-            // Simulate the 'finish' event asynchronously
-            setImmediate(() => this.emit('finish'));
-        });
-        // Add other methods if needed, like cork(), uncork(), setDefaultEncoding(), destroy()
-        // The key is that it now has .on(), .once(), .emit() from EventEmitter
-    }
-
-    const mockWriteStreamInstance = new MockWriteStream();
-
-    return {
-        ...originalFs,
-        existsSync: jest.fn().mockReturnValue(true),
-        mkdirSync: jest.fn().mockReturnValue(undefined),
-        createWriteStream: jest.fn().mockReturnValue(mockWriteStreamInstance),
-        // Ensure statSync is available if pdfkit needs it
-        statSync: originalFs.statSync,
-        // Add mocks for any other write operations if necessary
-    };
-});
+jest.mock('../services/storageService', () => ({
+    uploadFile: jest.fn().mockResolvedValue({
+        success: true,
+        path: 'invoices/invoice-TEST-123.pdf',
+        publicUrl: 'https://example.supabase.co/storage/v1/object/public/invoices/invoice-TEST-123.pdf'
+    }),
+    createSignedUrl: jest.fn().mockResolvedValue('https://example.supabase.co/signed-url')
+}));
 
 // --- Test Setup ---
 let mockUser;
@@ -174,8 +149,8 @@ describe('Invoice Generation', () => {
         // 3. Assertions
         expect(invoiceResult).toBeDefined();
         expect(invoiceResult.success).toBe(true);
-        expect(invoiceResult.path).toMatch(/invoices[\\/]invoice-.*\.pdf$/); // Check path format
-        expect(fs.createWriteStream).toHaveBeenCalledWith(invoiceResult.path);
+        expect(invoiceResult.path).toMatch(/invoices\/invoice-.*\.pdf$/); // Check path format
+        expect(uploadFile).toHaveBeenCalled();
 
         // Check that OrderService.updateOrder was called with the correct path
         expect(OrderService.updateOrder).toHaveBeenCalledWith(mockOrder._id, updatePayload);
@@ -196,7 +171,7 @@ describe('Invoice Generation', () => {
             .toThrow('Order data incomplete for invoice generation.');
 
         // Ensure file system wasn't touched
-        expect(fs.createWriteStream).not.toHaveBeenCalled();
+        expect(uploadFile).not.toHaveBeenCalled();
         expect(OrderService.updateOrder).not.toHaveBeenCalled();
     });
 
@@ -210,7 +185,7 @@ describe('Invoice Generation', () => {
             .toThrow('User not found for the order');
 
         // Ensure file system wasn't touched
-        expect(fs.createWriteStream).not.toHaveBeenCalled();
+        expect(uploadFile).not.toHaveBeenCalled();
         expect(OrderService.updateOrder).not.toHaveBeenCalled();
     });
 
