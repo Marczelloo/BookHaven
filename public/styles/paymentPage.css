@@ -97,3 +97,26 @@
 .pay-button:hover {
     background-color: var(--accent-color); /* Darken on hover */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .payment-container {
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    #payment-form label {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .payment-container {
+        padding: 1.25rem;
+    }
+
+    #payment-form input[type="text"] {
+        padding: 0.9rem 1rem;
+    }
+}

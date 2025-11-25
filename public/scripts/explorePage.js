@@ -4,26 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
       const slides = Array.from(track.children);
       const nextButton = document.getElementById(nextButtonId);
       const prevButton = document.getElementById(prevButtonId);
-      const slideGap = parseFloat(getComputedStyle(track).gap);
-      const slideWidth = slides[0].getBoundingClientRect().width + slideGap;
-      const slidesToShow = 3;
+      let slideGap = parseFloat(getComputedStyle(track).gap) || 0;
+      let slideWidth = slides[0].getBoundingClientRect().width + slideGap;
+      const getSlidesToShow = () => {
+         const width = window.innerWidth;
+         if (width < 768) return 1;
+         if (width < 1200) return 2;
+         return 3;
+      };
+      let slidesToShow = getSlidesToShow();
       let currentIndex = 0;
-   
+
       slides[0].classList.add('current-slide');
-   
+
       const setSlidePosition = (slide, index) => {
          slide.style.left = slideWidth * index + 'px';
       }
-   
+
+      const recalcPositions = () => {
+         slideGap = parseFloat(getComputedStyle(track).gap) || 0;
+         slideWidth = slides[0].getBoundingClientRect().width + slideGap;
+         slidesToShow = getSlidesToShow();
+         slides.forEach(setSlidePosition);
+         currentIndex = Math.min(currentIndex, Math.max(0, slides.length - slidesToShow));
+         moveToSlide(track, currentIndex, false);
+      };
+
       slides.forEach(setSlidePosition);
-   
-      const moveToSlide = (track, currentIndex) => {
+
+      const moveToSlide = (track, currentIndex, updateCurrent = true) => {
          const targetSlide = slides[currentIndex];
          track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-         track.querySelector('.current-slide').classList.remove('current-slide');
+         const active = track.querySelector('.current-slide');
+         if (active) active.classList.remove('current-slide');
          targetSlide.classList.add('current-slide');
+         if (updateCurrent) {
+            // no-op; kept for clarity if future logic needed
+         }
       };
-   
+
       nextButton.addEventListener('click', e => {
          if (currentIndex < slides.length - slidesToShow) {
             currentIndex++;
@@ -41,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
          }
          moveToSlide(track, currentIndex);
       });
+
+      window.addEventListener('resize', recalcPositions);
+      recalcPositions();
    };
    
    createCarousel('featured-books', 'featured-books-next', 'featured-books-prev');

@@ -1,4 +1,13 @@
-- add responsiveness
+- add responsiveness:
+- [x] explore page
+- [ ] landing page
+- [ ] sign in / log in page
+- [ ] search page
+- [ ] cart / wishlist page
+- [ ] book paga / reviews
+- [ ] profile page
+- [ ] payment page
+
 - add to all cards promotion price
 - add to wishlist buttons for adding seperate items to cart 
 - rebuild cart and wishlist containers and placement 

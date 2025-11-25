@@ -32,3 +32,14 @@
 .clear:hover {
    background-color: var(--background-color) !important;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+   .cart-items {
+      max-height: none;
+   }
+
+   .shipping-info {
+      grid-template-rows: auto auto;
+   }
+}

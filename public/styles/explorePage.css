@@ -39,11 +39,18 @@ section h2 {
    transition: transform 0.3s ease-in-out;
    list-style: none;
    gap: 1rem;
+   align-items: stretch;
+   touch-action: pan-y;
 }
 
 .carousel-slide {
-   min-width: calc((100% / 3) - (2 * 1rem / 3));
-   box-sizing: border-box;
+    flex: 0 0 calc((100% / 3) - (2 * 1rem / 3));
+    box-sizing: border-box;
+    display: flex;
+}
+
+.carousel-slide > * {
+    flex: 1;
 }
 
 .carousel-button {
@@ -76,4 +83,120 @@ section h2 {
    right: -3rem;
    top: 50%;
    transform: translateY(-50%);
+}
+
+/* Responsive adjustments */
+@media (min-width: 1920px) {
+   .carousel-track {
+      gap: 1.5rem;
+   }
+
+   .carousel-slide {
+      flex: 0 0 calc((100% / 3) - (2 * 1.5rem / 3));
+   }
+
+   .carousel-button.prev {
+      left: -3.5rem;
+   }
+
+   .carousel-button.next {
+      right: -3.5rem;
+   }
+}
+
+@media (max-width: 1199px) {
+   .carousel-slide {
+      flex: 0 0 calc(50% - 0.5rem);
+   }
+
+   .carousel-button.prev {
+      left: -2rem;
+   }
+
+   .carousel-button.next {
+      right: -2rem;
+   }
+}
+
+@media (max-width: 1200px) {
+   .carousel-button.prev {
+      left: -2rem;
+   }
+
+   .carousel-button.next {
+      right: -2rem;
+   }
+}
+
+@media (max-width: 992px) {
+   section h2 {
+      font-size: 1.75rem;
+   }
+
+   .carousel-button {
+      font-size: 3rem;
+   }
+}
+
+@media (max-width: 768px) {
+   main {
+      margin: 1.5rem 0;
+      gap: 1.5rem;
+   }
+
+   .carousel {
+      overflow: hidden;
+   }
+
+   .carousel-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+   }
+
+   .carousel-button {
+      display: none;
+   }
+
+   .carousel-track-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #ffffff rgba(255,255,255,0.15);
+      padding-bottom: 0.75rem;
+   }
+
+   .carousel-track-container::-webkit-scrollbar {
+      height: 6px;
+   }
+
+   .carousel-track-container::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      margin-top: 0.35rem;
+   }
+
+   .carousel-track-container::-webkit-scrollbar-thumb {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.15);
+   }
+
+   .carousel-track-container::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.8);
+   }
+
+   .carousel-track {
+      gap: 1rem;
+      transform: none !important;
+      transition: none !important;
+      touch-action: pan-x;
+   }
+}
+
+@media (max-width: 576px) {
+   section h2 {
+      font-size: 1.5rem;
+   }
 }

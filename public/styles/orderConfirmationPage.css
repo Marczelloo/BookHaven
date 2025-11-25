@@ -106,3 +106,32 @@
 .order-summary .button-secondary {
     background-color: var(--background-color);
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .confirmation-container {
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .order-summary {
+        padding: 1.5rem;
+    }
+
+    .confirmation-container h1,
+    .order-summary h1,
+    .order-summary h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .confirmation-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .order-summary h1,
+    .order-summary h2 {
+        font-size: 1.5rem;
+    }
+}

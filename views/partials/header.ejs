@@ -1,17 +1,17 @@
 <header class="header">
-   <div>
+   <div class="header-brand">
       <a href="/explore" class="p-big">
-         <img src="/assets/svg/logo.svg" alt="BookHaven Logo" class="logo icon"> BookHaven
+         <img src="/assets/svg/logo.svg" alt="BookHaven Logo" class="logo icon"> <span class="logo-text">BookHaven</span>
       </a>
    </div>
-   <div class="search-input">
+   <div class="search-input header-search">
       <input type="text" placeholder="Search for books" class="input-search">
       <img src="/assets/svg/search.svg" alt="Search Icon" class="icon">
       <div class="search-results">
          
       </div>
    </div>
-   <div>
+   <div class="header-actions">
       <% if(isAuthenticated) { %>
       <nav>
          <ul>
