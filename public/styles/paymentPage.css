@@ -1,57 +1,57 @@
 /* public/styles/paymentPage.css */
 
 .payment-container {
-    max-width: 600px; /* Increased width */
-    margin: 2rem auto;
-    padding: 2rem;
- /* Slightly increased padding */
-    background-color: var(--primary-color); /* Match cart section background */
-    border-radius: 1rem; /* Match cart section border-radius */
-    box-shadow: var(--box-shadow-light); /* Keep shadow if desired */
-    color: var(--text-color);
+  max-width: 600px; /* Increased width */
+  margin: 2rem auto;
+  padding: 2rem;
+  /* Slightly increased padding */
+  background-color: var(--primary-color); /* Match cart section background */
+  border-radius: 1rem; /* Match cart section border-radius */
+  box-shadow: var(--box-shadow-light); /* Keep shadow if desired */
+  color: var(--text-color);
 }
 
 .payment-container h1 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 2rem; /* Match cart h1 */
-    font-weight: 700; /* Match cart h1 */
-    color: var(--text-color);
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2rem; /* Match cart h1 */
+  font-weight: 700; /* Match cart h1 */
+  color: var(--text-color);
 }
 
 .payment-container p {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.1em;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.1em;
 }
 
 #payment-form .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #payment-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600; /* Match cart label */
-    font-size: 1.25rem; /* Match cart label */
-    color: var(--text-color); /* Match cart label */
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600; /* Match cart label */
+  font-size: 1.25rem; /* Match cart label */
+  color: var(--text-color); /* Match cart label */
 }
 
 #payment-form input[type="text"] {
-    width: 100%;
-    padding: .85rem; /* Slightly increased padding for inputs */
-    border: none; /* Remove border */
-    border-radius: .5rem; /* Match cart input */
-    background-color: var(--accent-color); /* Match cart input */
-    color: var(--text-color); /* Match cart input */
-    font-size: 1rem; /* Match cart input */
-    box-sizing: border-box;
-    outline: none; /* Remove default outline */
-    transition: background-color 0.3s ease; /* Add transition */
+  width: 100%;
+  padding: 0.85rem; /* Slightly increased padding for inputs */
+  border: none; /* Remove border */
+  border-radius: 0.5rem; /* Match cart input */
+  background-color: var(--accent-color); /* Match cart input */
+  color: var(--text-color); /* Match cart input */
+  font-size: 1rem; /* Match cart input */
+  box-sizing: border-box;
+  outline: none; /* Remove default outline */
+  transition: background-color 0.3s ease; /* Add transition */
 }
 
 #payment-form input[type="text"]:focus {
-    background-color: var(--secondary-color); /* Optional: Darken on focus */
+  background-color: var(--secondary-color); /* Optional: Darken on focus */
 }
 
 /* Remove specific button styles, rely on .button-primary from global.css */
@@ -59,64 +59,213 @@
 /* #payment-form button[type="submit"]:hover { ... } */
 
 .form-row {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .expiry-group {
-    flex: 1;
+  flex: 1;
 }
 
 .cvv-group {
-    flex-basis: 100px;
+  flex-basis: 100px;
 }
 
 .error-message {
-    color: var(--error-color);
-    font-size: 1rem; /* Match cart error */
-    font-weight: 400; /* Match cart error */
-    margin-top: 5px;
-    min-height: 1.5em; /* Match cart error */
+  color: var(--error-color);
+  font-size: 1rem; /* Match cart error */
+  font-weight: 400; /* Match cart error */
+  margin-top: 5px;
+  min-height: 1.5em; /* Match cart error */
 }
 
 /* Input specific placeholders */
 #cardNumber::placeholder,
 #expiryDate::placeholder,
 #cvv::placeholder {
-    color: var(--text-color-secondary); /* Use secondary text color for placeholder */
-    opacity: 1;
+  color: var(--text-color-secondary); /* Use secondary text color for placeholder */
+  opacity: 1;
 }
 
 /* Ensure button has enough space - relies on global .button-primary */
 .pay-button {
-    background-color: var(--secondary-color);
-    margin: 0 auto;
-    margin-top: 15px; /* Added margin-top for spacing */
+  background-color: var(--secondary-color);
+  margin: 0 auto;
+  margin-top: 15px; /* Added margin-top for spacing */
 }
 
 .pay-button:hover {
-    background-color: var(--accent-color); /* Darken on hover */
+  background-color: var(--accent-color); /* Darken on hover */
+}
+
+/* Test card info box */
+.test-card-info {
+  background-color: var(--accent-color);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #f59e0b;
+}
+
+.test-card-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.test-card-info p {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.test-card-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.test-card-info li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.test-card-info code {
+  background-color: var(--secondary-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.test-info-note {
+  font-size: 0.8rem !important;
+  opacity: 0.8;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .payment-container {
-        margin: 1.5rem auto;
-        padding: 1.5rem;
-        width: 100%;
-    }
+@media (min-width: 2560px) {
+  .payment-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+  }
 
-    #payment-form label {
-        font-size: 1.1rem;
-    }
+  .payment-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .payment-container p {
+    font-size: 1.25rem;
+  }
+
+  #payment-form label {
+    font-size: 1.4rem;
+  }
+
+  #payment-form input[type="text"] {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .pay-button {
+    padding: 1.1rem 2.25rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .payment-container {
+    max-width: 650px;
+    margin: 2.5rem auto;
+  }
+
+  .payment-container h1 {
+    font-size: 2.25rem;
+  }
+
+  #payment-form label {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-container {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    width: calc(100% - 2rem);
+    border-radius: 0.75rem;
+  }
+
+  .payment-container h1 {
+    font-size: 1.75rem;
+  }
+
+  .payment-container p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  #payment-form label {
+    font-size: 1.1rem;
+  }
+
+  #payment-form input[type="text"] {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .expiry-group,
+  .cvv-group {
+    flex: none;
+    width: 100%;
+  }
+
+  #payment-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .pay-button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
-    .payment-container {
-        padding: 1.25rem;
-    }
+  .payment-container {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    width: calc(100% - 1rem);
+  }
 
-    #payment-form input[type="text"] {
-        padding: 0.9rem 1rem;
-    }
+  .payment-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .payment-container p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  #payment-form label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  #payment-form input[type="text"] {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .error-message {
+    font-size: 0.9rem;
+  }
 }

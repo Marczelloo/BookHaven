@@ -1,201 +1,334 @@
 body {
-   height: 100vh;
-   display: grid;
-   grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 main {
-   height: 100%;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section {
-   padding: 2rem;
-   height: auto;
-   width: 40%;
+  padding: 2rem;
+  height: auto;
+  width: 40%;
+  max-width: 500px;
+  min-width: 320px;
 }
 
 form {
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
-   flex-grow: 1;
-   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+  height: 100%;
 }
 
 form > div {
-   display: flex;
-   flex-direction: column;
-   gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 form label {
-   color: var(--text-color);
-   font-size: 1.25rem;
-   font-weight: 500;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* 2K Resolution */
+@media (min-width: 2560px) {
+  section {
+    width: 30%;
+    max-width: 600px;
+    padding: 3rem;
+  }
+
+  form label {
+    font-size: 1.5rem;
+  }
+
+  .form-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .email-input > input,
+  .password-input > input,
+  .username-input > input {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .remember-me label,
+  .remember-me a {
+    font-size: 1.15rem;
+  }
+
+  .form-links > a {
+    font-size: 1.15rem;
+  }
+
+  .email-error,
+  .password-error,
+  .username-error,
+  .terms-error {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1920px) {
+  section {
+    width: 35%;
+    max-width: 550px;
+  }
+
+  form label {
+    font-size: 1.35rem;
+  }
+
+  .form-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .email-input > input,
+  .password-input > input,
+  .username-input > input {
+    padding: 0.65rem 1.15rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  section {
+    width: 60%;
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-   section {
-      width: 90%;
-      padding: 1.5rem;
-   }
+  section {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  form label {
+    font-size: 1.1rem;
+  }
+
+  .form-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .email-input > input,
+  .password-input > input,
+  .username-input > input {
+    padding: 0.6rem 0.9rem;
+    font-size: 1rem;
+  }
+
+  .form-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .remember-me {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 576px) {
-   section {
-      width: 100%;
-      padding: 1rem;
-   }
+  section {
+    width: 100%;
+    padding: 1rem;
+    min-width: auto;
+  }
 
-   form label {
-      font-size: 1.1rem;
-   }
+  form label {
+    font-size: 1rem;
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .email-input > input,
+  .password-input > input,
+  .username-input > input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .remember-me label,
+  .remember-me a {
+    font-size: 0.9rem;
+  }
+
+  .form-links > a {
+    font-size: 0.9rem;
+  }
+
+  .email-error,
+  .password-error,
+  .username-error,
+  .terms-error {
+    font-size: 0.9rem;
+  }
+
+  .confirm-pass {
+    margin-top: 0.75rem;
+  }
 }
 
 .form-header {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-header h1 {
-   color: var(--text-color);
-   font-size: 2rem;
-   font-weight: 700;
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-.email-input > input, .password-input > input, .username-input > input {
-   width: 100%;
-   padding: .5rem 1rem;
-   border: none;
-   background-color: var(--accent-color);
-   border-radius: .75rem;
-   color: var(--text-color-secondary);
-   outline: none;
-   font-size: 1.15rem;
+.email-input > input,
+.password-input > input,
+.username-input > input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--accent-color);
+  border-radius: 0.75rem;
+  color: var(--text-color-secondary);
+  outline: none;
+  font-size: 1.15rem;
 }
 
 .password-input {
-   width: 100%;
-   position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .password-input button {
-   width: 1.5rem;
-   height: 1.5rem;
-   position: absolute;
-   right: .5rem;
-   top: 50%;
-   transform: translateY(-50%);
-   filter: invert(1);
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: invert(1);
 }
 
 .password-input img {
-   width: 100%;
-   height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .password-input img.hide {
-   display: none;
+  display: none;
 }
 
 .remember-me {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   gap: .5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .remember-me a {
-   color: var(--text-color);
-   font-size: 1rem;
-   font-weight: 700;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .custom-checkbox {
-   position: absolute;
-   opacity: 0;
-   cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .custom-checkbox + label {
-   position: relative;
-   padding-left: 2rem;
-   cursor: pointer;
-   user-select: none;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 .custom-checkbox + label::before {
-   content: "";
-   position: absolute;
-   left: 0;
-   top: 50%;
-   transform: translateY(-50%);
-   width: 1rem;
-   height: 1rem;
-   border: 2px solid var(--text-color-secondary);
-   border-radius: .25rem;
-   background-color: var(--background-color);
-   transition: background-color 0.2s ease, border-color 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--text-color-secondary);
+  border-radius: 0.25rem;
+  background-color: var(--background-color);
+  transition: background-color 0.2s ease, border-color 0.3s ease;
 }
 
 .custom-checkbox:checked + label::before {
-   background-color: var(--primary-color);
-   border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .custom-checkbox:checked + label::after {
-   position: absolute;
-   left: 0.25rem;
-   top: 50%;
-   transform: translateY(-50%);
-   color: var(--text-color);
-   font-size: 0.75rem;
-   font-weight: bold;
+  position: absolute;
+  left: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
 .remember-me label {
-   color: var(--text-color);
-   font-size: 1rem;
-   font-weight: 400;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .form-links {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-links > a {
-   color: var(--text-color-secondary);
-   font-size: 1rem;
-   font-weight: 400;
-   text-align: right;
+  color: var(--text-color-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
 }
 
 .form-footer {
-   margin-top: 1rem;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: start;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
 }
 
 form > button {
-   margin-top: 1rem;
-}  
+  margin-top: 1rem;
+}
 
-.email-error, .password-error, .username-error, .terms-error {
-   color: var(--error-color);
-   font-size: 1rem;
-   font-weight: 400;
-   min-height: 2em;
-}  
+.email-error,
+.password-error,
+.username-error,
+.terms-error {
+  color: var(--error-color);
+  font-size: 1rem;
+  font-weight: 400;
+  min-height: 2em;
+}
 
 .confirm-pass {
-   margin-top: 1rem;
+  margin-top: 1rem;
 }

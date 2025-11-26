@@ -1,85 +1,138 @@
 <header class="header">
-   <div class="header-brand">
-      <a href="/explore" class="p-big">
-         <img src="/assets/svg/logo.svg" alt="BookHaven Logo" class="logo icon"> <span class="logo-text">BookHaven</span>
-      </a>
-   </div>
-   <div class="search-input header-search">
-      <input type="text" placeholder="Search for books" class="input-search">
-      <img src="/assets/svg/search.svg" alt="Search Icon" class="icon">
-      <div class="search-results">
-         
-      </div>
-   </div>
-   <div class="header-actions">
-      <% if(isAuthenticated) { %>
-      <nav>
-         <ul>
-            <li>
-               <button id="theme-toggle" class="button-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" width="24" height="24">
-                     <path id="sun" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                     <path id="moon" stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                     </svg>
-               </button>
-            </li>
-            <li>
-               <a href="/wishlist"> 
-                  <img src="/assets/svg/bookmark.svg" alt="bookmark icon" class="icon">
-               </a>
-            </li>
-            <li>
-               <a href="/cart"> 
-                  <img src="/assets/svg/cart.svg" alt="cart icon" class="icon">
-               </a>
-            </li>
-            <button class="profile-button">
-               <% if(user && user.avatar) { %> <!-- Check user exists first -->
-                  <img src="<%= user.avatar %>" alt="user">
-               <% } else if (user && user.username) { %> <!-- Then check user.username -->
-                  <%= user.username.charAt(0).toUpperCase() %>
-               <% } else { %>
-                  <!-- Fallback if user is null or has no username, even if authenticated -->
-                  ? 
-               <% } %>
-            </button>
-            <div class="user-menu-popup">
-               <a href="/profile"> 
-                  <img src="/assets/svg/profile.svg" alt="user icon" class="icon">
-                  <span> Profile </span>
-               </a>
-               <a href="/profile#orders"> 
-                  <img src= "/assets/svg/orders.svg" alt="orders icon" class="icon">
-                  <span> Orders  </span>
-               </a>
-               <a href="/profile#settings"> 
-                  <img src="/assets/svg/settings.svg" alt="settings icon" class="icon">   
-                  <span> Settings </span>
-                </a>
-               <div class="spacer"></div>
-               <a href="/user/signout"> 
-                  <img src="/assets/svg/logout.svg" alt="logout icon" class="icon">
-                  <span> Logout </span> 
-               </a>
-            </div>
-         </ul>         
-      </nav>
-      <% } else { %>
-      <nav class="not-logged">
-         <ul>
-            <li>
-               <button id="theme-toggle" class="button-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" width="24" height="24">
-                     <path id="sun" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                     <path id="moon" stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                     </svg>
-               </button>
-            </li>
-            <li><a href="/signin" class="button-primary"> Sign In </a></li>
-            <li><a href="/signup" class="button-primary"> Sign Up </a></li>
-         </ul>
-      </nav>
-      <% } %>
-   </div>
+  <div class="header-brand">
+    <a href="/explore" class="p-big">
+      <img src="/assets/svg/logo.svg" alt="BookHaven Logo" class="logo icon" /> <span class="logo-text">BookHaven</span>
+    </a>
+  </div>
+  <div class="search-input header-search">
+    <input type="text" placeholder="Search for books" class="input-search" />
+    <img src="/assets/svg/search.svg" alt="Search Icon" class="icon" />
+    <div class="search-results"></div>
+  </div>
+  <div class="header-actions">
+    <% if(isAuthenticated) { %>
+    <nav>
+      <ul>
+        <li>
+          <button id="theme-toggle" class="button-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+              width="24"
+              height="24"
+            >
+              <path
+                id="sun"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+              />
+              <path
+                id="moon"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <a href="/wishlist">
+            <img src="/assets/svg/bookmark.svg" alt="bookmark icon" class="icon" />
+          </a>
+        </li>
+        <li>
+          <a href="/cart">
+            <img src="/assets/svg/cart.svg" alt="cart icon" class="icon" />
+          </a>
+        </li>
+        <button class="profile-button">
+          <% if(user && user.avatar) { %>
+          <!-- Check user exists first -->
+          <img src="<%= user.avatar %>" alt="user" />
+          <% } else if (user && user.username) { %>
+          <!-- Then check user.username -->
+          <%= user.username.charAt(0).toUpperCase() %> <% } else { %>
+          <!-- Fallback if user is null or has no username, even if authenticated -->
+          ? <% } %>
+        </button>
+        <div class="user-menu-popup">
+          <a href="/profile">
+            <img src="/assets/svg/profile.svg" alt="user icon" class="icon" />
+            <span> Profile </span>
+          </a>
+          <a href="/profile#orders">
+            <img src="/assets/svg/orders.svg" alt="orders icon" class="icon" />
+            <span> Orders </span>
+          </a>
+          <a href="/profile#settings">
+            <img src="/assets/svg/settings.svg" alt="settings icon" class="icon" />
+            <span> Settings </span>
+          </a>
+          <div class="spacer"></div>
+          <a href="/user/signout">
+            <img src="/assets/svg/logout.svg" alt="logout icon" class="icon" />
+            <span> Logout </span>
+          </a>
+        </div>
+      </ul>
+    </nav>
+    <% } else { %>
+    <nav class="not-logged">
+      <ul>
+        <li>
+          <button id="theme-toggle" class="button-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+              width="24"
+              height="24"
+            >
+              <path
+                id="sun"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+              />
+              <path
+                id="moon"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          </button>
+        </li>
+        <li><a href="/signin" class="button-primary"> Sign In </a></li>
+        <li><a href="/signup" class="button-primary"> Sign Up </a></li>
+      </ul>
+    </nav>
+    <% } %>
+  </div>
 </header>
+
+<!-- Demo Disclaimer Modal -->
+<div id="demo-disclaimer" class="disclaimer-modal" style="display: none">
+  <div class="disclaimer-content">
+    <h2>⚠️ Demo Website Notice</h2>
+    <p>This is a <strong>technical demonstration project</strong> and not an actual bookshop.</p>
+    <ul>
+      <li>No real purchases can be made</li>
+      <li>Do not enter real personal or payment information</li>
+      <li>All data is for demonstration purposes only</li>
+      <li>This site does not process real transactions</li>
+    </ul>
+    <p class="disclaimer-footer">By clicking "I Understand", you acknowledge this is a demo project.</p>
+    <button id="accept-disclaimer" class="button-primary">I Understand</button>
+  </div>
+</div>
+
 <script src="/scripts/header.js"></script>

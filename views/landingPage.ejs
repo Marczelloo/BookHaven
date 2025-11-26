@@ -170,6 +170,22 @@
    <%- include('partials/notifications') %>   
    <%- include('partials/footer') %>
 
+   <!-- Demo Disclaimer Modal -->
+   <div id="demo-disclaimer" class="disclaimer-modal" style="display: none;">
+      <div class="disclaimer-content">
+         <h2>⚠️ Demo Website Notice</h2>
+         <p>This is a <strong>technical demonstration project</strong> and not an actual bookshop.</p>
+         <ul>
+            <li>No real purchases can be made</li>
+            <li>Do not enter real personal or payment information</li>
+            <li>All data is for demonstration purposes only</li>
+            <li>This site does not process real transactions</li>
+         </ul>
+         <p class="disclaimer-footer">By clicking "I Understand", you acknowledge this is a demo project.</p>
+         <button id="accept-disclaimer" class="button-primary">I Understand</button>
+      </div>
+   </div>
+
    <script src="/scripts/landingPage.js"></script>
    <script src="/scripts/theme-toggle.js"></script>
    <script>

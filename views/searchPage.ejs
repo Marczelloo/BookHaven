@@ -1,163 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> BookHaven - <%= title %>  </title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="styles/global.css">
-   <link rel="stylesheet" href="styles/searchPage.css">
-   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-   <script>
-      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/searchPage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
       document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.add('no-transition')
- </script>
-</head>
-<body>
-   <%- include('partials/header') %>
-   
-   <main>
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main>
       <section class="sort-bar">
-         <div class="filter-by">
-            <p> Filter by: </p>
-            <button class="button-primary selected" id="filterByTitleBtn"> Title </button>
-            <button class="button-primary" id="filterByAuthorBtn"> Author </button>
-            <button class="button-primary" id="filterByDescBtn"> Description </button>
-         </div>
-         <div>
-            <div class="sort-by" id="sortBySelect">
-               <p> Sort by: <span>  </span></p><img src="assets/svg/arrow-down.svg" alt="arrow-down">
-               <div class="sort-by-options" id="sortByOptions">
-                  <div class="option"> Title </div>
-                  <div class="option"> Author </div>
-                  <div class="option"> Price </div>
-                  <div class="option"> Rating </div>
-               </div>
+        <div class="filter-by">
+          <p>Filter by:</p>
+          <button class="button-primary selected" id="filterByTitleBtn">Title</button>
+          <button class="button-primary" id="filterByAuthorBtn">Author</button>
+          <button class="button-primary" id="filterByDescBtn">Description</button>
+        </div>
+        <div>
+          <button class="button-primary filter-toggle-btn" id="filterToggleBtn">
+            <img src="assets/svg/filter.svg" alt="filter" class="icon" />
+            <span>Filters</span>
+            <span class="active-filters-badge" id="activeFiltersBadge" style="display: none">0</span>
+          </button>
+          <div class="sort-by" id="sortBySelect">
+            <p>Sort by: <span> </span></p>
+            <img src="assets/svg/arrow-down.svg" alt="arrow-down" />
+            <div class="sort-by-options" id="sortByOptions">
+              <div class="option">Title</div>
+              <div class="option">Author</div>
+              <div class="option">Price</div>
+              <div class="option">Rating</div>
             </div>
-            <button class="button-primary sort-button asc">
-               <img src="assets/svg/sort-asc-desc.svg" alt="sort-asc-desc" class="icon">
-            </button>
-         </div> 
+          </div>
+          <button class="button-primary sort-button asc">
+            <img src="assets/svg/sort-asc-desc.svg" alt="sort-asc-desc" class="icon" />
+          </button>
+        </div>
       </section>
 
-      <section class="params-bar">
-         <div class="price-range">
-            <h4> Price Range </h4>
+      <!-- Mobile Filter Drawer Overlay -->
+      <div class="filter-drawer-overlay" id="filterDrawerOverlay"></div>
+
+      <section class="params-bar" id="paramsBar">
+        <div class="params-bar-header">
+          <h3>Filters</h3>
+          <div class="active-filters-desktop" id="activeFiltersDesktop"></div>
+          <button class="close-drawer-btn" id="closeDrawerBtn">
+            <img src="assets/svg/close.svg" alt="close" class="icon" />
+          </button>
+        </div>
+        <div class="filter-group price-range">
+          <button class="filter-group-header" data-group="price">
+            <h4>Price Range</h4>
+            <img src="assets/svg/arrow-down.svg" alt="toggle" class="icon toggle-icon" />
+          </button>
+          <div class="filter-group-content" id="priceContent">
             <div>
-               <div class="input-container">
-                  <span>$</span>
-                  <input type="number" placeholder="Min" value="0.00" class="input-search" id="minPrice">
-               </div>
-               <span> - </span>
-               <div class="input-container">
-                  <span>$</span>
-                  <input type="number" placeholder="Max" value="50.00" class="input-search" id="maxPrice">
-               </div>   
+              <div class="input-container">
+                <span>$</span>
+                <input type="number" placeholder="Min" value="0.00" class="input-search" id="minPrice" />
+              </div>
+              <span> - </span>
+              <div class="input-container">
+                <span>$</span>
+                <input type="number" placeholder="Max" value="50.00" class="input-search" id="maxPrice" />
+              </div>
             </div>
-         </div>
-         <div class="genre-filter">
-            <h4> Genre </h4>
+          </div>
+        </div>
+        <div class="filter-group genre-filter">
+          <button class="filter-group-header" data-group="genre">
+            <h4>Genre</h4>
+            <img src="assets/svg/arrow-down.svg" alt="toggle" class="icon toggle-icon" />
+          </button>
+          <div class="filter-group-content" id="genreContent">
             <div id="genre">
-               <% categories?.forEach(element => { %>
-                  <div class="radio-container">
-                     <input type="radio" id="<%= element.name %>" name="category" value="<%= element._id %>" class="custom-radio">
-                     <label for="<%= element.name %>"> <%= element.name %> </label>
-                  </div>
-               <% }); %>
+              <% categories?.forEach(element => { %>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  id="<%= element.name %>"
+                  name="category"
+                  value="<%= element._id %>"
+                  class="custom-radio"
+                />
+                <label for="<%= element.name %>"> <%= element.name %> </label>
+              </div>
+              <% }); %>
             </div>
-         </div>
-         <div class="format-filter">
-            <h4> Subcategory </h4>
+          </div>
+        </div>
+        <div class="filter-group format-filter">
+          <button class="filter-group-header" data-group="subcategory">
+            <h4>Subcategory</h4>
+            <img src="assets/svg/arrow-down.svg" alt="toggle" class="icon toggle-icon" />
+          </button>
+          <div class="filter-group-content" id="subcategoryContent">
             <div id="subcategory">
-               <p> Select a genre to see subcategories </p>
+              <p>Select a genre to see subcategories</p>
             </div>
-         </div>
-         <div class="rating-filter">
-            <h4> Rating </h4>
+          </div>
+        </div>
+        <div class="filter-group rating-filter">
+          <button class="filter-group-header" data-group="rating">
+            <h4>Rating</h4>
+            <img src="assets/svg/arrow-down.svg" alt="toggle" class="icon toggle-icon" />
+          </button>
+          <div class="filter-group-content" id="ratingContent">
             <div>
-               <div class="radio-container">
-                  <input type="radio" id="5" name="rating" value="5" class="custom-radio">
-                  <label for="5" class="stars">
-                     <div class="stars-container">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                     </div>
-                  </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="4" name="rating" value="4" class="custom-radio">
-                  <label for="4" class="stars">
-                     <div class="stars-container">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                     </div>
-                  </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="3" name="rating" value="3" class="custom-radio">
-                  <label for="3" class="stars">
-                     <div class="stars-container">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                     </div>
-                  </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="2" name="rating" value="2" class="custom-radio">
-                  <label for="2" class="stars">
-                     <div class="stars-container">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                     </div>
-                  </label>
-               </div>
-               <div class="radio-container">
-                  <input type="radio" id="1" name="rating" value="1" class="custom-radio">
-                  <label for="1" class="stars">
-                     <div class="stars-container">
-                        <img src="assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                        <img src="assets/svg/star.svg" alt="Star Icon" class="grayed"/>
-                     </div>
-                  </label>
-               </div>  
+              <div class="radio-container">
+                <input type="radio" id="5" name="rating" value="5" class="custom-radio" />
+                <label for="5" class="stars">
+                  <div class="stars-container">
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                  </div>
+                </label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="4" name="rating" value="4" class="custom-radio" />
+                <label for="4" class="stars">
+                  <div class="stars-container">
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                  </div>
+                </label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="3" name="rating" value="3" class="custom-radio" />
+                <label for="3" class="stars">
+                  <div class="stars-container">
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                  </div>
+                </label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="2" name="rating" value="2" class="custom-radio" />
+                <label for="2" class="stars">
+                  <div class="stars-container">
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                  </div>
+                </label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="1" name="rating" value="1" class="custom-radio" />
+                <label for="1" class="stars">
+                  <div class="stars-container">
+                    <img src="assets/svg/star.svg" alt="Star Icon" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                    <img src="assets/svg/star.svg" alt="Star Icon" class="grayed" />
+                  </div>
+                </label>
+              </div>
             </div>
-         </div>
-         <button class="button-primary clear-params"> 
-            Clear
-         </button>
+          </div>
+        </div>
+        <button class="button-primary clear-params">Clear</button>
       </section>
 
       <section class="items-list">
-         <% books.forEach(element => { %>
-            <%- include('partials/bookCard-search', { book: element }) %>
-         <% }); %>
+        <% books.forEach(element => { %> <%- include('partials/bookCard-search', { book: element }) %> <% }); %>
       </section>
-   </main>
-   
-   <%- include('partials/notifications') %>   
-   <%- include('partials/footer') %>
-   <script src="/scripts/searchPage.js"></script>
-   <script src="/scripts/theme-toggle.js"></script>
-   <script>
-      document.documentElement.classList.remove('no-transition');
-   </script>
-</body>
+    </main>
+
+    <%- include('partials/notifications') %> <%- include('partials/footer') %>
+    <script src="/scripts/searchPage.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
 </html>
