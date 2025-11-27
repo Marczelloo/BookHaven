@@ -1,26 +1,31 @@
 <div class="user-review <%= isLast ? 'last-review' : '' %>">
-   <img src="<%= review.user.avatar %>" alt="User Avatar"/>
-   <div>
-      <p class="username"> <%= review.user.username %> </p>
-      <div>
-         <div class="stars">
-            <div class="stars-inner" style="width: <%= review.rating %>%;">
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-            </div>
-            <div class="stars-outer">
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-               <img src="assets/svg/star.svg" alt="Star Icon"/>
-            </div>
-         </div>
-         <p> <%= review.timeAgo %> </p>
+  <% if (review.user?.avatar) { %>
+  <img src="<%= review.user.avatar %>" alt="User Avatar" />
+  <% } else { %>
+  <img src="/assets/images/placeholder.png" alt="User Avatar" />
+  <% } %>
+  <div>
+    <div>
+      <p class="username"><%= review.user?.username || 'Anonymous' %></p>
+      <div class="stars">
+        <div class="stars-inner" style="width: <%= (review.rating / 5) * 100 %>%">
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+        </div>
+        <div class="stars-outer">
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+          <img src="/assets/svg/star.svg" alt="Star Icon" />
+        </div>
       </div>
-      <p class="review-text"> <%= review.text %> </p>
-   </div>
+    </div>
+    <% if (review.comment) { %>
+    <p class="review-text"><%= review.comment %></p>
+    <% } %>
+  </div>
 </div>

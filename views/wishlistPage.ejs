@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> BookHaven - <%= title %>  </title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="styles/global.css">
-   <link rel="stylesheet" href="styles/cartPage.css">
-   <link rel="stylesheet" href="styles/wishlistPage.css">
-   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-   <script>
-      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/cartPage.css" />
+    <link rel="stylesheet" href="styles/wishlistPage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
       document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.add('no-transition')
- </script>
-</head>
-<body>
-   <%- include('partials/header') %>
-   <main>
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
       <section class="cart">
-         <h1> Wishlist </h1>
-         <div class="cart-header">
-            <p> Cover </p>
-            <p> Product </p>
-            <p> Pages </p>
-            <p> Quantity </p>
-            <p> Price </p>
-            <p> </p>
-         </div>
-         <div class="cart-items">
-            <% if(wishlistItems) { %>
-               <% wishlistItems?.forEach(item => { %>
-                  <%- include('partials/cartItem', { book: item.book, quantity: item.quantity }) %>
-               <% }) %>
-            <% } else { %>
-               <p> Your wishlist is empty </p>
-            <% } %>
-         </div>
+        <div class="wishlist-header-row">
+          <h1>Wishlist</h1>
+          <div class="wishlist-actions">
+            <label class="select-all-container">
+              <input type="checkbox" id="select-all-wishlist" />
+              <span>Select All</span>
+            </label>
+            <button class="button-primary move-selected-btn" id="move-selected-to-cart" disabled>
+              Move Selected to Cart
+            </button>
+          </div>
+        </div>
+        <div class="cart-items">
+          <% if(wishlistItems && wishlistItems.length > 0) { %> <% wishlistItems?.forEach(item => { %>
+          <div class="cart-item" data-book-id="<%= item.book._id %>">
+            <div class="select-col">
+              <input type="checkbox" class="wishlist-item-checkbox" data-id="<%= item.book._id %>" />
+            </div>
+            <img src="assets/images/placeholder.png" alt="Book Cover" class="book-cover" />
+            <div class="cart-item-title-author">
+              <h2><%= item.book.title %></h2>
+              <p><%= item.book.author %></p>
+            </div>
+            <p class="cart-item-pages"><%= item.book.pages %> pages</p>
+            <div class="cart-item-quantity">
+              <button class="quantity-button" data-id="<%= item.book._id %>" data-action="decrease">-</button>
+              <p><%= item.quantity %></p>
+              <button class="quantity-button" data-id="<%= item.book._id %>" data-action="increase">+</button>
+            </div>
+            <p class="cart-item-price">$<%= item.book.price.toFixed(2) %></p>
+            <div class="cart-item-actions">
+              <button class="move-to-cart-button" data-id="<%= item.book._id %>" title="Move to Cart">
+                <img src="assets/svg/cart.svg" alt="Cart Icon" class="icon" />
+              </button>
+              <button class="remove-button" data-id="<%= item.book._id %>" title="Remove">
+                <img src="assets/svg/close.svg" alt="Close Icon" />
+              </button>
+            </div>
+          </div>
+          <% }) %> <% } else { %>
+          <p class="empty-wishlist">Your wishlist is empty</p>
+          <% } %>
+        </div>
       </section>
       <section class="shipping-info">
-         <h1> Wishlist Total </h1>
-         <div class="cart-total">
-            <div>
-               <p> Subtotal: </p>
-               <p id="subtotal"> $<%= subtotal.toFixed(2) %> </p>
-            </div>
-            <div>
-               <p> Discounts: </p>
-               <p id="discount"> -$<%= discount.toFixed(2) %> </p>
-            </div>
-            <div>
-               <p> Shipping: </p>
-               <p> $5.00 </p>
-            </div>
-            <div>
-               <p> Total: </p>
-               <p id="total"> $<%= total.toFixed(2) %> </p>
-            </div>
-         </div>  
-         <button class="button-primary clear" id="clear-wishlist"> Clear wishlist </button>
-         <button class="button-primary" id="add-to-cart"> Add to cart all </button>
+        <h1>Wishlist Total</h1>
+        <div class="cart-total">
+          <div>
+            <p>Subtotal:</p>
+            <p id="subtotal">$<%= subtotal.toFixed(2) %></p>
+          </div>
+          <div>
+            <p>Discounts:</p>
+            <p id="discount">-$<%= discount.toFixed(2) %></p>
+          </div>
+          <div>
+            <p>Shipping:</p>
+            <p>$5.00</p>
+          </div>
+          <div>
+            <p>Total:</p>
+            <p id="total">$<%= total.toFixed(2) %></p>
+          </div>
+        </div>
+        <button class="button-primary clear" id="clear-wishlist">Clear wishlist</button>
+        <button class="button-primary" id="add-to-cart">Add to cart all</button>
       </section>
-   </main>
-   
-   <%- include('partials/notifications') %>
-   <%- include('partials/footer') %>
-   <script src="/scripts/wishlistPage.js"></script>
-   <script src="/scripts/theme-toggle.js"></script>
-   <script>
-      document.documentElement.classList.remove('no-transition');
-   </script>
-</body>
+    </main>
+
+    <%- include('partials/notifications') %> <%- include('partials/footer') %>
+    <script src="/scripts/wishlistPage.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
 </html>

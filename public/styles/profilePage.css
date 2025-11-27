@@ -162,6 +162,36 @@ main {
   background-color: var(--error-color);
 }
 
+/* Cancelled order styling */
+.profile > .order-history > .orders-list > .order-item.order-cancelled {
+  opacity: 0.7;
+  position: relative;
+}
+
+.profile > .order-history > .orders-list > .order-item.order-cancelled::before {
+  content: "CANCELLED";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--error-color);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Cancel order button styling */
+.cancel-order {
+  background-color: var(--secondary-color) !important;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cancel-order:hover {
+  background-color: var(--error-color) !important;
+  transform: scale(1.02);
+}
+
 .profile > .order-history > .orders-list > .order-item > .books-list {
   display: flex;
   flex-direction: column;
@@ -254,6 +284,123 @@ main {
   color: var(--error-color);
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+/* Cancel Order Modal */
+.cancel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cancel-modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cancel-modal-content {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cancel-modal-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.cancel-modal-content > p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.cancel-modal-content .cancel-warning {
+  color: var(--error-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.cancel-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cancel-modal-actions button {
+  flex: 1;
+  max-width: 180px;
+}
+
+.cancel-modal-cancel {
+  background-color: var(--secondary-color) !important;
+}
+
+.cancel-modal-cancel:hover {
+  background-color: var(--accent-color) !important;
+}
+
+.cancel-modal-confirm {
+  background-color: var(--error-color) !important;
+  color: #fff !important;
+}
+
+.cancel-modal-confirm:hover {
+  background-color: #d63031 !important;
+}
+
+@media (max-width: 576px) {
+  .cancel-modal-content {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+
+  .cancel-modal-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .cancel-modal-content > p {
+    font-size: 0.9rem;
+  }
+
+  .cancel-modal-actions {
+    flex-direction: column;
+  }
+
+  .cancel-modal-actions button {
+    max-width: 100%;
+  }
 }
 
 /* Responsive adjustments */

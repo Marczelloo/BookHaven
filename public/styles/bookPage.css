@@ -57,6 +57,31 @@ main {
   font-weight: 600;
 }
 
+.book-info .price.promo-active {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.book-info .price .original-price {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.book-info .price .promo-price {
+  font-size: 1.5rem;
+}
+
+.promo-badge-inline {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.35rem;
+}
+
 .book-info .book-details {
   display: flex;
   flex-direction: column;

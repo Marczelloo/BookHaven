@@ -1,117 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> BookHaven - <%= title %>  </title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="styles/global.css">
-   <link rel="stylesheet" href="styles/cartPage.css">
-   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-   <script>
-      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/cartPage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
       document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.add('no-transition')
- </script>
-</head>
-<body>
-   <%- include('partials/header') %>
-   <main>
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
       <section class="cart">
-         <h1> Shopping cart </h1>
-         <div class="cart-header">
-            <p> Cover </p>
-            <p> Product </p>
-            <p> Pages </p>
-            <p> Quantity </p>
-            <p> Price </p>
-            <p> </p>
-         </div>
-         <div class="cart-items">
-            <% if(cartItems) { %>
-               <% cartItems?.forEach(item => { %>
-                  <%- include('partials/cartItem', { book: item.book, quantity: item.quantity }) %>
-               <% }) %>
-            <% } else { %>
-               <p> Your cart is empty </p>
-            <% } %>
-         </div>
-         <div class="cart-total">
-            <div>
-               <p> Subtotal: </p>
-               <p id="subtotal"> $<%= subtotal.toFixed(2) %> </p>
-            </div>
-            <div>
-               <p> Discounts: </p>
-               <p id="discount"> -$<%= discount.toFixed(2) %> </p>
-            </div>
-            <div>
-               <p> Shipping: </p>
-               <p> $5.00 </p>
-            </div>
-            <div>
-               <p> Total: </p>
-               <p id="total"> $<%= total.toFixed(2) %> </p>
-            </div>
-         </div>  
+        <h1>Shopping cart</h1>
+        <div class="cart-items">
+          <% if(cartItems) { %> <% cartItems?.forEach(item => { %> <%- include('partials/cartItem', { book: item.book,
+          quantity: item.quantity }) %> <% }) %> <% } else { %>
+          <p>Your cart is empty</p>
+          <% } %>
+        </div>
+        <div class="cart-total">
+          <div>
+            <p>Subtotal:</p>
+            <p id="subtotal">$<%= subtotal.toFixed(2) %></p>
+          </div>
+          <div>
+            <p>Discounts:</p>
+            <p id="discount">-$<%= discount.toFixed(2) %></p>
+          </div>
+          <div>
+            <p>Shipping:</p>
+            <p>$5.00</p>
+          </div>
+          <div>
+            <p>Total:</p>
+            <p id="total">$<%= total.toFixed(2) %></p>
+          </div>
+        </div>
       </section>
       <section class="shipping-info">
-         <h1> Shipping Info </h1>
-         <div class="shipping-info-row">
-            <div>
-               <label for="name"> Name </label>
-               <input type="text" id="name" name="name" placeholder="Your full name"/>
-               <p class="name-error"></p>
-            </div>
-            <div>
-               <label for="surname"> Surname </label>
-               <input type="text" id="surname" name="surname" placeholder="Your surname"/>
-               <p class="surname-error"></p>
-            </div>
-         </div>
-         <div>
-            <label for="phone-number"> Phone Number </label>
-            <input type="tel" id="phoneNumber" name="phone-number" placeholder="Your phone number"/>
-            <p class="phone-number-error"></p>
-         </div>
-         <div>
-            <label for="address"> Address </label>
-            <input type="text" id="address" name="address" placeholder="Your address"/>
-            <p class="address-error"></p>
-         </div>
-         <div>
-            <label for="city"> City </label>
-            <input type="text" id="city" name="city" placeholder="Your city"/>
-            <p class="city-error"></p>
-         </div>
-         <div class="shipping-info-row">
-            <div>
-               <label for="zip-code"> Zip Code </label>
-               <input type="text" id="zipCode" name="zip-code" placeholder="Your zip code"/>
-               <p class="zip-code-error"></p>
-            </div>
-            <div>
-               <label for="country"> Country </label>
-               <input type="text" id="country" name="country" placeholder="Your country"/>
-               <p class="country-error"></p>
-            </div>
-         </div>
-         <div class="shipping-info-checkbox">
-            <input type="checkbox" id="useBillingAddress" name="use-billing-address" class="custom-checkbox"/>
-            <label for="use-billing-address"> Use as Billing Address </label>
-         </div>
-         <button class="button-primary" id="proceedToPayment"> Proceed to Payment > </button>
+        <h1>Shipping Info</h1>
+        <div class="shipping-info-row">
+          <div>
+            <label for="name"> Name </label>
+            <input type="text" id="name" name="name" placeholder="Your full name" />
+            <p class="name-error"></p>
+          </div>
+          <div>
+            <label for="surname"> Surname </label>
+            <input type="text" id="surname" name="surname" placeholder="Your surname" />
+            <p class="surname-error"></p>
+          </div>
+        </div>
+        <div>
+          <label for="phone-number"> Phone Number </label>
+          <input type="tel" id="phoneNumber" name="phone-number" placeholder="Your phone number" />
+          <p class="phone-number-error"></p>
+        </div>
+        <div>
+          <label for="address"> Address </label>
+          <input type="text" id="address" name="address" placeholder="Your address" />
+          <p class="address-error"></p>
+        </div>
+        <div>
+          <label for="city"> City </label>
+          <input type="text" id="city" name="city" placeholder="Your city" />
+          <p class="city-error"></p>
+        </div>
+        <div class="shipping-info-row">
+          <div>
+            <label for="zip-code"> Zip Code </label>
+            <input type="text" id="zipCode" name="zip-code" placeholder="Your zip code" />
+            <p class="zip-code-error"></p>
+          </div>
+          <div>
+            <label for="country"> Country </label>
+            <input type="text" id="country" name="country" placeholder="Your country" />
+            <p class="country-error"></p>
+          </div>
+        </div>
+        <div class="shipping-info-checkbox">
+          <input type="checkbox" id="useBillingAddress" name="use-billing-address" class="custom-checkbox" />
+          <label for="use-billing-address"> Use as Billing Address </label>
+        </div>
+        <button class="button-primary" id="proceedToPayment">Proceed to Payment ></button>
       </section>
-   </main>
-   
-   <%- include('partials/notifications') %>
-   <%- include('partials/footer') %>
-   <script src="/scripts/cartPage.js"></script>
-   <script src="/scripts/theme-toggle.js"></script>
-   <script>
-      document.documentElement.classList.remove('no-transition');
-   </script>
-</body>
+    </main>
+
+    <%- include('partials/notifications') %> <%- include('partials/footer') %>
+    <script src="/scripts/cartPage.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
 </html>

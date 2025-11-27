@@ -1,151 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> BookHaven - <%= title %>  </title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="styles/global.css">
-   <link rel="stylesheet" href="styles/profilePage.css">
-   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-   <script>
-      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/profilePage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
       document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.add('no-transition')
- </script>
-</head>
-<body>
-   <%- include('partials/header') %>
-   
-   <main>
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main>
       <aside class="profile-menu">
-         <ul>
-            <li>
-               <a href="/profile#profile"> 
-                  <img src="/assets/svg/profile.svg" alt="user icon" class="icon">
-                  Profile 
-               </a>
-            </li>
-            <li>
-               <a href="/profile#orders"> 
-                  <img src="/assets/svg/orders.svg" alt="orders icon" class="icon">
-                  Orders 
-               </a>
-            </li>
-            <li>
-               <a href="/profile#settings">           
-                  <img src="/assets/svg/settings.svg" alt="settings icon" class="icon">
-                  Settings 
-               </a>
-            </li>
-            <li class="spacer"></li>
-            <li>
-               <a href="/user/signout"> 
-                  <img src="/assets/svg/logout.svg" alt="logout icon" class="icon">
-                  Logout 
-               </a>
-            </li>
-         </ul>
+        <ul>
+          <li>
+            <a href="/profile#profile">
+              <img src="/assets/svg/profile.svg" alt="user icon" class="icon" />
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="/profile#orders">
+              <img src="/assets/svg/orders.svg" alt="orders icon" class="icon" />
+              Orders
+            </a>
+          </li>
+          <li>
+            <a href="/profile#settings">
+              <img src="/assets/svg/settings.svg" alt="settings icon" class="icon" />
+              Settings
+            </a>
+          </li>
+          <li class="spacer"></li>
+          <li>
+            <a href="/user/signout">
+              <img src="/assets/svg/logout.svg" alt="logout icon" class="icon" />
+              Logout
+            </a>
+          </li>
+        </ul>
       </aside>
 
       <section class="profile" id="profile">
-         <article class="profile-info">
-            <h2>Profile Informations </h2>
-            <div class="profile-details">
-               <div class="profile-avatar">
-                  <% if(!user.avatar) { %>
-                     <p><%= user.username.charAt(0).toUpperCase() %></p>
-                  <% } else { %>
-                     <img src="<%= user.avatar %>" alt="Profile Image" class="profile-image">
-                  <% } %>
-               </div>
-               <div class="user-details">
-                  <p><strong>Username:</strong> <%= user.username %></p>
-                  <p><strong>Email:</strong> <%= user.email %></p>
-               </div>
+        <article class="profile-info">
+          <h2>Profile Informations</h2>
+          <div class="profile-details">
+            <div class="profile-avatar">
+              <% if(!user.avatar) { %>
+              <p><%= user.username.charAt(0).toUpperCase() %></p>
+              <% } else { %>
+              <img src="<%= user.avatar %>" alt="Profile Image" class="profile-image" />
+              <% } %>
             </div>
-         </article>
-   
-         <article class="order-history" id="orders">
-            <h2>Order History</h2>
-            <ul class="orders-list">
-               <% if(orders) { %>
-                  <% orders?.forEach(order => { %>
-                     <li class="order-item">
-                        <p><strong>Order </strong> <%= order._id %></p>
-                        <p><strong>Status:</strong> <%= order.status %></p>
-                        <p><strong>Date:</strong> <%= order.formattedOrderDate %></p>
-                        <p><strong>Total:</strong> $<%= order.totalAmount %></p>
-                        <ul class="books-list">
-                           <% order.items?.forEach(book => { %>
-                              <li class="book-item">
-                                 <img src="/assets/images/placeholder.png" alt="<%= book.bookId.title %>" class="book-image">
-                                 <div class="book-details">
-                                    <p><strong>Title:</strong> <%= book.bookId.title %></p>
-                                    <p><strong>Author:</strong> <%= book.bookId.author %></p>
-                                    <p><strong>Quantity:</strong> <%= book.quantity %></p>
-                                    <p><strong>Price:</strong> $<%= book.bookId.price.toFixed(2) %></p>
-                                 </div>
-                              </li>
-                           <% }); %>
-                        </ul>
-                        <% if(order.status === 'processing') { %>
-                           <button class="button-primary cancel-order" data-id="<%= order._id %>">Cancel Order</button>
-                        <% } %>
-                        <a href="/orders/<%= order._id %>/invoice" class="button-primary" download>Download Invoice</a>
-                     </li>
-                  <% }); %>
-               <% } else { %>
-                  <p>No orders found</p>
-               <% } %>
-            </ul>
-         </article>
-   
-         <article class="settings" id="settings">
-            <h2>Settings</h2>
-            <form id="settings-form" method="POST" enctype="multipart/form-data">
-               <div class="form-group">
-                  <label for="username">Change Username</label>
-                  <input type="text" id="username" name="username" value="" placeholder="Enter new username">
-                  <p class="error-message" id="username-error"></p>
-               </div>
-               <div class="form-group">
-                  <label for="email">Change Email</label>
-                  <input type="email" id="email" name="email" value="" placeholder="Enter new email">
-                  <p class="error-message" id="email-error"></p>
-               </div>
-               <div class="form-group">
-                  <label for="password">Change Password</label>
-                  <div class="password-input">
-                     <input type="password" id="password" name="password" placeholder="********"/>
-                     <button id="show-password">
-                        <img src="assets/svg/eye.svg" alt="Show Password" id="show-password-icon"/>
-                        <img src="assets/svg/eye-off.svg" alt="Hide Password" id="hide-password-icon" class="hide"/>
-                     </button>
-                  </div>
-                  <p class="error-message" id="password-error"></p>
-               </div>
-               <div class="form-group">
-                  <label for="avatar">Change Profile Picture</label>
-                  <input type="file" id="avatar" name="avatar">
-                  <p class="error-message" id="avatar-error"></p>
-               </div>
-               <button type="submit" class="button-primary">Save Changes</button>
-            </form>
-         </article>
-      </section>
+            <div class="user-details">
+              <p><strong>Username:</strong> <%= user.username %></p>
+              <p><strong>Email:</strong> <%= user.email %></p>
+            </div>
+          </div>
+        </article>
 
-      
-   </main>
-   
-   <%- include('partials/notifications') %>   
-   <%- include('partials/footer') %>
-   <script src="/scripts/profilePage.js"></script>
-   <script src="/scripts/theme-toggle.js"></script>
-   <script>
-      document.documentElement.classList.remove('no-transition');
-   </script>
-</body>
+        <article class="order-history" id="orders">
+          <h2>Order History</h2>
+          <ul class="orders-list">
+            <% if(orders) { %> <% orders?.forEach(order => { %>
+            <li class="order-item">
+              <p><strong>Order </strong> <%= order._id %></p>
+              <p><strong>Status:</strong> <%= order.status %></p>
+              <p><strong>Date:</strong> <%= order.formattedOrderDate %></p>
+              <p><strong>Total:</strong> $<%= order.totalAmount %></p>
+              <ul class="books-list">
+                <% order.items?.forEach(book => { %>
+                <li class="book-item">
+                  <img src="/assets/images/placeholder.png" alt="<%= book.bookId.title %>" class="book-image" />
+                  <div class="book-details">
+                    <p><strong>Title:</strong> <%= book.bookId.title %></p>
+                    <p><strong>Author:</strong> <%= book.bookId.author %></p>
+                    <p><strong>Quantity:</strong> <%= book.quantity %></p>
+                    <p><strong>Price:</strong> $<%= book.bookId.price.toFixed(2) %></p>
+                  </div>
+                </li>
+                <% }); %>
+              </ul>
+              <% if(order.status === 'processing') { %>
+              <button class="button-primary cancel-order" data-id="<%= order._id %>">Cancel Order</button>
+              <% } %>
+              <a href="/orders/<%= order._id %>/invoice" class="button-primary" download>Download Invoice</a>
+            </li>
+            <% }); %> <% } else { %>
+            <p>No orders found</p>
+            <% } %>
+          </ul>
+        </article>
+
+        <article class="settings" id="settings">
+          <h2>Settings</h2>
+          <form id="settings-form" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="username">Change Username</label>
+              <input type="text" id="username" name="username" value="" placeholder="Enter new username" />
+              <p class="error-message" id="username-error"></p>
+            </div>
+            <div class="form-group">
+              <label for="email">Change Email</label>
+              <input type="email" id="email" name="email" value="" placeholder="Enter new email" />
+              <p class="error-message" id="email-error"></p>
+            </div>
+            <div class="form-group">
+              <label for="password">Change Password</label>
+              <div class="password-input">
+                <input type="password" id="password" name="password" placeholder="********" />
+                <button id="show-password">
+                  <img src="assets/svg/eye.svg" alt="Show Password" id="show-password-icon" />
+                  <img src="assets/svg/eye-off.svg" alt="Hide Password" id="hide-password-icon" class="hide" />
+                </button>
+              </div>
+              <p class="error-message" id="password-error"></p>
+            </div>
+            <div class="form-group">
+              <label for="avatar">Change Profile Picture</label>
+              <input type="file" id="avatar" name="avatar" />
+              <p class="error-message" id="avatar-error"></p>
+            </div>
+            <button type="submit" class="button-primary">Save Changes</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <%- include('partials/notifications') %>
+
+    <!-- Cancel Order Confirmation Modal -->
+    <div id="cancel-order-modal" class="cancel-modal hidden">
+      <div class="cancel-modal-content">
+        <h2>Cancel Order</h2>
+        <p>Are you sure you want to cancel this order?</p>
+        <p class="cancel-warning">This action cannot be undone.</p>
+        <div class="cancel-modal-actions">
+          <button class="button-primary cancel-modal-cancel" id="cancel-modal-no">No, Keep Order</button>
+          <button class="button-primary cancel-modal-confirm" id="cancel-modal-yes">Yes, Cancel Order</button>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+    <script src="/scripts/profilePage.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
 </html>

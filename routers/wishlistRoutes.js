@@ -1,16 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const wishlistController = require('../controllers/wishlistController');
-const authMiddleware = require('../middleware/authMiddleware');
+const wishlistController = require("../controllers/wishlistController");
+const authMiddleware = require("../middleware/authMiddleware");
 
-router.post('/add', authMiddleware, wishlistController.addToWishlist);
+router.post("/add", authMiddleware, wishlistController.addToWishlist);
 
-router.post('/update', authMiddleware, wishlistController.updateWishlist);
+router.post("/update", authMiddleware, wishlistController.updateWishlist);
 
-router.post('/remove', authMiddleware, wishlistController.removeFromWishlist);
+router.post("/remove", authMiddleware, wishlistController.removeFromWishlist);
 
-router.post('/clear', authMiddleware, wishlistController.clearWishlist);
+router.post("/clear", authMiddleware, wishlistController.clearWishlist);
 
-router.post('/addToCart', authMiddleware, wishlistController.addToCart);
+router.post("/addToCart", authMiddleware, wishlistController.addToCart);
+
+router.post("/moveToCart", authMiddleware, wishlistController.moveToCart);
 
 module.exports = router;

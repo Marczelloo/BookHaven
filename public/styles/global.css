@@ -818,6 +818,41 @@ footer {
   font-weight: 600;
 }
 
+/* Rating Display in Book Cards */
+.rating-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-display .stars {
+  position: relative;
+  display: inline-flex;
+}
+
+.rating-display .stars-inner,
+.rating-display .stars-outer {
+  display: flex;
+}
+
+.rating-display .stars-inner img,
+.rating-display .stars-outer img {
+  width: 1rem;
+  height: 1rem;
+  filter: invert(1);
+}
+
+.rating-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color-secondary);
+}
+
+.book-card-explore .rating {
+  font-size: 0.9rem;
+  color: var(--text-color-secondary);
+}
+
 .book-card-explore .book-info button {
   background-color: var(--secondary-color);
 }
@@ -828,6 +863,66 @@ footer {
 
 .book-card-explore .book-info button {
   width: auto;
+}
+
+/* Promotion Badge & Price Styles */
+.promo-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(238, 90, 36, 0.3);
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-color-secondary);
+  font-size: 0.9em;
+  margin-right: 0.5rem;
+}
+
+.promo-price {
+  color: #ee5a24;
+  font-weight: 700;
+}
+
+html.dark-mode .promo-price {
+  color: #ff7675;
+}
+
+.book-card-explore .price .original-price,
+.book-card .price .original-price {
+  font-weight: 400;
+}
+
+.related-book-card {
+  position: relative;
+}
+
+.related-book-card .promo-badge {
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.related-price {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.related-price .original-price {
+  font-size: 0.85rem;
+}
+
+.related-price .promo-price {
+  font-size: 0.95rem;
 }
 
 /* 2K Resolution - Book Card Explore */

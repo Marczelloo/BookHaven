@@ -524,14 +524,28 @@ getResults = async () => {
         const bookElement = document.createElement("a");
         bookElement.href = `/book/${book._id}`;
         bookElement.classList.add("book-card");
+
+        let priceHtml = "";
+        if (book.promotion) {
+          priceHtml = `
+            <span class="original-price">$${book.promotion.originalPrice.toFixed(2)}</span>
+            <span class="promo-price">$${book.promotion.promotionalPrice.toFixed(2)}</span>
+          `;
+        } else {
+          priceHtml = `<span>$${book.price.toFixed(2)}</span>`;
+        }
+
+        const promoBadge = book.promotion ? `<div class="promo-badge">-${book.promotion.discountPercent}%</div>` : "";
+
         bookElement.innerHTML = `<button class="wishlist-button" id="addToWishlist" data-id="${book._id}">
                               <img src="assets/svg/bookmark.svg" alt="bookmark icon" class="icon">
                         </button>
+                        ${promoBadge}
                         <img src="/assets/images/placeholder.png" alt="Book Cover">
                         <div>
                               <h3 class="title"> ${book.title} </h3>
                               <p class="author"> ${book.author} </p>
-                              <p class="price"> <span> $${book.price.toFixed(2)} </span> / 1 pc </p>
+                              <p class="price"> ${priceHtml} / 1 pc </p>
                         </div>
                         <button class="button-primary" id="addToCart" data-id="${book._id}"> Add to Cart </button>`;
 

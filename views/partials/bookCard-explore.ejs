@@ -1,15 +1,47 @@
 <a href="/book/<%= book._id %>" class="book-card-explore">
-   <button class="wishlist-button" data-id="<%= book._id %>">
-      <img src="assets/svg/bookmark.svg" alt="bookmark icon" class="icon">
-   </button>
-   <img src="assets/images/placeholder.png" alt="<%= book.title %>" class="book-cover" />
-   <div class="book-info">
-      <div>
-         <h3 class="title"><%= book.title %></h3>
-         <p class="author">by <%= book.author %></p>
-          <p class="rating">Rating: <%= book.rating ? book.rating : 'Not rated yet' %></p>
-          <p class="price"><span>$<%= book.price.toFixed(2) %></span> / 1 pc</p>
+  <button class="wishlist-button" data-id="<%= book._id %>">
+    <img src="assets/svg/bookmark.svg" alt="bookmark icon" class="icon" />
+  </button>
+  <% if (book.promotion) { %>
+  <div class="promo-badge">-<%= book.promotion.discountPercent %>%</div>
+  <% } %>
+  <img src="assets/images/placeholder.png" alt="<%= book.title %>" class="book-cover" />
+  <div class="book-info">
+    <div>
+      <h3 class="title"><%= book.title %></h3>
+      <p class="author">by <%= book.author %></p>
+      <% if (book.averageRating && book.averageRating > 0) { %>
+      <div class="rating-display">
+        <div class="stars">
+          <div class="stars-inner" style="width: <%= (book.averageRating / 5) * 100 %>%">
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+          </div>
+          <div class="stars-outer">
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+            <img src="/assets/svg/star.svg" alt="Star" />
+          </div>
+        </div>
+        <span class="rating-value"><%= book.averageRating.toFixed(1) %></span>
       </div>
-      <button class="button-primary add-to-cart" data-id="<%= book._id %>">Add to Cart</button>
-   </div>
+      <% } else { %>
+      <p class="rating">Not rated yet</p>
+      <% } %>
+      <p class="price">
+        <% if (book.promotion) { %>
+        <span class="original-price">$<%= book.promotion.originalPrice.toFixed(2) %></span>
+        <span class="promo-price">$<%= book.promotion.promotionalPrice.toFixed(2) %></span>
+        <% } else { %>
+        <span>$<%= book.price.toFixed(2) %></span>
+        <% } %> / 1 pc
+      </p>
+    </div>
+    <button class="button-primary add-to-cart" data-id="<%= book._id %>">Add to Cart</button>
+  </div>
 </a>

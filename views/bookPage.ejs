@@ -1,132 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> BookHaven - <%= title %>  </title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="/styles/global.css">
-   <link rel="stylesheet" href="/styles/bookPage.css">
-   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-   <script>
-      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/bookPage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
       document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.add('no-transition')
- </script>
-</head>
-<body>
-   <%- include('partials/header') %>
-   
-   <main>
-      <section class="book-info">
-         <img src="/assets/images/placeholder.png" alt="Book Cover"/>
-         <div>
-            <h1 class="title"> <%= book.title %> </h1>
-            <h3 class="author"> <%= book.author %> </h3>
-            <div class="book-details">
-               <h4> <span> Language: </span> <%= book.language %> </h4> 
-               <h4> <span> Category: </span> <%= book.category.name %> </h4>
-               <h4> <span> Subcategory: </span> <%= book.subcategory.name %> </h4>
-               <h4> <span> Pages: </span><%= book.pages %> </h4>
-               <h4> <span> Published on:</span> <%= new Date(book.realaseDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %> </h4>
-            </div>
-            <p class="desc"> <%= book.description %> </p>
-            <div>
-               <p class="price"> $<%= book.price.toFixed(2) %> </p>
-               <div class="stars" id="reviews-btn">
-                  <div class="stars-inner" style="width: <%= (book.averageRating / 5) * 100 %>%;">
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                  </div>
-                  <div class="stars-outer">
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                  </div>
-               </div>
-               <p class="rating-text"> (<%= book.averageRating %> / 5) </p>
-               <p class="reviews-count"> <%= book.reviewsCount %> reviews </p>
-            </div>
-            <div class="buttons">
-               <div class="quantity">
-                  <button id="quantity-decrease"> - </button>
-                  <p id="quantity"> 1 </p>
-                  <button id="quantity-increase"> + </button>
-               </div>
-               <button class="button-primary" id="addToCart" data-id="<%= book._id %>"> Add to Cart </button>
-               <button class="button-primary" id="wishlist" data-id="<%= book._id %>"> Add to Wishlist </button>
-            </div>
-         </div>
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
 
+    <main>
+      <section class="book-info">
+        <img src="/assets/images/placeholder.png" alt="Book Cover" />
+        <div>
+          <h1 class="title"><%= book.title %></h1>
+          <h3 class="author"><%= book.author %></h3>
+          <div class="book-details">
+            <h4><span> Language: </span> <%= book.language %></h4>
+            <h4><span> Category: </span> <%= book.category.name %></h4>
+            <h4><span> Subcategory: </span> <%= book.subcategory.name %></h4>
+            <h4><span> Pages: </span><%= book.pages %></h4>
+            <h4>
+              <span> Published on:</span> <%= new Date(book.realaseDate).toLocaleDateString('en-US', { day: 'numeric',
+              month: 'long', year: 'numeric' }) %>
+            </h4>
+          </div>
+          <p class="desc"><%= book.description %></p>
+          <div>
+            <% if (book.promotion) { %>
+            <p class="price promo-active">
+              <span class="original-price">$<%= book.promotion.originalPrice.toFixed(2) %></span>
+              <span class="promo-price">$<%= book.promotion.promotionalPrice.toFixed(2) %></span>
+              <span class="promo-badge-inline">-<%= book.promotion.discountPercent %>%</span>
+            </p>
+            <% } else { %>
+            <p class="price">$<%= book.price.toFixed(2) %></p>
+            <% } %>
+            <div class="stars" id="reviews-btn">
+              <div class="stars-inner" style="width: <%= (book.averageRating / 5) * 100 %>%">
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+              </div>
+              <div class="stars-outer">
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+                <img src="/assets/svg/star.svg" alt="Star Icon" />
+              </div>
+            </div>
+            <p class="rating-text">(<%= book.averageRating %> / 5)</p>
+            <p class="reviews-count"><%= book.reviewsCount %> reviews</p>
+          </div>
+          <div class="buttons">
+            <div class="quantity">
+              <button id="quantity-decrease">-</button>
+              <p id="quantity">1</p>
+              <button id="quantity-increase">+</button>
+            </div>
+            <button class="button-primary" id="addToCart" data-id="<%= book._id %>">Add to Cart</button>
+            <button class="button-primary" id="wishlist" data-id="<%= book._id %>">Add to Wishlist</button>
+          </div>
+        </div>
       </section>
 
       <section class="related-books">
-         <h2> Related Books </h2>
-         <div>
-            <% relatedBooks.forEach(element => { %>
-               <%- include('partials/bookCard-related', { book: element }) %>
-            <% }); %>
-         </div>
+        <h2>Related Books</h2>
+        <div>
+          <% relatedBooks.forEach(element => { %> <%- include('partials/bookCard-related', { book: element }) %> <% });
+          %>
+        </div>
       </section>
 
       <section class="reviews">
-         <div class="reviews-container">
-            <button class="review-close"> 
-               <img src="/assets/svg/close.svg" alt="close icon" /> 
-            </button>
-            <h2> Leave a review </h2>
-            <form class="review-form" action="/review" method="POST">
-               <div class="review-input">
-                  <label> Write your review here (optional) </label>
-                  <textarea></textarea>
-               </div>
-               <div class="review-rating">
-                  <div class="stars">
-                     <div class="stars-inner" id="review-stars-inner" style="width: 0%">
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     </div>
-                     <div class="stars-outer" id="review-stars">
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                        <img src="/assets/svg/star.svg" alt="Star Icon"/>
-                     </div>
-                  </div>
-                  <button class="button-primary"> Submit </button>
-               </div>
-            </form>
-            <h2> Reviews </h2>
-            <div class="reviews-list">
-               <% if(book.reviews) { %>
-                  <% book.reviews?.forEach((element, index) => { %>
-                     <%- include('partials/userReview', { review: element, isLast: index === reviews.length - 1 }) %>
-                  <% }); %>
-               <% } else { %>
-                  <p> No reviews yet </p>
-               <% } %>
+        <div class="reviews-container">
+          <button class="review-close">
+            <img src="/assets/svg/close.svg" alt="close icon" />
+          </button>
+          <h2>Leave a review</h2>
+          <form class="review-form" action="/review" method="POST">
+            <div class="review-input">
+              <label> Write your review here (optional) </label>
+              <textarea></textarea>
             </div>
-         </div>
+            <div class="review-rating">
+              <div class="stars">
+                <div class="stars-inner" id="review-stars-inner" style="width: 0%">
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                </div>
+                <div class="stars-outer" id="review-stars">
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                  <img src="/assets/svg/star.svg" alt="Star Icon" />
+                </div>
+              </div>
+              <button class="button-primary">Submit</button>
+            </div>
+          </form>
+          <h2>Reviews</h2>
+          <div class="reviews-list">
+            <% if(book.reviews && book.reviews.length > 0) { %> <% book.reviews.forEach((element, index) => { %> <%-
+            include('partials/userReview', { review: element, isLast: index === book.reviews.length - 1 }) %> <% }); %>
+            <% } else { %>
+            <p>No reviews yet</p>
+            <% } %>
+          </div>
+        </div>
       </section>
-   </main>
-   
-   <%- include('partials/notifications') %>
-   <%- include('partials/footer') %>
-   <script src="/scripts/bookPage.js"></script>
-   <script src="/scripts/theme-toggle.js"></script>
-   <script>
-      document.documentElement.classList.remove('no-transition');
-   </script>
-</body>
+    </main>
+
+    <%- include('partials/notifications') %> <%- include('partials/footer') %>
+    <script src="/scripts/bookPage.js"></script>
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
 </html>

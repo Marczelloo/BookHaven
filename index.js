@@ -9,6 +9,10 @@ const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
 const PORT = process.env.PORT || 8080;
 const { MONGO_URI } = process.env;
 
@@ -69,6 +73,7 @@ const wishlistRoutes = require("./routers/wishlistRoutes");
 const searchRoutes = require("./routers/searchRoutes");
 const orderRoutes = require("./routers/orderRoutes");
 const paymentRoutes = require("./routers/paymentRoutes");
+const reviewRoutes = require("./routers/reviewRoutes");
 
 const OrderService = require("./models/orderService");
 const UserService = require("./models/userService");
@@ -83,6 +88,7 @@ app.use("/wishlist", wishlistRoutes);
 app.use("/search", searchRoutes);
 app.use("/orders", orderRoutes);
 app.use("/payment", paymentRoutes);
+app.use("/reviews", reviewRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
