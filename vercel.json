@@ -2,12 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "crons": [
     {
-      "path": "/api/generate-promotions",
+      "path": "/api/daily-tasks",
       "schedule": "0 0 * * *"
-    },
-    {
-      "path": "/api/update-order-statuses",
-      "schedule": "0 */6 * * *"
     }
   ]
 }
