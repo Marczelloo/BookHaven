@@ -207,6 +207,7 @@ header ul {
   border-radius: 1rem;
   aspect-ratio: 1;
   object-fit: cover;
+  padding: 1.5rem 0;
 }
 
 .dropdown-content-first.show {
@@ -214,7 +215,7 @@ header ul {
 }
 
 .dropdown-content-second.show {
-  max-height: 1800px;
+  max-height: 3000px;
 }
 
 .dropdown-content-third.show {
@@ -349,11 +350,11 @@ ul {
   }
 
   .dropdown-content-second.show {
-    max-height: 2000px;
+    max-height: 3500px;
   }
 
   .dropdown-content-third.show {
-    max-height: 550px;
+    max-height: 600px;
   }
 }
 

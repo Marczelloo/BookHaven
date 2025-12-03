@@ -870,7 +870,7 @@ footer {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  z-index: 2;
+  z-index: 1;
   background: linear-gradient(135deg, #ff6b6b, #ee5a24);
   color: #fff;
   font-size: 0.85rem;

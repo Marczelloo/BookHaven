@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHaven - <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/comingSoonPage.css" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light-mode";
+      document.documentElement.classList.add(savedTheme);
+      document.documentElement.classList.add("no-transition");
+    </script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="coming-soon-main">
+      <div class="coming-soon-container">
+        <div class="coming-soon-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 6v6l4 2" />
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+        </div>
+        <h1 class="h-medium">Page Under Construction</h1>
+        <p class="p-medium">We're working hard to bring you this page. Check back soon!</p>
+        <p class="coming-soon-page-name"><%= pageName || 'This page' %></p>
+        <div class="coming-soon-actions">
+          <a href="/" class="button-primary">Go to Home</a>
+          <a href="/explore" class="button-primary">Explore Books</a>
+        </div>
+      </div>
+    </main>
+
+    <%- include('partials/notifications') %> <%- include('partials/footer') %>
+
+    <script src="/scripts/theme-toggle.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-transition");
+    </script>
+  </body>
+</html>
